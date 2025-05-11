@@ -1,0 +1,156 @@
+/* src/styles/themes.css */
+@import "tailwindcss";
+
+:root {
+    /* Light Theme (Mặc định) */
+    --bg-primary: #f4f7f6;
+    --bg-secondary: #ffffff;
+    --bg-header: #ffffff;
+    --bg-tab-active: #007bff;
+    --bg-tab-inactive: #f0f0f0;
+    --bg-button-primary: #007bff;
+    --bg-button-secondary: #6c757d;
+    --bg-input: #ffffff;
+    --bg-code-block: #f8f9fa; /* Màu nền cho code block ở light theme */
+  
+  
+    --text-primary: #212529;
+    --text-secondary: #495057;
+    --text-header: #333;
+    --text-tab-active: #ffffff;
+    --text-tab-inactive: #555;
+    --text-button-primary: #ffffff;
+    --text-button-secondary: #ffffff;
+    --text-link: #007bff;
+    --text-success: #28a745;
+    --text-danger: #dc3545;
+    --text-code-block: #212529; /* Màu chữ cho code block ở light theme */
+  
+  
+    --border-primary: #dee2e6;
+    --border-card: #e0e0e0;
+    --border-input: #ced4da;
+  
+    --shadow-card: 0 2px 4px rgba(0,0,0,0.1);
+  
+    /* Các biến khác từ variables.css có thể được map vào đây */
+    --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-size-base: 1rem;
+    --line-height-base: 1.5;
+  
+    /* Transition cho theme switch */
+    --theme-transition-duration: 0.3s;
+  }
+  
+  [data-theme="dark"] {
+    --bg-primary: #1a1d24; /* Darker background */
+    --bg-secondary: #252a33; /* Slightly lighter for cards, etc. */
+    --bg-header: #252a33;
+    --bg-tab-active: #0056b3; /* Darker blue */
+    --bg-tab-inactive: #343a40;
+    --bg-button-primary: #0069d9;
+    --bg-button-secondary: #5a6268;
+    --bg-input: #2c323b;
+    --bg-code-block: #282c34; /* Màu nền cho code block ở dark theme (như atom-one-dark) */
+  
+  
+    --text-primary: #f8f9fa;
+    --text-secondary: #adb5bd;
+    --text-header: #f0f0f0;
+    --text-tab-active: #ffffff;
+    --text-tab-inactive: #ced4da;
+    --text-button-primary: #ffffff;
+    --text-button-secondary: #ffffff;
+    --text-link: #0d6efd;
+    --text-success: #198754;
+    --text-danger: #dc3545;
+    --text-code-block: #abb2bf; /* Màu chữ cho code block ở dark theme (như atom-one-dark) */
+  
+  
+    --border-primary: #495057;
+    --border-card: #343a40;
+    --border-input: #495057;
+  
+    --shadow-card: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    transition: background-color var(--theme-transition-duration) ease, color var(--theme-transition-duration) ease;
+  }
+  
+  /* Các elements khác cần style theo theme */
+  .app-header {
+    background-color: var(--bg-header);
+    color: var(--text-header);
+    box-shadow: var(--shadow-card);
+    /* ... other header styles from header.css that need theming ... */
+  }
+  
+  .question-card, .config-card, .list-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-card);
+    box-shadow: var(--shadow-card);
+    color: var(--text-primary); /* Text color inside cards */
+  }
+  .question-card h3, .config-card h2, .list-card h2 {
+      color: var(--text-primary);
+  }
+  .question-card p, .config-card p, .list-card p, .options-list li {
+      color: var(--text-secondary);
+  }
+  .options-list li.correct-option-highlight {
+      color: var(--text-success);
+      font-weight: bold;
+  }
+  
+  .tab-btn {
+    background-color: var(--bg-tab-inactive);
+    color: var(--text-tab-inactive);
+    border: 1px solid var(--border-primary);
+  }
+  .tab-btn.active {
+    background-color: var(--bg-tab-active);
+    color: var(--text-tab-active);
+    border-color: var(--bg-tab-active);
+  }
+  
+  .btn-primary { /* Sử dụng class từ shared/Button.tsx nếu có */
+    background-color: var(--bg-button-primary);
+    color: var(--text-button-primary);
+    border-color: var(--bg-button-primary);
+  }
+  .btn-secondary {
+    background-color: var(--bg-button-secondary);
+    color: var(--text-button-secondary);
+    border-color: var(--bg-button-secondary);
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="file"],
+  select {
+    background-color: var(--bg-input);
+    color: var(--text-primary);
+    border: 1px solid var(--border-input);
+  }
+  .file-upload-label {
+      background-color: var(--bg-button-secondary);
+      color: var(--text-button-secondary);
+  }
+  .file-upload-label:hover {
+      background-color: var(--bg-button-primary);
+  }
+  
+  
+  /* Highlight.js specific theming if needed, though atom-one-dark is already a dark theme */
+  .code-block-container pre, .display-area pre {
+    background-color: var(--bg-code-block);
+    color: var(--text-code-block);
+  }
+  /* If using atom-one-dark, it will mostly handle its own colors.
+     You might only need to ensure the container background matches your theme. */

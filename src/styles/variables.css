@@ -1,0 +1,116 @@
+/* css/base/variables.css */
+/* Định nghĩa các biến CSS dùng chung cho toàn bộ ứng dụng */
+@import "tailwindcss";
+
+:root {
+    /* === Bảng màu chính === */
+    /* Màu chủ đạo, thường dùng cho các yếu tố tương tác chính */
+    --primary-color: #3498db; /* Xanh dương */
+    --primary-dark: #2980b9;  /* Xanh dương đậm hơn (hover/active) */
+    --primary-light: #a9d5f3; /* Xanh dương nhạt hơn */
+  
+    /* Màu phụ, dùng để tạo điểm nhấn hoặc cho các yếu tố thứ cấp */
+    --secondary-color: #f39c12; /* Vàng cam */
+    --secondary-dark: #d35400;  /* Cam đậm hơn */
+    --secondary-light: #f8c471; /* Vàng cam nhạt hơn */
+  
+    /* === Màu trung tính (Grayscale) === */
+    /* Dùng cho nền, text, border, các yếu tố UI không cần màu sắc nổi bật */
+    --neutral-50: #f9fafb;   /* Rất nhạt (gần trắng) */
+    --neutral-100: #f3f4f6;  /* Xám rất nhạt */
+    --neutral-200: #e5e7eb;  /* Xám nhạt */
+    --neutral-300: #d1d5db;  /* Xám nhạt vừa */
+    --neutral-400: #9ca3af;  /* Xám vừa */
+    --neutral-500: #6b7280;  /* Xám đậm vừa */
+    --neutral-600: #4b5563;  /* Xám đậm */
+    --neutral-700: #374151;  /* Xám rất đậm */
+    --neutral-800: #1f2937;  /* Xám đen */
+    --neutral-900: #111827;  /* Gần đen */
+  
+    /* === Màu ngữ cảnh === */
+    /* Dùng để biểu thị trạng thái (thành công, lỗi, cảnh báo, thông tin) */
+    --success: #10b981;      /* Xanh lá cây (thành công) */
+    --danger: #ef4444;       /* Đỏ (lỗi, nguy hiểm) */
+    --warning: #f59e0b;      /* Vàng (cảnh báo) */
+    --info: #3b82f6;         /* Xanh dương (thông tin) */
+  
+    /* === Màu cho Chế độ Tối (Dark Mode) === */
+    --dark-bg: #1a202c;       /* Màu nền chính cho dark mode */
+    --dark-card: #2d3748;     /* Màu nền cho card/component trong dark mode */
+    --dark-text: #e2e8f0;     /* Màu chữ chính trong dark mode */
+    /* Lưu ý: Các màu primary, secondary,... có thể cần định nghĩa lại cho dark mode nếu muốn độ tương phản khác */
+  
+    /* === Typography (Kiểu chữ) === */
+    /* Font chữ chính cho nội dung văn bản */
+    --font-family-base: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* Font chữ cho mã nguồn (code) */
+    --font-family-code: 'Fira Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  
+    /* Kích thước chữ */
+    --font-size-xs: 0.75rem;   /* 12px */
+    --font-size-sm: 0.875rem;  /* 14px */
+    --font-size-md: 1rem;      /* 16px (cỡ chữ mặc định) */
+    --font-size-lg: 1.125rem;  /* 18px */
+    --font-size-xl: 1.25rem;   /* 20px */
+    --font-size-2xl: 1.5rem;   /* 24px */
+    --font-size-3xl: 1.875rem; /* 30px */
+  
+    /* === Spacing (Khoảng cách) === */
+    /* Dùng cho padding, margin, gap */
+    --space-xs: 0.25rem;  /* 4px */
+    --space-sm: 0.5rem;   /* 8px */
+    --space-md: 1rem;     /* 16px */
+    --space-lg: 1.5rem;   /* 24px */
+    --space-xl: 2rem;     /* 32px */
+    --space-2xl: 2.5rem;  /* 40px */
+  
+    /* === Border và Shadow === */
+    /* Độ bo góc */
+    --border-radius-sm: 0.25rem; /* Bo góc nhỏ */
+    --border-radius-md: 0.5rem;  /* Bo góc vừa */
+    --border-radius-lg: 0.75rem; /* Bo góc lớn */
+    --border-radius-xl: 1rem;    /* Bo góc rất lớn */
+    --border-radius-full: 9999px;/* Bo tròn hoàn toàn */
+  
+    /* Hiệu ứng đổ bóng */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Bóng nhỏ */
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Bóng vừa */
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Bóng lớn */
+  
+    /* === Animation (Hiệu ứng chuyển động) === */
+    --transition-fast: 150ms;      /* Tốc độ nhanh */
+    --transition-normal: 300ms;    /* Tốc độ bình thường */
+    --transition-slow: 500ms;      /* Tốc độ chậm */
+    --easing-standard: cubic-bezier(0.4, 0, 0.2, 1); /* Kiểu chuyển động mượt */
+  
+    /* Biến tiện ích (ví dụ: màu border mặc định) */
+    --border-color-light: var(--neutral-300);
+    --border-color-dark: var(--neutral-700); /* Cho dark mode */
+  }
+  
+  /* === Định nghĩa biến cho Chế độ Tối === */
+  /* Áp dụng các biến này khi thẻ body có class 'dark-theme' */
+  .dark-theme {
+    --primary-color: #4dabf7;      /* Xanh dương nhạt hơn */
+    --primary-dark: #339af0;       /* Xanh dương nhạt đậm hơn */
+    --primary-light: #1864ab;      /* Có thể cần điều chỉnh */
+    --secondary-color: #ffc078;    /* Vàng cam nhạt hơn */
+    --secondary-dark: #f59e0b;     /* Vàng cam nhạt đậm hơn */
+    --secondary-light: #fff3bf;    /* Có thể cần điều chỉnh */
+  
+    /* Màu nền và chữ chính cho dark mode */
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+  
+    /* Màu border mặc định cho dark mode */
+    --border-color-light: var(--border-color-dark); /* Hoán đổi */
+  
+    /* Màu ngữ cảnh có thể cần điều chỉnh độ sáng/bão hòa */
+    --success: #34d399;
+    --danger: #f87171;
+    --warning: #fbbf24;
+    --info: #60a5fa;
+  
+    /* Màu nền component trong dark mode */
+    /* (Sẽ được dùng trong components/cards.css, components/form.css,...) */
+  }

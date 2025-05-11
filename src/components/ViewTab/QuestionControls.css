@@ -1,0 +1,218 @@
+/* src/components/ViewTab/QuestionControls.css */
+
+.question-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.25rem;
+    background-color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 1rem;
+    z-index: 10;
+    transition: all 0.3s ease;
+  }
+  
+  .question-controls:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  }
+  
+  .dark-theme .question-controls {
+    background-color: var(--dark-card, #1e293b);
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  /* Pagination Controls */
+  .pagination {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+  }
+  
+  .view-pagination {
+    background-color: #f8fafc;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .dark-theme .view-pagination {
+    background-color: rgba(15, 23, 42, 0.3);
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  #question-counter {
+    font-weight: 600;
+    color: #334155;
+    min-width: 120px;
+    text-align: center;
+    user-select: none;
+  }
+  
+  .dark-theme #question-counter {
+    color: #e2e8f0;
+  }
+  
+  .control-btn {
+    background-color: #f1f5f9;
+    color: #64748b;
+    border: 1px solid #cbd5e1;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+  
+  .control-btn:not(:disabled):hover {
+    background-color: #e2e8f0;
+    color: #334155;
+    transform: translateY(-1px);
+  }
+  
+  .control-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .dark-theme .control-btn {
+    background-color: rgba(241, 245, 249, 0.05);
+    color: #94a3b8;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark-theme .control-btn:not(:disabled):hover {
+    background-color: rgba(241, 245, 249, 0.1);
+    color: #e2e8f0;
+  }
+  
+  /* Question Filters */
+  .question-filters {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  
+  /* Enhanced Select Styling - Add this to your Select component CSS */
+  .select-container {
+    position: relative;
+  }
+  
+  .select-container select {
+    appearance: none;
+    padding: 0.5rem 2.5rem 0.5rem 1rem;
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    color: #334155;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 180px;
+  }
+  
+  .select-container.compact select {
+    min-width: 150px;
+    padding: 0.4rem 2.25rem 0.4rem 0.75rem;
+  }
+  
+  .select-container:after {
+    content: '▼';
+    font-size: 0.7rem;
+    color: #64748b;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: transform 0.2s ease;
+  }
+  
+  .select-container:hover:after {
+    transform: translateY(-50%) translateY(1px);
+  }
+  
+  .select-container select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  }
+  
+  .select-container select:hover {
+    background-color: #f1f5f9;
+    border-color: #94a3b8;
+  }
+  
+  .select-container select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #f1f5f9;
+    border-color: #e2e8f0;
+  }
+  
+  .dark-theme .select-container select {
+    background-color: rgba(15, 23, 42, 0.5);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+  }
+  
+  .dark-theme .select-container:after {
+    color: #94a3b8;
+  }
+  
+  .dark-theme .select-container select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  }
+  
+  .dark-theme .select-container select:hover {
+    background-color: rgba(30, 41, 59, 0.6);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .dark-theme .select-container select:disabled {
+    opacity: 0.5;
+    background-color: rgba(15, 23, 42, 0.3);
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .question-controls {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .pagination, .question-filters {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .question-filters {
+      flex-direction: column;
+    }
+    
+    .select-container select {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+  
+  /* Animation for buttons */
+  @keyframes button-push {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+  }
+  
+  .control-btn:active {
+    animation: button-push 0.2s ease-out;
+  }

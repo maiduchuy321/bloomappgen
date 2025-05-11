@@ -1,0 +1,244 @@
+/* css/components/buttons.css */
+/* Định nghĩa style cho các loại nút (button) */
+
+/* === Nút Cơ bản (.btn) === */
+.btn {
+    display: inline-flex; /* Để icon và text căn chỉnh tốt */
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm); /* Khoảng cách giữa icon và text */
+    padding: var(--space-sm) var(--space-md); /* Padding vừa phải */
+    border: 1px solid transparent; /* Border mặc định trong suốt */
+    border-radius: var(--border-radius-md); /* Bo góc */
+    font-size: var(--font-size-sm); /* Cỡ chữ */
+    font-weight: 500; /* Độ đậm chữ */
+    line-height: 1.25; /* Chiều cao dòng */
+    text-align: center;
+    white-space: nowrap; /* Ngăn text xuống dòng */
+    cursor: pointer;
+    user-select: none; /* Ngăn chọn text trên nút */
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  
+  /* Trạng thái focus (khi dùng bàn phím) */
+  .btn:focus-visible {
+    outline: 2px solid var(--primary-dark);
+    outline-offset: 2px;
+  }
+  .dark-theme .btn:focus-visible {
+    outline-color: var(--primary-light);
+  }
+  
+  
+  /* Trạng thái disabled */
+  .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  
+  /* === Các Biến thể Màu sắc === */
+  
+  /* Nút Chính (Primary) */
+  .btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+  }
+  .btn-primary:hover:not(:disabled) {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+  }
+  /* Dark mode override nếu cần (ví dụ: dùng màu primary của dark mode) */
+  .dark-theme .btn-primary {
+      /* Có thể giữ nguyên hoặc dùng màu sáng hơn */
+  }
+  
+  /* Nút Phụ (Secondary) */
+  .btn-secondary {
+    background-color: var(--secondary-color);
+    color: white; /* Hoặc màu chữ tối nếu nền sáng */
+    border-color: var(--secondary-color);
+  }
+  .btn-secondary:hover:not(:disabled) {
+    background-color: var(--secondary-dark);
+    border-color: var(--secondary-dark);
+  }
+  /* Dark mode override nếu cần */
+  .dark-theme .btn-secondary {
+     /* Có thể dùng màu secondary của dark mode */
+  }
+  
+  /* Nút Viền (Outline) - Ví dụ */
+  .btn-outline-primary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .btn-outline-primary:hover:not(:disabled) {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  .dark-theme .btn-outline-primary {
+    color: var(--primary-light);
+    border-color: var(--primary-light);
+  }
+  .dark-theme .btn-outline-primary:hover:not(:disabled) {
+    background-color: var(--primary-light);
+    color: var(--neutral-900); /* Chữ tối trên nền sáng */
+  }
+  
+  /* Nút Nguy hiểm (Danger) */
+  .btn-danger {
+    background-color: var(--danger);
+    color: white;
+    border-color: var(--danger);
+  }
+  .btn-danger:hover:not(:disabled) {
+      background-color: #dc2626; /* Đỏ đậm hơn */
+      border-color: #dc2626;
+  }
+  .dark-theme .btn-danger {
+     /* Có thể dùng màu danger của dark mode nếu có */
+  }
+  
+  /* === Các Kích thước === */
+  .btn-sm {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--font-size-xs);
+    gap: var(--space-xs);
+  }
+  
+  .btn-lg {
+    padding: var(--space-md) var(--space-lg);
+    font-size: var(--font-size-md);
+  }
+  
+  /* === Nút chỉ chứa Icon === */
+  .btn-icon {
+    padding: var(--space-sm); /* Padding vuông */
+    gap: 0; /* Không có khoảng cách */
+  }
+  .btn-icon i {
+    font-size: var(--font-size-lg); /* Icon lớn hơn một chút */
+    margin: 0; /* Bỏ margin nếu có */
+  }
+  .btn-icon.btn-sm {
+     padding: var(--space-xs);
+  }
+  .btn-icon.btn-sm i {
+     font-size: var(--font-size-md);
+  }
+  
+  
+  /* === Các loại nút đặc biệt từ code cũ (Điều chỉnh để dùng biến mới) === */
+  
+  /* Nút điều khiển (Tròn/Vuông nhỏ) */
+  .control-btn {
+    /* Kế thừa style từ .btn và .btn-icon */
+    background-color: var(--neutral-200);
+    color: var(--neutral-600);
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--border-radius-md); /* Hoặc full nếu muốn tròn */
+    width: 36px; /* Kích thước cố định */
+    height: 36px;
+    padding: 0; /* Ghi đè padding */
+    font-size: var(--font-size-lg); /* Cỡ icon */
+  }
+  .control-btn:hover:not(:disabled) {
+    background-color: var(--neutral-300);
+    border-color: var(--neutral-400);
+    color: var(--neutral-800);
+  }
+  .control-btn:disabled {
+     background-color: var(--neutral-200);
+     color: var(--neutral-400);
+  }
+  .dark-theme .control-btn {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+    border-color: var(--neutral-600);
+  }
+  .dark-theme .control-btn:hover:not(:disabled) {
+    background-color: var(--neutral-600);
+    border-color: var(--neutral-500);
+    color: var(--neutral-100);
+  }
+  .dark-theme .control-btn:disabled {
+     background-color: var(--neutral-700);
+     color: var(--neutral-500);
+  }
+  
+  
+  /* Nút Đánh dấu */
+  .btn-bookmark {
+    /* Kế thừa .btn */
+    background-color: var(--neutral-100);
+    color: var(--neutral-600);
+    border-color: var(--neutral-300);
+  }
+  .btn-bookmark:hover:not(:disabled) {
+    background-color: var(--neutral-200);
+    color: var(--neutral-800);
+    border-color: var(--neutral-400);
+  }
+  .btn-bookmark.active { /* Khi đã đánh dấu */
+    background-color: var(--warning);
+    color: white; /* Hoặc màu chữ tối */
+    border-color: var(--warning);
+  }
+  .btn-bookmark.active:hover:not(:disabled) {
+    background-color: #d97706; /* Vàng đậm hơn */
+    border-color: #d97706;
+  }
+  /* Dark mode */
+  .dark-theme .btn-bookmark {
+     background-color: var(--neutral-700);
+     color: var(--neutral-300);
+     border-color: var(--neutral-600);
+  }
+  .dark-theme .btn-bookmark:hover:not(:disabled) {
+     background-color: var(--neutral-600);
+     color: var(--neutral-100);
+     border-color: var(--neutral-500);
+  }
+  .dark-theme .btn-bookmark.active {
+     background-color: var(--warning); /* Giữ màu vàng cho active */
+     color: var(--neutral-900); /* Chữ tối trên nền vàng */
+     border-color: var(--warning);
+  }
+  .dark-theme .btn-bookmark.active:hover:not(:disabled) {
+      background-color: #d97706;
+      border-color: #d97706;
+  }
+  
+  
+  /* Nút Chỉnh sửa */
+  .btn-edit {
+    /* Kế thừa .btn */
+    background-color: var(--neutral-100);
+    color: var(--neutral-600);
+    border-color: var(--neutral-300);
+  }
+  .btn-edit:hover:not(:disabled) {
+    background-color: var(--info); /* Dùng màu info khi hover */
+    color: white;
+    border-color: var(--info);
+  }
+  /* Dark mode */
+  .dark-theme .btn-edit {
+     background-color: var(--neutral-700);
+     color: var(--neutral-300);
+     border-color: var(--neutral-600);
+  }
+  .dark-theme .btn-edit:hover:not(:disabled) {
+     background-color: var(--info); /* Giữ màu info */
+     color: white;
+     border-color: var(--info);
+  }
+  
+  /* Nút Phân trang (trong bảng) - tương tự control-btn */
+  .pagination-btn {
+     /* Kế thừa từ .control-btn */
+     /* Có thể điều chỉnh size nếu cần */
+  }

@@ -1,0 +1,59 @@
+/* css/layout/header.css */
+/* Định nghĩa style cho phần Header của ứng dụng */
+
+.app-header {
+    background-color: var(--neutral-800); /* Nền tối cho header */
+    color: white; /* Chữ trắng */
+    padding: var(--space-md) 0; /* Padding trên dưới */
+    box-shadow: var(--shadow-md); /* Đổ bóng nhẹ */
+    position: sticky; /* Header cố định khi cuộn (tùy chọn) */
+    top: 0;
+    z-index: 100; /* Đảm bảo header nằm trên các nội dung khác */
+    transition: background-color var(--transition-normal);
+  }
+  
+  /* Dark Mode cho Header (có thể không cần đổi nhiều nếu đã là nền tối) */
+  .dark-theme .app-header {
+     background-color: var(--neutral-900); /* Tối hơn một chút */
+  }
+  
+  /* Container bên trong Header */
+  .app-header .container {
+    display: flex;
+    justify-content: space-between; /* Đẩy logo và theme toggle ra hai bên */
+    align-items: center; /* Căn giữa theo chiều dọc */
+  }
+  
+  /* Tiêu đề/Logo ứng dụng */
+  .app-header h1 {
+    font-size: var(--font-size-xl); /* Cỡ chữ lớn hơn */
+    font-weight: 600; /* Đậm vừa */
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm); /* Khoảng cách giữa icon và text */
+    margin: 0; /* Reset margin */
+    color: white; /* Đảm bảo chữ trắng */
+  }
+  
+  .app-header h1 i {
+    color: var(--primary-color); /* Màu icon */
+    font-size: 1.2em; /* Icon lớn hơn một chút */
+  }
+  .dark-theme .app-header h1 i {
+     color: var(--primary-light);
+  }
+  
+  
+  /* Khu vực chứa nút gạt Theme */
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+  
+  /* Style cho icon mặt trời/mặt trăng (đã chuyển sang toggle.css) */
+  /* .theme-toggle i { ... } */
+  
+  /* Style cho nút gạt (đã chuyển sang toggle.css) */
+  /* .switch { ... } */
+  /* .slider { ... } */

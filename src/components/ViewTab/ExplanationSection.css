@@ -1,0 +1,180 @@
+/* src/components/ViewTab/ExplanationSection.css */
+@import '../../styles/variables.css'; /* Import variables */
+/* @import '../../styles/typography.css'; /* Import base typography like .inline-code, pre */
+
+/* === Phần Giải thích === */
+/* .card-section is from QuestionCard.css */
+
+.explanation-section {
+    /* Adjust padding/margin relative to other card sections if needed */
+}
+
+
+.explanation-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background-color: var(--primary-lightest); /* Nền màu chủ đạo rất nhạt */
+    border: 1px solid var(--primary-light); /* Border màu chủ đạo nhạt */
+    color: var(--primary-dark); /* Màu chữ */
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    border-radius: var(--border-radius-md);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+    margin-top: var(--space-md); /* Add margin top */
+    margin-bottom: var(--space-md); /* Add margin bottom */
+    width: fit-content; /* Fit content width */
+    list-style: none; /* Remove default list-style if used in summary */
+    outline: none; /* Remove default outline */
+}
+
+.dark-theme .explanation-toggle-btn {
+  background-color: rgba(var(--primary-color-rgb), 0.1);
+  border-color: var(--primary-color);
+  color: var(--primary-light);
+}
+
+.explanation-toggle-btn:hover {
+  background-color: var(--primary-light);
+  color: white;
+  border-color: var(--primary-light);
+}
+.dark-theme .explanation-toggle-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.explanation-toggle-btn:focus-visible { /* Accessibility focus indicator */
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+.dark-theme .explanation-toggle-btn:focus-visible {
+    outline-color: var(--primary-light);
+}
+
+
+.explanation-toggle-icon { /* Style cho icon bóng đèn */
+    color: var(--primary-color); /* Màu icon */
+    font-size: 1.2em;
+    transition: transform var(--transition-normal);
+}
+.dark-theme .explanation-toggle-icon {
+   color: var(--primary-light);
+}
+.explanation-toggle-btn:hover .explanation-toggle-icon {
+   color: white; /* Icon trắng khi hover */
+}
+
+
+.explanation-chevron-icon { /* Style cho icon mũi tên */
+    margin-left: auto; /* Push chevron to the right */
+    transition: transform var(--transition-normal);
+    font-size: 0.9em;
+}
+.explanation-toggle-btn.is-open .explanation-chevron-icon {
+    transform: rotate(180deg); /* Rotate when open */
+}
+
+
+.explanation-content {
+  /* Keep margin-top */
+  border: 1px solid var(--neutral-200); /* Border quanh nội dung giải thích */
+  border-radius: var(--border-radius-md);
+  padding: var(--space-md); /* Padding bên trong */
+  background-color: var(--neutral-50); /* Nền nhẹ */
+}
+.dark-theme .explanation-content {
+    border-color: var(--neutral-700);
+    background-color: var(--neutral-800);
+}
+
+
+.explanation-subsection {
+    margin-bottom: var(--space-lg);
+  }
+  .explanation-subsection:last-child {
+    margin-bottom: 0;
+  }
+  .explanation-subsection h4 {
+    font-size: var(--font-size-md); /* Nhỏ hơn h3, lớn hơn text thường */
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-sm);
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px dashed var(--neutral-300);
+    display: flex;
+    align-items: center;
+    color: var(--neutral-700);
+    gap: var(--space-sm);
+  }
+  .dark-theme .explanation-subsection h4 {
+     color: var(--neutral-300);
+     border-bottom-color: var(--neutral-600);
+  }
+  .explanation-subsection h4 i {
+    font-size: 1.2em;
+    width: 1.2em; /* Fixed width for alignment */
+    text-align: center;
+  }
+  /* Màu icon cho giải thích đúng/sai */
+  /* Use text-success and text-danger classes from global or variables */
+  /* Example: .text-success { color: var(--success); } */
+  /* Already defined in variables.css or assumed global */
+
+
+  .explanation-area.display-area { /* Khu vực chứa text giải thích */
+    /* Inherits most styles from .display-area */
+    background-color: var(--neutral-100); /* Nền nhạt hơn nữa */
+    border-color: var(--neutral-200);
+    padding: var(--space-sm) var(--space-md); /* Slightly less padding */
+    font-size: var(--font-size-sm); /* Smaller font */
+  }
+  .dark-theme .explanation-area.display-area {
+     background-color: var(--neutral-800); /* Can be same as parent content or slightly different */
+     border-color: var(--neutral-700);
+  }
+
+  /* Style for code blocks and inline code within explanation-area */
+  .explanation-area code.inline-code {
+     /* Inherits from global or QuestionCard.css */
+  }
+   .explanation-area .code-block-highlighter {
+     /* Inherits from global or QuestionCard.css */
+   }
+
+
+  /* Styles for Wrong Answer Items */
+  .wrong-answer-item {
+    margin-bottom: var(--space-md); /* Space between wrong answers */
+    padding-bottom: var(--space-md);
+    border-bottom: 1px dashed var(--neutral-200);
+  }
+  .dark-theme .wrong-answer-item {
+    border-bottom-color: var(--neutral-700);
+  }
+  .wrong-answer-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .wrong-answer-label {
+    margin-bottom: var(--space-sm); /* Space between label and text */
+    display: flex; /* Use flex */
+    align-items: center;
+    gap: var(--space-sm); /* Gap between "Giải thích cho X:" and the text content */
+  }
+   .wrong-answer-label strong {
+      font-size: var(--font-size-sm);
+      color: var(--neutral-600);
+      font-weight: var(--font-weight-semibold);
+      white-space: nowrap; /* Prevent "Giải thích cho X:" from wrapping */
+   }
+   .dark-theme .wrong-answer-label strong {
+      color: var(--neutral-400);
+   }
+
+  .wrong-answer-text { /* Container for the actual explanation text */
+      /* ContentRenderer is inside this */
+  }

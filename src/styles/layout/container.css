@@ -1,0 +1,42 @@
+/* css/layout/container.css */
+/* Định nghĩa style cho các container layout chính */
+
+/* === Container Chung === */
+/* Giới hạn chiều rộng tối đa và căn giữa nội dung */
+.container {
+    width: 100%;
+    max-width: 1280px; /* Tăng max-width một chút */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-lg); /* Padding hai bên lớn hơn */
+    padding-right: var(--space-lg);
+  }
+  
+  /* === Container Chính (Main) === */
+  /* Bao bọc nội dung chính của trang, dưới header và trên footer */
+  .main-container {
+    padding-top: var(--space-lg); /* Khoảng cách với header */
+    padding-bottom: var(--space-xl); /* Khoảng cách với footer */
+    min-height: calc(100vh - 150px); /* Chiều cao tối thiểu để footer không bị dính lên (điều chỉnh 150px) */
+    /* display: flex; */ /* Cân nhắc dùng flex nếu cần layout phức tạp hơn */
+    /* flex-direction: column; */
+  }
+  
+  /* === Layout Chính Chứa Các Tab === */
+  /* Khung bao quanh nội dung các tab */
+  .main-layout {
+    background-color: white; /* Nền trắng cho khung layout */
+    border-radius: var(--border-radius-lg); /* Bo góc */
+    box-shadow: var(--shadow-lg); /* Đổ bóng lớn */
+    overflow: hidden; /* Đảm bảo các góc bo được áp dụng đúng */
+    transition: background-color var(--transition-normal), box-shadow var(--transition-normal);
+  }
+  
+  .dark-theme .main-layout {
+    background-color: var(--dark-card); /* Dùng màu card cho dark mode */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.25); /* Bóng tối hơn */
+  }
+  
+  /* === Banner Thông tin Khóa học === */
+  /* (Style này đã được chuyển vào pages/question.css hoặc file khác liên quan đến card) */
+  /* .course-info-banner { ... } */

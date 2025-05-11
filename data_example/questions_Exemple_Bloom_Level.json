@@ -1,0 +1,1672 @@
+[
+    {
+        "number": 1,
+        "question": "Cú pháp nào sau đây là đúng cho vòng lặp for trong C?",
+        "options": {
+          "A": "for (int i = 0; i < n; i++)",
+          "B": "for (i = 0; i < n; i++)",
+          "C": "for (int i = 0; i < n)",
+          "D": "for i = 0 to n"
+        },
+        "correct_answer": "A",
+        "code_in_stem": false,
+        "explanation": {
+          "correct": "Cú pháp chính xác của vòng lặp for yêu cầu khai báo kiểu dữ liệu của biến đếm (thường là int) trong câu lệnh khởi tạo.",
+          "A": "Đây là cú pháp đúng cho vòng lặp for trong C.",
+          "B": "Thiếu khai báo kiểu dữ liệu cho biến i.",
+          "C": "Thiếu bước tăng hoặc giảm giá trị cho biến i.",
+          "D": "Đây không phải là cú pháp của C."
+        },
+        "Question_type": "Recall",
+        "bloom_level": "Remember"
+      },
+      {
+        "number": 2,
+        "question": "Cú pháp nào sau đây là đúng cho vòng lặp while trong C?",
+        "options": {
+          "A": "while i < n { ... }",
+          "B": "while (i < n) { ... }",
+          "C": "while (i < n); { ... }",
+          "D": "while { i < n } { ... }"
+        },
+        "correct_answer": "B",
+        "code_in_stem": false,
+        "explanation": {
+          "correct": "Vòng lặp while yêu cầu điều kiện được đặt trong dấu ngoặc đơn và khối lệnh được đặt trong dấu ngoặc nhọn.",
+          "A": "Thiếu dấu ngoặc đơn cho điều kiện.",
+          "B": "Đây là cú pháp đúng cho vòng lặp while.",
+          "C": "Dấu chấm phẩy sau điều kiện sẽ tạo thành vòng lặp vô hạn hoặc không thực hiện khối lệnh.",
+          "D": "Đây không phải là cú pháp của C."
+        },
+        "Question_type": "Recall",
+        "bloom_level": "Remember"
+      },
+      {
+        "number": 3,
+        "question": "Cú pháp nào sau đây là đúng cho vòng lặp do-while trong C?",
+        "options": {
+          "A": "do { ... } while i < n;",
+          "B": "do { ... } while (i < n);",
+          "C": "do { ... } while (i < n)",
+          "D": "do { ... }; while (i < n)"
+        },
+        "correct_answer": "B",
+        "code_in_stem": false,
+        "explanation": {
+          "correct": "Vòng lặp do-while yêu cầu điều kiện được đặt trong dấu ngoặc đơn và kết thúc bằng dấu chấm phẩy.",
+          "A": "Thiếu dấu ngoặc đơn cho điều kiện và dấu chấm phẩy sau điều kiện.",
+          "B": "Đây là cú pháp đúng cho vòng lặp do-while.",
+          "C": "Thiếu dấu chấm phẩy sau điều kiện.",
+          "D": "Dấu chấm phẩy sau dấu ngoặc nhọn của khối lệnh là không cần thiết."
+        },
+        "Question_type": "Recall",
+        "bloom_level": "Remember"
+      },
+      {
+        "number": 4,
+        "question": "Trong vòng lặp for, biểu thức nào được thực hiện đầu tiên?",
+        "options": {
+          "A": "Biểu thức khởi tạo",
+          "B": "Biểu thức điều kiện",
+          "C": "Biểu thức tăng/giảm",
+          "D": "Khối lệnh"
+        },
+        "correct_answer": "A",
+        "code_in_stem": false,
+        "explanation": {
+          "correct": "Biểu thức khởi tạo chỉ được thực hiện một lần khi bắt đầu vòng lặp for.",
+          "A": "Đây là câu trả lời đúng.",
+          "B": "Biểu thức điều kiện được thực hiện trước mỗi vòng lặp.",
+          "C": "Biểu thức tăng/giảm được thực hiện sau mỗi vòng lặp.",
+          "D": "Khối lệnh được thực hiện nếu biểu thức điều kiện đúng."
+        },
+        "Question_type": "Recall",
+        "bloom_level": "Remember"
+      },
+      {
+        "number": 5,
+        "question": "Câu lệnh nào sau đây dùng để thoát khỏi vòng lặp ngay lập tức?",
+        "options": {
+          "A": "break",
+          "B": "continue",
+          "C": "return",
+          "D": "exit"
+        },
+        "correct_answer": "A",
+        "code_in_stem": false,
+        "explanation": {
+          "correct": "Câu lệnh break được sử dụng để thoát khỏi vòng lặp hiện tại.",
+          "A": "Đây là câu trả lời đúng.",
+          "B": "Câu lệnh continue bỏ qua các câu lệnh còn lại trong vòng lặp hiện tại và bắt đầu vòng lặp tiếp theo.",
+          "C": "Câu lệnh return thoát khỏi hàm hiện tại.",
+          "D": "Câu lệnh exit kết thúc chương trình."
+        },
+        "Question_type": "Recall",
+        "bloom_level": "Remember"
+      },
+      {
+        "number": 6,
+        "question": "Câu lệnh nào sau đây dùng để bỏ qua các câu lệnh còn lại trong vòng lặp hiện tại và bắt đầu vòng lặp tiếp theo?",
+        "options": {
+          "A": "break",
+          "B": "continue",
+          "C": "return",
+          "D": "exit"
+        },
+        "correct_answer": "B",
+        "code_in_stem": false,
+        "explanation": {
+          "correct": "Câu lệnh continue được sử dụng để bỏ qua các câu lệnh còn lại trong vòng lặp hiện tại và bắt đầu vòng lặp tiếp theo.",
+          "A": "Câu lệnh break thoát khỏi vòng lặp ngay lập tức.",
+          "B": "Đây là câu trả lời đúng.",
+          "C": "Câu lệnh return thoát khỏi hàm hiện tại.",
+          "D": "Câu lệnh exit kết thúc chương trình."
+        },
+        "Question_type": "Recall",
+        "bloom_level": "Remember"
+      },
+      {
+        "number": 7,
+        "question": "Trong vòng lặp while, điều kiện được kiểm tra khi nào?",
+        "options": {
+          "A": "Trước mỗi vòng lặp",
+          "B": "Sau mỗi vòng lặp",
+          "C": "Chỉ một lần khi bắt đầu vòng lặp",
+          "D": "Không bao giờ"
+        },
+        "correct_answer": "A",
+        "code_in_stem": false,
+        "explanation": {
+          "correct": "Vòng lặp while kiểm tra điều kiện trước khi thực hiện mỗi vòng lặp.",
+          "A": "Đây là câu trả lời đúng.",
+          "B": "Vòng lặp do-while kiểm tra điều kiện sau mỗi vòng lặp.",
+          "C": "Vòng lặp for khởi tạo biến đếm chỉ một lần.",
+          "D": "Điều kiện luôn được kiểm tra trong vòng lặp while."
+        },
+        "Question_type": "Recall",
+        "bloom_level": "Remember"
+      },
+      {
+        "number": 8,
+        "question": "Trong vòng lặp do-while, điều kiện được kiểm tra khi nào?",
+        "options": {
+          "A": "Trước mỗi vòng lặp",
+          "B": "Sau mỗi vòng lặp",
+          "C": "Chỉ một lần khi bắt đầu vòng lặp",
+          "D": "Không bao giờ"
+        },
+        "correct_answer": "B",
+        "code_in_stem": false,
+        "explanation": {
+          "correct": "Vòng lặp do-while kiểm tra điều kiện sau khi thực hiện mỗi vòng lặp.",
+          "A": "Vòng lặp while kiểm tra điều kiện trước mỗi vòng lặp.",
+          "B": "Đây là câu trả lời đúng.",
+          "C": "Vòng lặp for khởi tạo biến đếm chỉ một lần.",
+          "D": "Điều kiện luôn được kiểm tra trong vòng lặp do-while."
+        },
+        "Question_type": "Recall",
+        "bloom_level": "Remember"
+      },
+      {
+        "number": 9,
+        "question": "Từ khóa nào được sử dụng để khai báo vòng lặp for?",
+        "options": {
+          "A": "for",
+          "B": "while",
+          "C": "do",
+          "D": "loop"
+        },
+        "correct_answer": "A",
+        "code_in_stem": false,
+        "explanation": {
+          "correct": "Từ khóa \"for\" được sử dụng để khai báo vòng lặp for.",
+          "A": "Đây là câu trả lời đúng.",
+          "B": "Từ khóa \"while\" được sử dụng để khai báo vòng lặp while.",
+          "C": "Từ khóa \"do\" được sử dụng để khai báo vòng lặp do-while.",
+          "D": "\"loop\" không phải là từ khóa trong C."
+        },
+        "Question_type": "Recall",
+        "bloom_level": "Remember"
+      },
+      {
+        "number": 10,
+        "question": "Từ khóa nào được sử dụng để khai báo vòng lặp do-while?",
+        "options": {
+          "A": "for",
+          "B": "while",
+          "C": "do",
+          "D": "loop"
+        },
+        "correct_answer": "C",
+        "code_in_stem": false,
+        "explanation": {
+          "correct": "Từ khóa \"do\" (cùng với \"while\") được sử dụng để khai báo vòng lặp do-while.",
+          "A": "Từ khóa \"for\" được sử dụng để khai báo vòng lặp for.",
+          "B": "Từ khóa \"while\" được sử dụng để khai báo vòng lặp while (và do-while).",
+          "C": "Đây là câu trả lời đúng.",
+          "D": "\"loop\" không phải là từ khóa trong C."
+        },
+        "Question_type": "Recall",
+        "bloom_level": "Remember"
+      },
+    {
+        "number": 0,
+        "question": "Điền vào chỗ trống để hoàn thành đoạn mã in ra các số từ 1 đến 10:\n\n```c\n#include <stdio.h>\nint main() {\n    int i;\n    for (i = 1; i <= 10; ____ ) {\n        printf(\"%d \", i);\n    }\n    return 0;\n}\n```",
+        "options": {
+            "A": "i++",
+            "B": "++i",
+            "C": "i--",
+            "D": "--i"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "i++ tăng giá trị của i lên 1 sau mỗi vòng lặp, đảm bảo vòng lặp chạy từ 1 đến 10.",
+            "A": "Đúng. Toán tử i++ tăng giá trị của i sau khi được sử dụng trong biểu thức điều kiện.",
+            "B": "Sai. ++i tăng giá trị của i trước khi được sử dụng trong biểu thức điều kiện, dẫn đến vòng lặp bắt đầu từ 2.",
+            "C": "Sai. i-- giảm giá trị của i, dẫn đến vòng lặp vô hạn.",
+            "D": "Sai. --i giảm giá trị của i trước khi được sử dụng, dẫn đến vòng lặp vô hạn."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Understand"
+    },
+    {
+        "number": 1,
+        "question": "Chọn đoạn mã đúng để hoàn thành vòng lặp while in ra các số chẵn từ 2 đến 10:\n\n```c\n#include <stdio.h>\nint main() {\n    int i = 2;\n    while (i <= 10) {\n        printf(\"%d \", i);\n        ____;\n    }\n    return 0;\n}\n```",
+        "options": {
+            "A": "i += 2",
+            "B": "i + 2",
+            "C": "i = i + 2",
+            "D": "i =+ 2"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "i += 2 tăng giá trị của i lên 2 sau mỗi vòng lặp, in ra các số chẵn.",
+            "A": "Đúng. i += 2 là cách viết rút gọn của i = i + 2.",
+            "B": "Sai. i + 2 chỉ tính toán giá trị mới mà không gán lại cho i.",
+            "C": "Đúng, nhưng dài dòng hơn lựa chọn A.",
+            "D": "Sai. Toán tử =+ không tồn tại trong C. Đây là lỗi cú pháp."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Understand"
+    },
+    {
+        "number": 2,
+        "question": "Điền vào chỗ trống để hoàn thành vòng lặp do-while in ra số 5 một lần:\n\n```c\n#include <stdio.h>\nint main() {\n    int i = 5;\n    do {\n        printf(\"%d \", i);\n    } while (_____);\n    return 0;\n}\n```",
+        "options": {
+            "A": "false",
+            "B": "0",
+            "C": "i > 5",
+            "D": "i < 5"
+        },
+        "correct_answer": "B",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp do-while luôn thực hiện ít nhất một lần. Điều kiện 0 (false) sẽ kết thúc vòng lặp sau lần đầu.",
+            "A": "Đúng. 'false' tương đương với 0 trong C.",
+            "B": "Đúng. 0 là giá trị 'false' trong C, khiến vòng lặp dừng sau lần lặp đầu tiên.",
+            "C": "Sai. Điều kiện này sai ngay từ đầu, nhưng vòng lặp do-while vẫn chạy ít nhất một lần.",
+            "D": "Sai. Điều kiện này sai ngay từ đầu, nhưng vòng lặp do-while vẫn chạy ít nhất một lần."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Understand"
+    },
+    {
+        "number": 3,
+        "question": "Điền vào chỗ trống để vòng lặp for in ra các số từ 0 đến 4:\n\n```c\n#include <stdio.h>\nint main() {\n  int i;\n  for (i = 0; i < 5; i_____) {\n    printf(\"%d \", i);\n  }\n  return 0;\n}\n```",
+        "options": {
+            "A": "++",
+            "B": "+=",
+            "C": "--",
+            "D": "*="
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "i++ tăng giá trị biến i lên 1 sau mỗi vòng lặp.",
+            "A": "Đúng. i++ tăng i lên 1 sau mỗi vòng lặp.",
+            "B": "+= cần một giá trị để cộng vào i. Ví dụ: i += 1",
+            "C": "Sai. i-- giảm i, dẫn đến vòng lặp không dừng.",
+            "D": "Sai. i*=  nhân i, không phải thứ chúng ta cần."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Understand"
+    },
+    {
+        "number": 4,
+        "question": "Điền vào chỗ trống để vòng lặp while dừng khi i bằng 5:\n\n```c\n#include <stdio.h>\nint main() {\n  int i = 0;\n  while (_____) {\n    printf(\"%d \", i);\n    i++;\n  }\n  return 0;\n}\n```",
+        "options": {
+            "A": "i < 5",
+            "B": "i <= 5",
+            "C": "i > 5",
+            "D": "i != 5"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp tiếp tục miễn là i nhỏ hơn 5.",
+            "A": "Đúng. Vòng lặp dừng khi i đạt 5.",
+            "B": "Sai. Vòng lặp dừng khi i đạt 6.",
+            "C": "Sai. Vòng lặp không bao giờ bắt đầu vì i bắt đầu từ 0.",
+            "D": "Sai. Vòng lặp in ra các số từ 0 đến 4, nhưng dừng ở 5."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Understand"
+    },
+    {
+        "number": 5,
+        "question": "Điền vào chỗ trống để hoàn thành vòng lặp do-while, in ra các số từ 0 đến 4:\n\n```c\n#include <stdio.h>\nint main() {\n    int i = 0;\n    do {\n        printf(\"%d \", i);\n        i++;\n    } while (i < ____);\n    return 0;\n}\n```",
+        "options": {
+            "A": "5",
+            "B": "4",
+            "C": "6",
+            "D": "0"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp do-while chạy khi i nhỏ hơn 5, in ra các số từ 0 đến 4.",
+            "A": "Đúng. Vòng lặp dừng khi i đạt 5.",
+            "B": "Sai. Vòng lặp dừng khi i đạt 4, chỉ in ra các số từ 0 đến 3.",
+            "C": "Sai. Vòng lặp dừng khi i đạt 6, in ra các số từ 0 đến 5.",
+            "D": "Sai. Vòng lặp chỉ chạy một lần vì điều kiện i < 0 sai ngay từ đầu."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Understand"
+    },
+    {
+        "number": 6,
+        "question": "Điền vào chỗ trống để hoàn thành vòng lặp for, in ra các số chẵn từ 0 đến 8:\n\n```c\n#include <stdio.h>\nint main() {\n    int i;\n    for (i = 0; i <= 8; i ______ 2) {\n        printf(\"%d \", i);\n    }\n    return 0;\n}\n```",
+        "options": {
+            "A": "+=",
+            "B": "=",
+            "C": "*=",
+            "D": "-="
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "i += 2 tăng i lên 2 sau mỗi vòng lặp, in ra các số chẵn.",
+            "A": "Đúng. i += 2 tăng i lên 2 sau mỗi vòng lặp.",
+            "B": "Sai. i = 2 gán 2 cho i trong mỗi vòng lặp.",
+            "C": "Sai. i *= 2 nhân i với 2 sau mỗi vòng lặp.",
+            "D": "Sai. i -= 2 giảm i đi 2 sau mỗi vòng lặp."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Understand"
+    },
+    {
+        "number": 7,
+        "question": "Điền vào chỗ trống để hoàn thành vòng lặp while, in ra \"Xin chào\" 3 lần:\n\n```c\n#include <stdio.h>\nint main() {\n    int count = 0;\n    while (count < 3) {\n        printf(\"Xin chào\");\n        ____;\n    }\n    return 0;\n}\n```",
+        "options": {
+            "A": "count++",
+            "B": "count--",
+            "C": "count = 0",
+            "D": "count += 3"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "count++ tăng biến count sau mỗi lần lặp, giúp vòng lặp kết thúc sau 3 lần.",
+            "A": "Đúng. count++ tăng biến count lên 1 sau mỗi lần lặp, điều khiển vòng lặp chạy đúng 3 lần.",
+            "B": "Sai. count-- giảm biến count, dẫn đến vòng lặp vô hạn.",
+            "C": "Sai. count = 0 đặt lại biến count về 0 trong mỗi lần lặp, dẫn đến vòng lặp vô hạn.",
+            "D": "Sai. count += 3 tăng biến count lên 3 sau mỗi lần lặp, khiến vòng lặp chỉ chạy một lần."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Understand"
+    },
+    {
+        "number": 8,
+        "question": "Cần điền gì vào chỗ trống để vòng lặp for in ra các số lẻ từ 1 đến 9?\n\n```c\n#include <stdio.h>\n\nint main() {\n    int i;\n    for (i = 1; i <= 9; i ____ 2) {\n        printf(\"%d \", i);\n    }\n    return 0;\n}\n```",
+        "options": {
+            "A": "+=",
+            "B": "-=",
+            "C": "*=",
+            "D": "/="
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "i += 2 tăng i lên 2 sau mỗi vòng lặp, in ra các số lẻ.",
+            "A": "Đúng. i += 2 tăng i lên 2 sau mỗi vòng lặp, tạo ra dãy số lẻ.",
+            "B": "Sai. i -= 2 sẽ giảm i, dẫn đến vòng lặp không hoạt động như mong muốn.",
+            "C": "Sai. i *= 2 sẽ nhân i với 2, tạo ra dãy số mũ 2.",
+            "D": "Sai. i /= 2 sẽ chia i cho 2, tạo ra dãy số giảm dần."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Understand"
+    },
+    {
+        "number": 9,
+        "question": "Điền vào chỗ trống để vòng lặp do-while chạy ít nhất một lần và in ra \"Hello\":\n\n```c\n#include <stdio.h>\n\nint main() {\n    do {\n        printf(\"Hello\");\n    } while (_____);\n    return 0;\n}\n```",
+        "options": {
+            "A": "0",
+            "B": "1",
+            "C": "true",
+            "D": "false"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp do-while luôn thực hiện ít nhất một lần. Điều kiện 0 (false) sẽ kết thúc vòng lặp sau lần đầu.",
+            "A": "Đúng. 0 là giá trị \"false\" trong C, vòng lặp sẽ chạy một lần rồi dừng.",
+            "B": "Sai. 1 là giá trị \"true\" trong C, vòng lặp sẽ chạy vô hạn.",
+            "C": "Sai. \"true\" là giá trị đúng, vòng lặp sẽ chạy vô hạn.",
+            "D": "Đúng, nhưng \"0\" là lựa chọn chính xác hơn trong ngữ cảnh C."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Understand"
+    },
+    {
+        "number": 10,
+        "question": "Điền vào chỗ trống để hoàn thành đoạn mã in ra các số từ 1 đến 10:\n\n```c\n#include <stdio.h>\n\nint main() {\n  int i;\n  for (i = 1; i <= 10; ____ ) {\n    printf(\"%d \", i);\n  }\n  return 0;\n}\n```",
+        "options": {
+            "A": "i++",
+            "B": "++i",
+            "C": "i--",
+            "D": "--i"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "i++ tăng giá trị của i lên 1 sau mỗi vòng lặp, đảm bảo vòng lặp chạy từ 1 đến 10.",
+            "A": "Chính xác. Toán tử i++ tăng giá trị của i sau mỗi vòng lặp.",
+            "B": "Sai. ++i tăng giá trị của i trước mỗi vòng lặp, dẫn đến kết quả không chính xác.",
+            "C": "Sai. i-- giảm giá trị của i, dẫn đến vòng lặp vô hạn.",
+            "D": "Sai. --i giảm giá trị của i trước mỗi vòng lặp, dẫn đến kết quả không chính xác."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 11,
+        "question": "Điền vào chỗ trống để hoàn thành đoạn mã tính tổng các số từ 1 đến n:\n\n```c\n#include <stdio.h>\n\nint main() {\n  int n, i, sum = 0;\n  scanf(\"%d\", &n);\n  for (i = 1; i <= n; i++) {\n    sum ____ i;\n  }\n  printf(\"Tổng: %d\", sum);\n  return 0;\n}\n```",
+        "options": {
+            "A": "+=",
+            "B": "-=",
+            "C": "*=",
+            "D": "/="
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "sum += i cộng giá trị của i vào sum trong mỗi vòng lặp, tính tổng các số từ 1 đến n.",
+            "A": "Chính xác. Toán tử += cộng giá trị bên phải vào biến bên trái.",
+            "B": "Sai. Toán tử -= trừ giá trị bên phải khỏi biến bên trái.",
+            "C": "Sai. Toán tử *= nhân giá trị bên phải với biến bên trái.",
+            "D": "Sai. Toán tử /= chia biến bên trái cho giá trị bên phải."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 12,
+        "question": "Điền vào chỗ trống để hoàn thành đoạn mã in ra các số chẵn từ 2 đến 20:\n\n```c\n#include <stdio.h>\n\nint main() {\n  int i;\n  for (i = 2; i <= 20; i ____ 2) {\n    printf(\"%d \", i);\n  }\n  return 0;\n}\n```",
+        "options": {
+            "A": "+=",
+            "B": "-=",
+            "C": "*=",
+            "D": "/="
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "i += 2 tăng giá trị của i lên 2 sau mỗi vòng lặp, in ra các số chẵn.",
+            "A": "Chính xác. Toán tử += cộng giá trị bên phải vào biến bên trái.",
+            "B": "Sai. i -= 2 sẽ dẫn đến vòng lặp vô hạn.",
+            "C": "Sai. i *= 2 tăng giá trị của i theo cấp số nhân.",
+            "D": "Sai. i /= 2 sẽ dẫn đến vòng lặp vô hạn."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 13,
+        "question": "Điền vào chỗ trống để hoàn thành đoạn mã tính giai thừa của một số nguyên dương n:\n\n```c\n#include <stdio.h>\n\nint main() {\n  int n, i, factorial = 1;\n  scanf(\"%d\", &n);\n  for (i = 1; i <= n; i++) {\n    factorial ____ i;\n  }\n  printf(\"Giai thừa: %d\", factorial);\n  return 0;\n}\n```",
+        "options": {
+            "A": "*=",
+            "B": "/=",
+            "C": "+=",
+            "D": "-="
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "factorial *= i nhân factorial với i trong mỗi vòng lặp, tính giai thừa của n.",
+            "A": "Chính xác. Toán tử *= nhân giá trị bên phải với biến bên trái.",
+            "B": "Sai. Toán tử /= chia biến bên trái cho giá trị bên phải.",
+            "C": "Sai. Toán tử += cộng giá trị bên phải vào biến bên trái.",
+            "D": "Sai. Toán tử -= trừ giá trị bên phải khỏi biến bên trái."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 14,
+        "question": "Điền vào chỗ trống để hoàn thành đoạn mã in ra các số từ 10 đến 1:\n\n```c\n#include <stdio.h>\n\nint main() {\n  int i;\n  for (i = 10; i >= 1; ____) {\n    printf(\"%d \", i);\n  }\n  return 0;\n}\n```",
+        "options": {
+            "A": "i--",
+            "B": "++i",
+            "C": "i++",
+            "D": "--i"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "i-- giảm giá trị của i sau mỗi vòng lặp, in ra các số từ 10 đến 1.",
+            "A": "Chính xác. i-- giảm giá trị của i sau mỗi vòng lặp.",
+            "B": "Sai. ++i tăng giá trị của i, dẫn đến vòng lặp vô hạn.",
+            "C": "Sai. i++ tăng giá trị của i, dẫn đến vòng lặp vô hạn.",
+            "D": "Sai. --i giảm giá trị của i trước mỗi vòng lặp."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 15,
+        "question": "Điền vào chỗ trống để hoàn thành đoạn mã tính tổng các số lẻ từ 1 đến n:\n\n```c\n#include <stdio.h>\n\nint main() {\n  int n, i, sum = 0;\n  scanf(\"%d\", &n);\n  for (i = 1; i <= n; i += 2) {\n    sum ____ i;\n  }\n  printf(\"Tổng các số lẻ: %d\", sum);\n  return 0;\n}\n```",
+        "options": {
+            "A": "+=",
+            "B": "-=",
+            "C": "*=",
+            "D": "/="
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "sum += i cộng dồn giá trị của i (số lẻ) vào sum.",
+            "A": "Chính xác. Toán tử += cộng giá trị bên phải vào biến bên trái.",
+            "B": "Sai. Toán tử -= trừ giá trị bên phải khỏi biến bên trái.",
+            "C": "Sai. Toán tử *= nhân giá trị bên phải với biến bên trái.",
+            "D": "Sai. Toán tử /= chia biến bên trái cho giá trị bên phải."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 16,
+        "question": "Điền vào chỗ trống để hoàn thành vòng lặp while in ra các số từ 1 đến 5:\n\n```c\n#include <stdio.h>\n\nint main() {\n  int i = 1;\n  while (____) {\n    printf(\"%d \", i);\n    i++;\n  }\n  return 0;\n}\n```",
+        "options": {
+            "A": "i <= 5",
+            "B": "i < 5",
+            "C": " i > 5",
+            "D": "i >= 5"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Điều kiện i <= 5 đảm bảo vòng lặp chạy từ 1 đến 5.",
+            "A": "Chính xác. Vòng lặp tiếp tục miễn là i nhỏ hơn hoặc bằng 5.",
+            "B": "Sai. Vòng lặp chỉ chạy đến 4.",
+            "C": "Sai. Vòng lặp không chạy vì điều kiện sai ngay từ đầu.",
+            "D": "Sai. Vòng lặp không chạy vì điều kiện sai ngay từ đầu."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 17,
+        "question": "Điền vào chỗ trống để hoàn thành vòng lặp do-while in ra số 0 ít nhất một lần:\n\n```c\n#include <stdio.h>\n\nint main() {\n  int i = 0;\n  do {\n    printf(\"%d \", i);\n    i++;\n  } while (____);\n  return 0;\n}\n```",
+        "options": {
+            "A": "i < 1",
+            "B": "i < 0",
+            "C": "i > 1",
+            "D": "i > 0"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Điều kiện i < 1 đảm bảo vòng lặp do-while chạy ít nhất một lần và dừng sau khi in ra số 0.",
+            "A": "Chính xác. Vòng lặp chạy một lần vì i bắt đầu bằng 0, sau đó dừng lại vì i++ làm i thành 1.",
+            "B": "Sai. Điều kiện luôn sai, vòng lặp không chạy.",
+            "C": "Sai. Vòng lặp chạy vô hạn.",
+            "D": "Sai. Vòng lặp chạy vô hạn."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 18,
+        "question": "Chọn câu lệnh cần điền vào chỗ trống để thoát khỏi vòng lặp for khi i bằng 5:\n\n```c\n#include <stdio.h>\n\nint main() {\n  int i;\n  for (i = 0; i < 10; i++) {\n    if (i == 5) {\n      ____;\n    }\n    printf(\"%d \", i);\n  }\n  return 0;\n}\n```",
+        "options": {
+            "A": "break",
+            "B": "continue",
+            "C": "return 0",
+            "D": "goto end"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Câu lệnh break dùng để thoát khỏi vòng lặp hiện tại.",
+            "A": "Chính xác. break thoát khỏi vòng lặp for khi i bằng 5.",
+            "B": "Sai. continue bỏ qua vòng lặp hiện tại và tiếp tục vòng lặp tiếp theo.",
+            "C": "Sai. return 0 kết thúc chương trình ngay lập tức.",
+            "D": "Sai. goto end yêu cầu nhãn 'end' được định nghĩa, không phải là cách thoát khỏi vòng lặp for thông thường."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 19,
+        "question": "Chọn câu lệnh cần điền vào chỗ trống để bỏ qua việc in ra số 5 và tiếp tục vòng lặp for:\n\n```c\n#include <stdio.h>\n\nint main() {\n int i;\n for (i = 0; i < 10; i++) {\n   if (i == 5) {\n      ____;\n   }\n  printf(\"%d \", i);\n }\n return 0;\n}\n```",
+        "options": {
+            "A": "continue",
+            "B": "break",
+            "C": "return 0",
+            "D": "goto next"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Câu lệnh continue dùng để bỏ qua vòng lặp hiện tại và tiếp tục vòng lặp tiếp theo.",
+            "A": "Chính xác. continue bỏ qua việc in ra số 5 và tiếp tục vòng lặp.",
+            "B": "Sai. break thoát khỏi vòng lặp for hoàn toàn.",
+            "C": "Sai. return 0 kết thúc chương trình ngay lập tức.",
+            "D": "Sai. goto next yêu cầu nhãn 'next' được định nghĩa, không phải là cách bỏ qua vòng lặp hiện tại trong for."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 20,
+        "question": "Điền vào chỗ trống để hoàn thành đoạn mã in ra các số từ 1 đến 10:\n\n```c\n#include <stdio.h>\n\nint main() {\n  int i;\n  for (i = 1; i <= 10; ____ ) {\n    printf(\"%d \", i);\n  }\n  return 0;\n}\n```",
+        "options": {
+            "A": "i++",
+            "B": "++i",
+            "C": "i--",
+            "D": "--i"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "i++ tăng giá trị của i lên 1 sau mỗi vòng lặp, đảm bảo vòng lặp chạy từ 1 đến 10.",
+            "A": "Chính xác. Toán tử i++ tăng giá trị của i sau mỗi vòng lặp.",
+            "B": "Sai. ++i tăng giá trị của i trước mỗi vòng lặp, dẫn đến kết quả không chính xác.",
+            "C": "Sai. i-- giảm giá trị của i, dẫn đến vòng lặp vô hạn.",
+            "D": "Sai. --i giảm giá trị của i trước mỗi vòng lặp, dẫn đến kết quả không chính xác."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 21,
+        "question": "Điền vào chỗ trống để hoàn thành đoạn mã tính tổng các số từ 1 đến n:\n\n```c\n#include <stdio.h>\n\nint main() {\n  int n, i, sum = 0;\n  scanf(\"%d\", &n);\n  for (i = 1; i <= n; i++) {\n    sum ____ i;\n  }\n  printf(\"Tổng: %d\", sum);\n  return 0;\n}\n```",
+        "options": {
+            "A": "+=",
+            "B": "-=",
+            "C": "*=",
+            "D": "/="
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "sum += i cộng giá trị của i vào sum trong mỗi vòng lặp, tính tổng các số từ 1 đến n.",
+            "A": "Chính xác. Toán tử += cộng giá trị bên phải vào biến bên trái.",
+            "B": "Sai. Toán tử -= trừ giá trị bên phải khỏi biến bên trái.",
+            "C": "Sai. Toán tử *= nhân giá trị bên phải với biến bên trái.",
+            "D": "Sai. Toán tử /= chia biến bên trái cho giá trị bên phải."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 22,
+        "question": "Điền vào chỗ trống để hoàn thành đoạn mã in ra các số chẵn từ 2 đến 20:\n\n```c\n#include <stdio.h>\n\nint main() {\n  int i;\n  for (i = 2; i <= 20; i ____ 2) {\n    printf(\"%d \", i);\n  }\n  return 0;\n}\n```",
+        "options": {
+            "A": "+=",
+            "B": "-=",
+            "C": "*=",
+            "D": "/="
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "i += 2 tăng giá trị của i lên 2 sau mỗi vòng lặp, in ra các số chẵn.",
+            "A": "Chính xác. Toán tử += cộng giá trị bên phải vào biến bên trái.",
+            "B": "Sai. i -= 2 sẽ dẫn đến vòng lặp vô hạn.",
+            "C": "Sai. i *= 2 tăng giá trị của i theo cấp số nhân.",
+            "D": "Sai. i /= 2 sẽ dẫn đến vòng lặp vô hạn."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 23,
+        "question": "Điền vào chỗ trống để hoàn thành đoạn mã tính giai thừa của một số nguyên dương n:\n\n```c\n#include <stdio.h>\n\nint main() {\n  int n, i, factorial = 1;\n  scanf(\"%d\", &n);\n  for (i = 1; i <= n; i++) {\n    factorial ____ i;\n  }\n  printf(\"Giai thừa: %d\", factorial);\n  return 0;\n}\n```",
+        "options": {
+            "A": "*=",
+            "B": "/=",
+            "C": "+=",
+            "D": "-="
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "factorial *= i nhân factorial với i trong mỗi vòng lặp, tính giai thừa của n.",
+            "A": "Chính xác. Toán tử *= nhân giá trị bên phải với biến bên trái.",
+            "B": "Sai. Toán tử /= chia biến bên trái cho giá trị bên phải.",
+            "C": "Sai. Toán tử += cộng giá trị bên phải vào biến bên trái.",
+            "D": "Sai. Toán tử -= trừ giá trị bên phải khỏi biến bên trái."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 24,
+        "question": "Điền vào chỗ trống để hoàn thành đoạn mã in ra các số từ 10 đến 1:\n\n```c\n#include <stdio.h>\n\nint main() {\n  int i;\n  for (i = 10; i >= 1; ____) {\n    printf(\"%d \", i);\n  }\n  return 0;\n}\n```",
+        "options": {
+            "A": "i--",
+            "B": "++i",
+            "C": "i++",
+            "D": "--i"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "i-- giảm giá trị của i sau mỗi vòng lặp, in ra các số từ 10 đến 1.",
+            "A": "Chính xác. i-- giảm giá trị của i sau mỗi vòng lặp.",
+            "B": "Sai. ++i tăng giá trị của i, dẫn đến vòng lặp vô hạn.",
+            "C": "Sai. i++ tăng giá trị của i, dẫn đến vòng lặp vô hạn.",
+            "D": "Sai. --i giảm giá trị của i trước mỗi vòng lặp."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 25,
+        "question": "Điền vào chỗ trống để hoàn thành đoạn mã tính tổng các số lẻ từ 1 đến n:\n\n```c\n#include <stdio.h>\n\nint main() {\n  int n, i, sum = 0;\n  scanf(\"%d\", &n);\n  for (i = 1; i <= n; i += 2) {\n    sum ____ i;\n  }\n  printf(\"Tổng các số lẻ: %d\", sum);\n  return 0;\n}\n```",
+        "options": {
+            "A": "+=",
+            "B": "-=",
+            "C": "*=",
+            "D": "/="
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "sum += i cộng dồn giá trị của i (số lẻ) vào sum.",
+            "A": "Chính xác. Toán tử += cộng giá trị bên phải vào biến bên trái.",
+            "B": "Sai. Toán tử -= trừ giá trị bên phải khỏi biến bên trái.",
+            "C": "Sai. Toán tử *= nhân giá trị bên phải với biến bên trái.",
+            "D": "Sai. Toán tử /= chia biến bên trái cho giá trị bên phải."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 26,
+        "question": "Điền vào chỗ trống để hoàn thành vòng lặp while in ra các số từ 1 đến 5:\n\n```c\n#include <stdio.h>\n\nint main() {\n  int i = 1;\n  while (____) {\n    printf(\"%d \", i);\n    i++;\n  }\n  return 0;\n}\n```",
+        "options": {
+            "A": "i <= 5",
+            "B": "i < 5",
+            "C": " i > 5",
+            "D": "i >= 5"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Điều kiện i <= 5 đảm bảo vòng lặp chạy từ 1 đến 5.",
+            "A": "Chính xác. Vòng lặp tiếp tục miễn là i nhỏ hơn hoặc bằng 5.",
+            "B": "Sai. Vòng lặp chỉ chạy đến 4.",
+            "C": "Sai. Vòng lặp không chạy vì điều kiện sai ngay từ đầu.",
+            "D": "Sai. Vòng lặp không chạy vì điều kiện sai ngay từ đầu."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 27,
+        "question": "Điền vào chỗ trống để hoàn thành vòng lặp do-while in ra số 0 ít nhất một lần:\n\n```c\n#include <stdio.h>\n\nint main() {\n  int i = 0;\n  do {\n    printf(\"%d \", i);\n    i++;\n  } while (____);\n  return 0;\n}\n```",
+        "options": {
+            "A": "i < 1",
+            "B": "i < 0",
+            "C": "i > 1",
+            "D": "i > 0"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Điều kiện i < 1 đảm bảo vòng lặp do-while chạy ít nhất một lần và dừng sau khi in ra số 0.",
+            "A": "Chính xác. Vòng lặp chạy một lần vì i bắt đầu bằng 0, sau đó dừng lại vì i++ làm i thành 1.",
+            "B": "Sai. Điều kiện luôn sai, vòng lặp không chạy.",
+            "C": "Sai. Vòng lặp chạy vô hạn.",
+            "D": "Sai. Vòng lặp chạy vô hạn."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 28,
+        "question": "Chọn câu lệnh cần điền vào chỗ trống để thoát khỏi vòng lặp for khi i bằng 5:\n\n```c\n#include <stdio.h>\n\nint main() {\n  int i;\n  for (i = 0; i < 10; i++) {\n    if (i == 5) {\n      ____;\n    }\n    printf(\"%d \", i);\n  }\n  return 0;\n}\n```",
+        "options": {
+            "A": "break",
+            "B": "continue",
+            "C": "return 0",
+            "D": "goto end"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Câu lệnh break dùng để thoát khỏi vòng lặp hiện tại.",
+            "A": "Chính xác. break thoát khỏi vòng lặp for khi i bằng 5.",
+            "B": "Sai. continue bỏ qua vòng lặp hiện tại và tiếp tục vòng lặp tiếp theo.",
+            "C": "Sai. return 0 kết thúc chương trình ngay lập tức.",
+            "D": "Sai. goto end yêu cầu nhãn 'end' được định nghĩa, không phải là cách thoát khỏi vòng lặp for thông thường."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 29,
+        "question": "Chọn câu lệnh cần điền vào chỗ trống để bỏ qua việc in ra số 5 và tiếp tục vòng lặp for:\n\n```c\n#include <stdio.h>\n\nint main() {\n int i;\n for (i = 0; i < 10; i++) {\n   if (i == 5) {\n      ____;\n   }\n  printf(\"%d \", i);\n }\n return 0;\n}\n```",
+        "options": {
+            "A": "continue",
+            "B": "break",
+            "C": "return 0",
+            "D": "goto next"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Câu lệnh continue dùng để bỏ qua vòng lặp hiện tại và tiếp tục vòng lặp tiếp theo.",
+            "A": "Chính xác. continue bỏ qua việc in ra số 5 và tiếp tục vòng lặp.",
+            "B": "Sai. break thoát khỏi vòng lặp for hoàn toàn.",
+            "C": "Sai. return 0 kết thúc chương trình ngay lập tức.",
+            "D": "Sai. goto next yêu cầu nhãn 'next' được định nghĩa, không phải là cách bỏ qua vòng lặp hiện tại trong for."
+        },
+        "question_type": "Fill in the Blank",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 30,
+        "question": "Bạn cần viết một chương trình để tính tổng các số từ 1 đến n, với n được nhập từ bàn phím. Đoạn mã nào sau đây sử dụng vòng lặp `for` là chính xác?",
+        "options": {
+            "A": "```c\nint i, n, sum = 0;\nscanf(\"%d\", &n);\nfor (i = 1; i <= n; i++);\n    sum += i;\nprintf(\"%d\", sum);\n```",
+            "B": "```c\nint i, n, sum = 0;\nscanf(\"%d\", &n);\nfor (i = 1; i <= n; i++)\n    sum += i;\nprintf(\"%d\", sum);\n```",
+            "C": "```c\nint i, n, sum = 0;\nscanf(\"%d\", &n);\nfor (i = 0; i < n; i++)\n    sum += i;\nprintf(\"%d\", sum);\n```",
+            "D": "```c\nint i, n, sum = 0;\nscanf(\"%d\", &n);\nfor (i = 1; i < n; i++)\n    sum = i;\nprintf(\"%d\", sum);\n```"
+        },
+        "correct_answer": "B",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Đoạn mã B là chính xác vì nó lặp từ 1 đến n và cộng mỗi giá trị i vào tổng `sum`.",
+            "A": "Dấu chấm phẩy sau vòng lặp `for` làm cho thân vòng lặp trống, dẫn đến kết quả sai.",
+            "C": "Vòng lặp bắt đầu từ 0, dẫn đến thiếu số 1 trong tổng.",
+            "D": "Vòng lặp dừng ở n-1, thiếu số n trong tổng, và phép gán `sum = i` ghi đè lên tổng thay vì cộng dồn."
+        },
+        "question_type": "Scenario Based",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 31,
+        "question": "Bạn muốn in ra các số chẵn từ 2 đến 10. Đoạn mã nào sau đây sử dụng vòng lặp `while` là đúng?",
+        "options": {
+            "A": "```c\nint i = 2;\nwhile (i <= 10) {\n    printf(\"%d \", i);\n    i += 2;\n}\n```",
+            "B": "```c\nint i = 1;\nwhile (i <= 10) {\n    printf(\"%d \", i);\n    i += 2;\n}\n```",
+            "C": "```c\nint i = 2;\nwhile (i < 10) {\n    printf(\"%d \", i);\n    i += 2;\n}\n```",
+            "D": "```c\nint i = 2;\nwhile (i <= 10) {\n    i += 2;\n    printf(\"%d \", i);\n}\n```"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Đoạn mã A khởi tạo i = 2 và tăng lên 2 đơn vị mỗi lần, in ra các số chẵn từ 2 đến 10.",
+            "B": "Khởi tạo i = 1 sẽ in ra cả số lẻ.",
+            "C": "Điều kiện i < 10 sẽ dừng vòng lặp trước khi in ra số 10.",
+            "D": "Tăng i trước khi in sẽ in ra các số chẵn từ 4 đến 12."
+        },
+        "question_type": "Scenario Based",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 32,
+        "question": "Bạn cần nhập dữ liệu từ người dùng cho đến khi họ nhập số 0. Vòng lặp nào sau đây là phù hợp nhất?",
+        "options": {
+            "A": "`for`",
+            "B": "`while`",
+            "C": "`do-while`",
+            "D": "Cả `while` và `do-while`"
+        },
+        "correct_answer": "C",
+        "code_in_stem": false,
+        "explanation": {
+            "correct": "Vòng lặp `do-while` đảm bảo khối lệnh trong vòng lặp được thực hiện ít nhất một lần, phù hợp với việc nhập dữ liệu cho đến khi gặp điều kiện dừng.",
+            "A": "Vòng lặp `for` thường được dùng khi biết trước số lần lặp.",
+            "B": "Vòng lặp `while` kiểm tra điều kiện trước khi thực hiện khối lệnh, không đảm bảo nhập dữ liệu ít nhất một lần.",
+            "D": "Mặc dù `while` có thể được sử dụng, `do-while` là lựa chọn tối ưu hơn trong trường hợp này."
+        },
+        "question_type": "Scenario Based",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 33,
+        "question": "Bạn muốn in ra bảng cửu chương của số 5. Vòng lặp nào sau đây là hiệu quả nhất?",
+        "options": {
+            "A": "`do-while`",
+            "B": "`while`",
+            "C": "`for`",
+            "D": "Không có vòng lặp nào hiệu quả hơn"
+        },
+        "correct_answer": "C",
+        "code_in_stem": false,
+        "explanation": {
+            "correct": "Vòng lặp `for` là hiệu quả nhất vì nó cho phép khởi tạo, điều kiện và bước tăng trong cùng một dòng, giúp mã ngắn gọn và dễ đọc hơn.",
+            "A": "`do-while` không hiệu quả bằng vì cần phải quản lý biến đếm riêng.",
+            "B": "`while` cũng cần quản lý biến đếm riêng, không tối ưu bằng `for`.",
+            "D": "Trong trường hợp này, `for` là lựa chọn hiệu quả nhất."
+        },
+        "question_type": "Scenario Based",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 34,
+        "question": "Bạn đang viết chương trình tìm số nguyên tố đầu tiên lớn hơn 1000. Khi tìm thấy số nguyên tố, bạn muốn thoát khỏi vòng lặp. Câu lệnh nào sau đây nên được sử dụng?",
+        "options": {
+            "A": "`continue`",
+            "B": "`break`",
+            "C": "`goto`",
+            "D": "`return`"
+        },
+        "correct_answer": "B",
+        "code_in_stem": false,
+        "explanation": {
+            "correct": "`break` được sử dụng để thoát khỏi vòng lặp hiện tại.",
+            "A": "`continue` bắt đầu vòng lặp tiếp theo.",
+            "C": "`goto` không được khuyến khích sử dụng vì làm giảm khả năng đọc của mã.",
+            "D": "`return` thoát khỏi hàm hiện tại, không chỉ vòng lặp."
+        },
+        "question_type": "Scenario Based",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 35,
+        "question": "Trong vòng lặp `for (int i = 0; i < 10; i++)`, nếu `i` bằng 5, bạn muốn bỏ qua phần còn lại của vòng lặp và bắt đầu vòng lặp tiếp theo. Bạn nên dùng câu lệnh nào?",
+        "options": {
+            "A": "`break`",
+            "B": "`continue`",
+            "C": "`return`",
+            "D": "`exit`"
+        },
+        "correct_answer": "B",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "`continue` sẽ bỏ qua phần còn lại của vòng lặp hiện tại và bắt đầu vòng lặp tiếp theo.",
+            "A": "`break` sẽ thoát khỏi vòng lặp hoàn toàn.",
+            "C": "`return` sẽ thoát khỏi hàm chứa vòng lặp.",
+            "D": "`exit` sẽ kết thúc chương trình."
+        },
+        "question_type": "Scenario Based",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 36,
+        "question": "Bạn cần xử lý một mảng 100 phần tử. Vòng lặp nào sau đây là phù hợp nhất để duyệt qua tất cả các phần tử của mảng?",
+        "options": {
+            "A": "`while`",
+            "B": "`do-while`",
+            "C": "`for`",
+            "D": "Cả ba đều như nhau"
+        },
+        "correct_answer": "C",
+        "code_in_stem": false,
+        "explanation": {
+            "correct": "Vòng lặp `for` là phù hợp nhất vì nó cho phép khởi tạo biến đếm, điều kiện dừng và bước tăng trong cùng một dòng, giúp mã ngắn gọn và dễ đọc hơn khi xử lý mảng.",
+            "A": "Vòng lặp `while` có thể được sử dụng, nhưng cần phải quản lý biến đếm riêng.",
+            "B": "Vòng lặp `do-while` không phù hợp vì nó luôn thực hiện khối lệnh ít nhất một lần.",
+            "D": "Trong trường hợp này, `for` là lựa chọn tối ưu hơn."
+        },
+        "question_type": "Scenario Based",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 37,
+        "question": "Bạn muốn tính tổng các số lẻ từ 1 đến 99. Đoạn mã nào sau đây sử dụng vòng lặp là chính xác?",
+        "options": {
+            "A": "```c\nint sum = 0; for (int i = 1; i <= 99; i += 2) sum += i;\n```",
+            "B": "```c\nint sum = 0; for (int i = 1; i < 99; i += 2) sum += i;\n```",
+            "C": "```c\nint sum = 0; for (int i = 2; i <= 99; i += 2) sum += i;\n```",
+            "D": "```c\nint sum = 0; for (int i = 1; i <= 100; i += 2) sum += i;\n```"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Đoạn mã A khởi tạo i = 1, điều kiện i <= 99 và tăng i lên 2 đơn vị mỗi lần, đảm bảo tính tổng tất cả các số lẻ từ 1 đến 99.",
+            "B": "Điều kiện i < 99 sẽ dừng vòng lặp trước khi cộng số 99.",
+            "C": "Khởi tạo i = 2 sẽ bỏ qua số 1.",
+            "D": "Điều kiện i <= 100 sẽ cộng thêm số 100, là số chẵn."
+        },
+        "question_type": "Scenario Based",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 38,
+        "question": "Bạn muốn in ra các số từ 1 đến 10, nhưng bỏ qua số 5 và 7. Đoạn mã nào sau đây sử dụng vòng lặp `for` và `continue` là chính xác?",
+        "options": {
+            "A": "```c\nfor (int i = 1; i <= 10; i++) {\n    if (i == 5 || i == 7) continue;\n    printf(\"%d \", i);\n}\n```",
+            "B": "```c\nfor (int i = 1; i <= 10; i++) {\n    if (i == 5 && i == 7) continue;\n    printf(\"%d \", i);\n}\n```",
+            "C": "```c\nfor (int i = 1; i <= 10; i++) {\n    if (i != 5 || i != 7) continue;\n    printf(\"%d \", i);\n}\n```",
+            "D": "```c\nfor (int i = 1; i <= 10; i++) {\n    if (i != 5 && i != 7) continue;\n    printf(\"%d \", i);\n}\n```"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Đoạn mã A sử dụng `||` (hoặc) để kiểm tra xem `i` có bằng 5 hoặc 7 hay không. Nếu đúng, `continue` sẽ bỏ qua phần còn lại của vòng lặp và bắt đầu vòng lặp tiếp theo.",
+            "B": "Sử dụng `&&` (và) sẽ không bao giờ đúng vì `i` không thể đồng thời bằng cả 5 và 7.",
+            "C": "Sử dụng `!=` (khác) với `||` (hoặc) sẽ in ra tất cả các số vì điều kiện luôn đúng.",
+            "D": "Sử dụng `!=` (khác) với `&&` (và) và `continue` sẽ chỉ in ra 5 và 7."
+        },
+        "question_type": "Scenario Based",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 39,
+        "question": "Bạn muốn viết một chương trình nhập vào một số nguyên dương n từ người dùng và tính tổng các số từ 1 đến n. Tuy nhiên, nếu người dùng nhập n <= 0, chương trình sẽ yêu cầu người dùng nhập lại cho đến khi n > 0. Vòng lặp nào sau đây là phù hợp nhất?",
+        "options": {
+            "A": "`for`",
+            "B": "`while`",
+            "C": "`do-while`",
+            "D": "Cả `while` và `do-while`"
+        },
+        "correct_answer": "C",
+        "code_in_stem": false,
+        "explanation": {
+            "correct": "Vòng lặp `do-while` là phù hợp nhất vì nó thực hiện khối lệnh ít nhất một lần, sau đó kiểm tra điều kiện. Điều này đảm bảo rằng người dùng sẽ được yêu cầu nhập n ít nhất một lần, và vòng lặp sẽ tiếp tục cho đến khi n > 0.",
+            "A": "Vòng lặp `for` không phù hợp vì số lần lặp không được xác định trước.",
+            "B": "Vòng lặp `while` có thể được sử dụng, nhưng cần phải khởi tạo n trước vòng lặp, điều này có thể gây khó khăn khi cần nhập lại từ người dùng.",
+            "D": "Mặc dù `while` có thể được sử dụng bằng cách khởi tạo n với một giá trị âm, `do-while` là lựa chọn tự nhiên và dễ hiểu hơn trong trường hợp này."
+        },
+        "question_type": "Scenario Based",
+        "bloom_level": "Apply"
+    },
+    {
+        "number": 40,
+        "question": "Bạn đang viết một chương trình cần in ra tất cả các số chẵn từ 2 đến 20. Vòng lặp nào dưới đây là cách hiệu quả nhất để thực hiện điều này?",
+        "options": {
+            "A": "```c\nfor (int i = 2; i <= 20; i++) {\n    printf(\"%d \", i);\n}\n```",
+            "B": "```c\nfor (int i = 2; i <= 20; i += 2) {\n    printf(\"%d \", i);\n}\n```",
+            "C": "```c\nint i = 2;\nwhile (i <= 20) {\n    printf(\"%d \", i);\n    i += 2;\n}\n```",
+            "D": "```c\nint i = 2;\ndo {\n    printf(\"%d \", i);\n    i++;\n} while (i <= 20);\n```"
+        },
+        "correct_answer": "B",
+        "code_in_stem": false,
+        "explanation": {
+            "correct": "Vòng lặp `for` với bước nhảy 2 là cách hiệu quả nhất vì nó trực tiếp lặp qua các số chẵn mà không cần kiểm tra điều kiện bổ sung.",
+            "A": "Không hiệu quả vì nó in ra tất cả các số từ 2 đến 20, không chỉ các số chẵn.",
+            "B": "Chính xác. Vòng lặp này in ra tất cả các số chẵn từ 2 đến 20 một cách hiệu quả.",
+            "C": "Tuy đúng nhưng kém hiệu quả hơn B vì cần thêm một biến và một phép gán trong mỗi vòng lặp.",
+            "D": "Không hiệu quả vì nó in ra tất cả các số từ 2 đến 20 và kiểm tra điều kiện ở cuối vòng lặp."
+        },
+        "question_type": "Scenario Based",
+        "bloom_level": "Analyze"
+    },
+    {
+        "number": 41,
+        "question": "Bạn cần viết một chương trình tìm số nguyên tố đầu tiên lớn hơn 1000. Đoạn mã nào sau đây sử dụng vòng lặp hiệu quả nhất cho bài toán này?",
+        "options": {
+            "A": "Sử dụng vòng lặp `for` lồng nhau để kiểm tra tất cả các số từ 1001 đến 2000.",
+            "B": "Sử dụng vòng lặp `while` và kiểm tra tính nguyên tố bằng cách chia cho tất cả các số từ 2 đến n-1.",
+            "C": "Sử dụng vòng lặp `for` và kiểm tra tính nguyên tố bằng cách chia cho tất cả các số từ 2 đến căn bậc hai của n.",
+            "D": "Sử dụng vòng lặp `do-while` và kiểm tra tính nguyên tố bằng cách chia cho tất cả các số lẻ từ 3 đến n-1."
+        },
+        "correct_answer": "C",
+        "code_in_stem": false,
+        "explanation": {
+            "correct": "Kiểm tra đến căn bậc hai của n là đủ để xác định tính nguyên tố và hiệu quả hơn so với kiểm tra đến n-1.",
+            "A": "Không hiệu quả vì kiểm tra quá nhiều số không cần thiết.",
+            "B": "Không hiệu quả vì kiểm tra quá nhiều số không cần thiết.",
+            "C": "Chính xác. Đây là cách hiệu quả nhất để kiểm tra tính nguyên tố.",
+            "D": "Tuy đúng nhưng kém hiệu quả hơn C vì vẫn kiểm tra nhiều số hơn mức cần thiết."
+        },
+        "question_type": "Scenario Based",
+        "bloom_level": "Analyze"
+    },
+    {
+        "number": 42,
+        "question": "Bạn cần tính tổng các chữ số của một số nguyên dương n. Vòng lặp nào dưới đây là phù hợp nhất?",
+        "options": {
+            "A": "Vòng lặp `for` từ 1 đến n.",
+            "B": "Vòng lặp `while` với điều kiện n > 0, trong mỗi vòng lặp lấy chữ số cuối cùng của n bằng phép chia lấy dư cho 10 và cập nhật n bằng cách chia nguyên cho 10.",
+            "C": "Vòng lặp `do-while` với điều kiện n > 0, trong mỗi vòng lặp lấy chữ số cuối cùng của n bằng phép chia lấy dư cho 10 và cập nhật n bằng cách chia nguyên cho 10.",
+            "D": "Vòng lặp `for` từ 0 đến độ dài của n."
+        },
+        "correct_answer": "B",
+        "code_in_stem": false,
+        "explanation": {
+            "correct": "Vòng lặp `while` là phù hợp nhất vì số lần lặp phụ thuộc vào số chữ số của n, không phải giá trị của n.",
+            "A": "Không phù hợp vì số lần lặp không liên quan đến số chữ số của n.",
+            "B": "Chính xác. Vòng lặp này xử lý từng chữ số của n cho đến khi n bằng 0.",
+            "C": "Tuy đúng nhưng kém hiệu quả hơn B vì `do-while` luôn thực hiện ít nhất một vòng lặp, trong khi `while` kiểm tra điều kiện trước khi lặp.",
+            "D": "Không phù hợp vì độ dài của n không được định nghĩa rõ ràng trong ngữ cảnh này."
+        },
+        "question_type": "Scenario Based",
+        "bloom_level": "Analyze"
+    },
+    {
+        "number": 43,
+        "question": "Bạn muốn in ra các số từ 1 đến 10, ngoại trừ số 5 và 7. Câu lệnh nào sau đây nên được sử dụng bên trong vòng lặp?",
+        "options": {
+            "A": "`break`",
+            "B": "`continue`",
+            "C": "`return`",
+            "D": "`goto`"
+        },
+        "correct_answer": "B",
+        "code_in_stem": false,
+        "explanation": {
+            "correct": "`continue` sẽ bỏ qua vòng lặp hiện tại và tiếp tục với vòng lặp tiếp theo.",
+            "A": "`break` sẽ thoát khỏi vòng lặp hoàn toàn.",
+            "B": "Chính xác. `continue` sẽ bỏ qua số 5 và 7.",
+            "C": "`return` sẽ thoát khỏi hàm chứa vòng lặp.",
+            "D": "`goto` không được khuyến khích sử dụng trong trường hợp này."
+        },
+        "question_type": "Scenario Based",
+        "bloom_level": "Analyze"
+    },
+    {
+        "number": 44,
+        "question": "Bạn cần đọc dữ liệu từ người dùng cho đến khi người dùng nhập số 0. Vòng lặp nào là phù hợp nhất?",
+        "options": {
+            "A": "`for`",
+            "B": "`while`",
+            "C": "`do-while`",
+            "D": "Không có vòng lặp nào phù hợp."
+        },
+        "correct_answer": "C",
+        "code_in_stem": false,
+        "explanation": {
+            "correct": "`do-while` đảm bảo vòng lặp chạy ít nhất một lần để đọc dữ liệu đầu vào.",
+            "A": "`for` không phù hợp vì số lần lặp không xác định trước.",
+            "B": "`while` có thể không chạy lần nào nếu dữ liệu đầu vào ban đầu là 0.",
+            "C": "Chính xác. `do-while` sẽ đọc dữ liệu ít nhất một lần.",
+            "D": "Sai. `do-while` là vòng lặp phù hợp."
+        },
+        "question_type": "Scenario Based",
+        "bloom_level": "Analyze"
+    },
+    {
+        "number": 45,
+        "question": "Bạn cần in ra bảng cửu chương từ 1 đến 10. Cấu trúc lặp nào là hiệu quả nhất?",
+        "options": {
+            "A": "Hai vòng lặp `for` lồng nhau.",
+            "B": "Hai vòng lặp `while` lồng nhau.",
+            "C": "Một vòng lặp `for` và một vòng lặp `while` lồng nhau.",
+            "D": "Hai vòng lặp `do-while` lồng nhau."
+        },
+        "correct_answer": "A",
+        "code_in_stem": false,
+        "explanation": {
+            "correct": "Vòng lặp `for` là cách tiếp cận tự nhiên và hiệu quả cho việc lặp lại một số lần cố định.",
+            "A": "Chính xác. Hai vòng lặp `for` lồng nhau là cách tiếp cận tiêu chuẩn và hiệu quả.",
+            "B": "Tuy có thể thực hiện được, nhưng `while` ít rõ ràng hơn `for` trong trường hợp này.",
+            "C": "Tương tự như B, kết hợp `for` và `while` không mang lại lợi ích gì.",
+            "D": "`do-while` không cần thiết vì số lần lặp đã biết trước."
+        },
+        "question_type": "Scenario Based",
+        "bloom_level": "Analyze"
+    },
+    {
+        "number": 46,
+        "question": "Bạn cần tìm giá trị lớn nhất trong một mảng. Vòng lặp nào là phù hợp nhất?",
+        "options": {
+            "A": "`for`",
+            "B": "`while`",
+            "C": "`do-while`",
+            "D": "Cả `for` và `while` đều phù hợp."
+        },
+        "correct_answer": "A",
+        "code_in_stem": false,
+        "explanation": {
+            "correct": "Vòng lặp `for` thường được sử dụng để duyệt qua các phần tử của mảng.",
+            "A": "Chính xác. `for` là lựa chọn phổ biến và hiệu quả để duyệt mảng.",
+            "B": "Tuy có thể thực hiện được, nhưng `while` yêu cầu quản lý chỉ số thủ công, kém rõ ràng hơn `for`.",
+            "C": "`do-while` không cần thiết vì không cần đảm bảo vòng lặp chạy ít nhất một lần.",
+            "D": "Tuy `while` có thể sử dụng được, nhưng `for` là lựa chọn phổ biến và hiệu quả hơn trong trường hợp này."
+        },
+        "question_type": "Scenario Based",
+        "bloom_level": "Analyze"
+    },
+    {
+        "number": 47,
+        "question": "Cần tính tổng các số từ 1 đến n, nhưng dừng lại khi tổng vượt quá 1000. Vòng lặp nào là phù hợp nhất?",
+        "options": {
+            "A": "`for`",
+            "B": "`while`",
+            "C": "`do-while`",
+            "D": "Cả ba đều phù hợp như nhau."
+        },
+        "correct_answer": "B",
+        "code_in_stem": false,
+        "explanation": {
+            "correct": "Vòng lặp `while` phù hợp vì điều kiện dừng phụ thuộc vào một giá trị tính toán được trong vòng lặp.",
+            "A": "`for` không phù hợp vì số lần lặp không xác định trước.",
+            "B": "Chính xác. `while` cho phép kiểm tra điều kiện sau mỗi lần lặp.",
+            "C": "`do-while` không phù hợp vì vòng lặp luôn chạy ít nhất một lần, có thể dẫn đến tổng vượt quá 1000 ngay cả khi n nhỏ.",
+            "D": "Sai. `while` là lựa chọn phù hợp nhất."
+        },
+        "question_type": "Scenario Based",
+        "bloom_level": "Analyze"
+    },
+    {
+        "number": 48,
+        "question": "Bạn cần viết một chương trình để in ra tất cả các ước số của một số nguyên dương n. Vòng lặp nào dưới đây là cách tiếp cận hiệu quả nhất?",
+        "options": {
+            "A": "```c\nfor (int i = 1; i <= n; i++) {\n    if (n % i == 0) {\n        printf(\"%d \", i);\n    }\n}\n```",
+            "B": "```c\nint i = 1;\nwhile (i * i <= n) {\n    if (n % i == 0) {\n        printf(\"%d \", i);\n        if (i * i != n) {\n            printf(\"%d \", n / i);\n        }\n    }\n    i++;\n}\n```",
+            "C": "```c\nint i = 1;\ndo {\n    if (n % i == 0) {\n        printf(\"%d \", i);\n    }\n    i++;\n} while (i <= n);\n```",
+            "D": "```c\nfor (int i = 1; i * i <= n; i++) {\n   if (n % i == 0) {\n       printf(\"%d \", i);\n   }\n}\n```"
+        },
+        "correct_answer": "B",
+        "code_in_stem": false,
+        "explanation": {
+            "correct": "Vòng lặp `while` kiểm tra đến căn bậc hai của n là đủ và hiệu quả hơn so với kiểm tra đến n.",
+            "A": "Không hiệu quả vì kiểm tra tất cả các số từ 1 đến n.",
+            "B": "Chính xác. Vòng lặp này kiểm tra đến căn bậc hai của n và in cả hai ước số i và n/i (nếu i*i != n).",
+            "C": "Không hiệu quả vì kiểm tra tất cả các số từ 1 đến n và sử dụng do-while không cần thiết.",
+            "D": "Không in ra tất cả các ước số, chỉ in ra các ước số nhỏ hơn hoặc bằng căn bậc hai của n."
+        },
+        "question_type": "Scenario Based",
+        "bloom_level": "Analyze"
+    },
+    {
+        "number": 49,
+        "question": "Bạn cần viết một chương trình in ra chuỗi Fibonacci đến số hạng thứ n (n > 2). Đoạn mã nào sau đây sử dụng vòng lặp hiệu quả nhất?",
+        "options": {
+            "A": "Sử dụng vòng lặp `for` và tính toán mỗi số hạng bằng cách cộng hai số hạng trước đó, lưu trữ chúng trong các biến riêng biệt.",
+            "B": "Sử dụng vòng lặp `while` và tính toán mỗi số hạng bằng cách gọi đệ quy một hàm tính số Fibonacci.",
+            "C": "Sử dụng vòng lặp `do-while` và tính toán mỗi số hạng bằng cách sử dụng một mảng để lưu trữ tất cả các số hạng trước đó.",
+            "D": "Sử dụng vòng lặp `for` và tính toán mỗi số hạng bằng cách sử dụng công thức tổng quát của dãy Fibonacci."
+        },
+        "correct_answer": "A",
+        "code_in_stem": false,
+        "explanation": {
+            "correct": "Sử dụng vòng lặp `for` và tính toán mỗi số hạng bằng tổng hai số hạng trước là cách tiếp cận hiệu quả và dễ hiểu nhất.",
+            "A": "Chính xác. Cách này tránh việc sử dụng đệ quy hoặc mảng, giúp tiết kiệm bộ nhớ và thời gian.",
+            "B": "Đệ quy có thể dẫn đến tràn stack nếu n lớn.",
+            "C": "Sử dụng mảng không cần thiết và tốn thêm bộ nhớ.",
+            "D": "Công thức tổng quát của dãy Fibonacci phức tạp hơn và có thể kém hiệu quả hơn so với cách tính trực tiếp."
+        },
+        "question_type": "Scenario Based",
+        "bloom_level": "Analyze"
+    },
+    {
+        "number": 50,
+        "question": "Đánh giá đoạn mã C sau và xác định lỗi logic:\n```c\n#include <stdio.h>\nint main() {\n    int i = 0;\n    while (i < 10) {\n        if (i % 2 == 0) {\n            continue;\n        }\n        printf(\"%d \", i);\n        i++;\n    }\n    return 0;\n}\n```",
+        "options": {
+            "A": "Vòng lặp sẽ không bao giờ kết thúc vì biến 'i' không được tăng lên bên trong câu lệnh if.",
+            "B": "Đoạn mã sẽ in ra tất cả các số lẻ từ 1 đến 9.",
+            "C": "Câu lệnh 'continue' không được sử dụng đúng cách.",
+            "D": "Đoạn mã sẽ không biên dịch được do lỗi cú pháp."
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp while sẽ không bao giờ kết thúc vì biến 'i' chỉ được tăng lên khi 'i' là số lẻ. Khi 'i' là số chẵn, câu lệnh 'continue' sẽ bỏ qua phần tăng 'i', dẫn đến vòng lặp vô hạn.",
+            "A": "Đúng. Vòng lặp sẽ không bao giờ kết thúc vì biến 'i' không được tăng lên bên trong câu lệnh if.",
+            "B": "Sai. Đoạn mã sẽ không in ra bất kỳ số nào vì vòng lặp vô hạn.",
+            "C": "Sai. Câu lệnh 'continue' được sử dụng đúng cú pháp, nhưng nó dẫn đến lỗi logic.",
+            "D": "Sai. Đoạn mã sẽ biên dịch được."
+        },
+        "question_type": "Code Analysis",
+        "bloom_level": "Evaluate"
+    },
+    {
+        "number": 51,
+        "question": "Phân tích đoạn mã C sau đây. Đầu ra của chương trình là gì?\n```c\n#include <stdio.h>\nint main() {\n    int i;\n    for (i = 1; i <= 5; i++) {\n        if (i == 3) {\n            break;\n        }\n        printf(\"%d \", i);\n    }\n    return 0;\n}\n```",
+        "options": {
+            "A": "1 2 3 4 5",
+            "B": "1 2 3",
+            "C": "1 2",
+            "D": "1 2 4 5"
+        },
+        "correct_answer": "C",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp for sẽ dừng lại khi i bằng 3 do câu lệnh 'break'. Do đó, chương trình sẽ in ra 1 và 2.",
+            "A": "Sai. Vòng lặp dừng ở i = 3.",
+            "B": "Sai. Vòng lặp dừng trước khi in ra 3.",
+            "C": "Đúng. Chương trình sẽ in ra 1 2.",
+            "D": "Sai. Vòng lặp dừng ở i = 3."
+        },
+        "question_type": "Code Analysis",
+        "bloom_level": "Evaluate"
+    },
+    {
+        "number": 52,
+        "question": "Xác định vấn đề trong đoạn mã C sau:\n```c\n#include <stdio.h>\nint main() {\n    int n = 5;\n    do {\n        printf(\"%d \", n);\n        n++;\n    } while (n < 5);\n    return 0;\n}\n```",
+        "options": {
+            "A": "Vòng lặp do-while sẽ không bao giờ thực thi vì điều kiện là sai.",
+            "B": "Vòng lặp do-while sẽ chỉ thực thi một lần.",
+            "C": "Vòng lặp do-while sẽ là một vòng lặp vô hạn.",
+            "D": "Không có vấn đề gì với đoạn mã."
+        },
+        "correct_answer": "B",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp do-while sẽ thực thi ít nhất một lần trước khi kiểm tra điều kiện. Trong trường hợp này, nó sẽ in ra giá trị của 'n' (là 5) và sau đó tăng 'n' lên 6. Sau đó, điều kiện 'n < 5' là sai, vì vậy vòng lặp dừng lại.",
+            "A": "Sai. Vòng lặp do-while luôn thực thi ít nhất một lần.",
+            "B": "Đúng. Vòng lặp do-while sẽ chỉ thực thi một lần.",
+            "C": "Sai. Vòng lặp không phải là vòng lặp vô hạn.",
+            "D": "Sai. Có vấn đề với đoạn mã."
+        },
+        "question_type": "Code Analysis",
+        "bloom_level": "Evaluate"
+    },
+    {
+        "number": 53,
+        "question": "Đánh giá đoạn mã C sau và xác định đầu ra:\n```c\n#include <stdio.h>\nint main() {\n    int i = 0;\n    while (i < 5) {\n        i++;\n        if (i == 3) {\n            continue;\n        }\n        printf(\"%d \", i);\n    }\n    return 0;\n}\n```",
+        "options": {
+            "A": "1 2 3 4 5",
+            "B": "1 2 4 5",
+            "C": "1 2 4",
+            "D": "0 1 2 4 5"
+        },
+        "correct_answer": "B",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Đoạn mã sẽ in ra 1 2 4 5. Khi i bằng 3, câu lệnh 'continue' sẽ bỏ qua phần printf(\"%d \", i); và tiếp tục vòng lặp tiếp theo.",
+            "A": "Sai. Số 3 bị bỏ qua do câu lệnh 'continue'.",
+            "B": "Đúng. Đầu ra là 1 2 4 5.",
+            "C": "Sai. Vòng lặp tiếp tục đến khi i = 5.",
+            "D": "Sai. Biến 'i' được tăng lên trước khi kiểm tra điều kiện 'i == 3'."
+        },
+        "question_type": "Code Analysis",
+        "bloom_level": "Evaluate"
+    },
+    {
+        "number": 54,
+        "question": "Phân tích đoạn mã C sau. Đầu ra của chương trình là gì?\n```c\n#include <stdio.h>\nint main() {\n  for (int i = 0; i < 5; i++) {\n    for (int j = 0; j < i; j++) {\n      printf(\"*\");\n    }\n    printf(\"\\n\");\n  }\n  return 0;\n}\n```",
+        "options": {
+            "A": "*****\n****\n***\n**\n*",
+            "B": "*\n**\n***\n****\n*****",
+            "C": "\n*\n**\n***\n****",
+            "D": "*\n**\n***\n****"
+        },
+        "correct_answer": "C",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp bên trong in ra 'i' dấu sao. Khi i = 0, không có dấu sao nào được in ra, chỉ có newline. Khi i = 1, một dấu sao được in ra, v.v.",
+            "A": "Sai. Số lượng dấu sao giảm dần theo mỗi dòng.",
+            "B": "Sai. Vòng lặp bắt đầu từ i = 0, không in ra gì ở dòng đầu tiên.",
+            "C": "Đúng. Đầu ra là \n*\n**\n***\n****",
+            "D": "Sai. Thiếu dòng trống đầu tiên."
+        },
+        "question_type": "Code Analysis",
+        "bloom_level": "Evaluate"
+    },
+    {
+        "number": 55,
+        "question": "Xác định lỗi trong đoạn mã C sau:\n```c\n#include <stdio.h>\nint main() {\n    int i = 0;\n    while (i <= 5) {\n        if (i == 3) {\n            break;\n        }\n        i += 2;\n        printf(\"%d \", i);\n    }\n    return 0;\n}\n```",
+        "options": {
+            "A": "Vòng lặp while sẽ là một vòng lặp vô hạn.",
+            "B": "Đoạn mã sẽ in ra 2 4.",
+            "C": "Đoạn mã sẽ in ra 2 4 6.",
+            "D": "Câu lệnh break không được phép bên trong vòng lặp while."
+        },
+        "correct_answer": "C",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Đoạn mã sẽ in ra 2, 4 và 6.  Vòng lặp tiếp tục cho đến khi i <= 5. Khi i = 1, nó tăng lên 3, sau đó câu lệnh if được thực thi và vòng lặp bị break. Nếu i không bằng 3, nó sẽ in ra i và tăng i lên 2 đơn vị. ",
+            "A": "Sai. Vòng lặp không phải là vòng lặp vô hạn vì câu lệnh break.",
+            "B": "Sai. Đoạn mã cũng sẽ in ra 6.",
+            "C": "Đúng. Đoạn mã sẽ in ra 2 4 6.",
+            "D": "Sai. Câu lệnh break được phép bên trong vòng lặp while."
+        },
+        "question_type": "Code Analysis",
+        "bloom_level": "Evaluate"
+    },
+    {
+        "number": 56,
+        "question": "Đánh giá đoạn mã C sau và xác định đầu ra:\n```c\n#include <stdio.h>\nint main() {\n    int x = 10;\n    do {\n        printf(\"%d \", x);\n        x -= 3;\n    } while (x > 0);\n    return 0;\n}\n```",
+        "options": {
+            "A": "10 7 4 1",
+            "B": "10 7 4 1 -2",
+            "C": "10 7 4",
+            "D": "7 4 1"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp do-while thực hiện ít nhất một lần. Nó in ra giá trị hiện tại của x, sau đó giảm x đi 3. Vòng lặp tiếp tục miễn là x > 0. Do đó, đầu ra là 10 7 4 1.",
+            "A": "Đúng. Đầu ra là 10 7 4 1.",
+            "B": "Sai. Vòng lặp dừng khi x <= 0.",
+            "C": "Sai. Vòng lặp tiếp tục cho đến khi x <= 0.",
+            "D": "Sai. Giá trị ban đầu của x là 10 cũng được in ra."
+        },
+        "question_type": "Code Analysis",
+        "bloom_level": "Evaluate"
+    },
+    {
+        "number": 57,
+        "question": "Phân tích đoạn mã C sau. Đầu ra của chương trình là gì?\n```c\n#include <stdio.h>\nint main() {\n    int i;\n    for (i = 0; i < 5; i++) {\n        if (i == 2) {\n            continue;\n        }\n        printf(\"%d \", i);\n    }\n    printf(\"\\n\");\n    return 0;\n}\n```",
+        "options": {
+            "A": "0 1 2 3 4",
+            "B": "0 1 3 4",
+            "C": "0 1 3 4\n",
+            "D": "0 1 2 3 4\n"
+        },
+        "correct_answer": "C",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp for in ra các số từ 0 đến 4, nhưng khi i bằng 2, câu lệnh 'continue' bỏ qua phần printf(\"%d \", i); và tiếp tục vòng lặp tiếp theo. Cuối cùng, một newline được in ra.",
+            "A": "Sai. Số 2 bị bỏ qua do câu lệnh 'continue'.",
+            "B": "Sai. Thiếu ký tự newline ở cuối.",
+            "C": "Đúng. Đầu ra là 0 1 3 4\n",
+            "D": "Sai. Số 2 bị bỏ qua do câu lệnh 'continue'."
+        },
+        "question_type": "Code Analysis",
+        "bloom_level": "Evaluate"
+    },
+    {
+        "number": 58,
+        "question": "Xác định lỗi trong đoạn mã C sau:\n```c\n#include <stdio.h>\nint main() {\n    int n = 0;\n    while (n < 5);\n    {\n        printf(\"%d \", n);\n        n++;\n    }\n    return 0;\n}\n```",
+        "options": {
+            "A": "Vòng lặp while sẽ là một vòng lặp vô hạn do dấu chấm phẩy sau điều kiện.",
+            "B": "Đoạn mã sẽ không biên dịch được.",
+            "C": "Đoạn mã sẽ in ra 0 1 2 3 4.",
+            "D": "Không có lỗi trong đoạn mã."
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Dấu chấm phẩy sau điều kiện while(n < 5); tạo thành một vòng lặp trống.  Vòng lặp này sẽ tiếp tục cho đến khi n >= 5.  Khối mã bên dưới vòng lặp while sẽ chỉ được thực hiện một lần sau khi vòng lặp trống kết thúc.",
+            "A": "Đúng. Vòng lặp while sẽ là một vòng lặp vô hạn do dấu chấm phẩy sau điều kiện.",
+            "B": "Sai. Đoạn mã sẽ biên dịch được, nhưng sẽ chạy sai.",
+            "C": "Sai. Vòng lặp while là vô hạn.",
+            "D": "Sai. Có lỗi trong đoạn mã."
+        },
+        "question_type": "Code Analysis",
+        "bloom_level": "Evaluate"
+    },
+    {
+        "number": 59,
+        "question": "Đánh giá đoạn mã C sau và xác định đầu ra:\n```c\n#include <stdio.h>\nint main() {\n    int i = 0;\n    for (; i < 3; i++) {\n        printf(\"%d \", i);\n    }\n    return 0;\n}\n```",
+        "options": {
+            "A": "1 2 3",
+            "B": "0 1 2",
+            "C": "1 2",
+            "D": "0 1 2 3"
+        },
+        "correct_answer": "B",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp for bắt đầu với i = 0 và tiếp tục miễn là i < 3. Nó in ra giá trị hiện tại của i trong mỗi lần lặp. Do đó, đầu ra là 0 1 2.",
+            "A": "Sai. Vòng lặp bắt đầu từ 0.",
+            "B": "Đúng. Đầu ra là 0 1 2.",
+            "C": "Sai. Vòng lặp tiếp tục cho đến khi i < 3.",
+            "D": "Sai. Vòng lặp dừng khi i = 3."
+        },
+        "question_type": "Code Analysis",
+        "bloom_level": "Evaluate"
+    },
+    {
+        "number": 60,
+        "question": "Đoạn mã sau sẽ in ra gì?\n```c\n#include <stdio.h>\nint main() {\n    int i = 0;\n    for (; i < 3; i++) {\n        printf(\"%d \", i);\n    }\n    return 0;\n}\n```",
+        "options": {
+            "A": "0 1 2",
+            "B": "1 2 3",
+            "C": "0 1 2 3",
+            "D": "Compiler Error"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp for bắt đầu từ i = 0 và tiếp tục miễn là i nhỏ hơn 3. Nó in ra giá trị của i trong mỗi lần lặp, dẫn đến kết quả là \"0 1 2\".",
+            "A": "Chính xác. Vòng lặp for in ra 0, 1 và 2.",
+            "B": "Sai. Vòng lặp dừng khi i bằng 3.",
+            "C": "Sai. Vòng lặp dừng khi i bằng 3.",
+            "D": "Sai. Mã biên dịch và chạy mà không có lỗi."
+        },
+        "question_type": "Correct Output",
+        "bloom_level": "Analyze"
+    },
+    {
+        "number": 61,
+        "question": "Kết quả của đoạn mã sau là gì?\n```c\n#include <stdio.h>\nint main() {\n    int i = 0;\n    while (i < 3) {\n        printf(\"%d \", i);\n        i++;\n    }\n    return 0;\n}\n```",
+        "options": {
+            "A": "0 1 2",
+            "B": "1 2 3",
+            "C": "0 1",
+            "D": "Compiler Error"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp while tiếp tục miễn là i nhỏ hơn 3. Nó in ra giá trị hiện tại của i và sau đó tăng i lên 1 trong mỗi lần lặp, dẫn đến kết quả là \"0 1 2\".",
+            "A": "Chính xác. Vòng lặp while in ra 0, 1 và 2.",
+            "B": "Sai. Vòng lặp dừng khi i bằng 3.",
+            "C": "Sai. Vòng lặp tiếp tục cho đến khi i bằng 3.",
+            "D": "Sai. Mã biên dịch và chạy mà không có lỗi."
+        },
+        "question_type": "Correct Output",
+        "bloom_level": "Analyze"
+    },
+    {
+        "number": 62,
+        "question": "Đoạn mã sau đây sẽ in ra gì?\n```c\n#include <stdio.h>\nint main() {\n    int i = 0;\n    do {\n        printf(\"%d \", i);\n        i++;\n    } while (i < 3);\n    return 0;\n}\n```",
+        "options": {
+            "A": "0 1 2",
+            "B": "1 2 3",
+            "C": "0 1",
+            "D": "Compiler Error"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp do-while thực thi khối mã ít nhất một lần. Nó in ra giá trị hiện tại của i và sau đó tăng i lên 1. Điều kiện được kiểm tra ở cuối vòng lặp, dẫn đến kết quả là \"0 1 2\".",
+            "A": "Chính xác. Vòng lặp do-while in ra 0, 1 và 2.",
+            "B": "Sai. Vòng lặp dừng khi i bằng 3.",
+            "C": "Sai. Vòng lặp tiếp tục cho đến khi i bằng 3.",
+            "D": "Sai. Mã biên dịch và chạy mà không có lỗi."
+        },
+        "question_type": "Correct Output",
+        "bloom_level": "Analyze"
+    },
+    {
+        "number": 63,
+        "question": "Kết quả của đoạn mã C sau là gì?\n```c\n#include <stdio.h>\nint main() {\n  int i = 2;\n  while (i <= 10) {\n    if (i == 6) {\n      break;\n    }\n    printf(\"%d \", i);\n    i += 2;\n  }\n  return 0;\n}\n```",
+        "options": {
+            "A": "2 4 6 8 10",
+            "B": "2 4",
+            "C": "2 4 6",
+            "D": "2 4 8 10"
+        },
+        "correct_answer": "B",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp while in ra các số chẵn từ 2 đến 10. Tuy nhiên, câu lệnh 'break' được thực thi khi i bằng 6, do đó vòng lặp kết thúc sớm. Kết quả là \"2 4\".",
+            "A": "Sai. Vòng lặp kết thúc khi i bằng 6 do câu lệnh 'break'.",
+            "B": "Chính xác. Vòng lặp in ra 2 và 4 trước khi gặp câu lệnh 'break'.",
+            "C": "Sai. Vòng lặp kết thúc trước khi in 6.",
+            "D": "Sai. Vòng lặp kết thúc trước khi in 8 và 10."
+        },
+        "question_type": "Correct Output",
+        "bloom_level": "Analyze"
+    },
+    {
+        "number": 64,
+        "question": "Đầu ra của đoạn mã C sau là gì?\n```c\n#include <stdio.h>\nint main() {\n  for (int i = 1; i <= 5; i++) {\n    if (i == 3) {\n      continue;\n    }\n    printf(\"%d \", i);\n  }\n  return 0;\n}\n```",
+        "options": {
+            "A": "1 2 3 4 5",
+            "B": "1 2 4 5",
+            "C": "1 2 3 4",
+            "D": "1 2 4"
+        },
+        "correct_answer": "B",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp for in ra các số từ 1 đến 5. Tuy nhiên, câu lệnh 'continue' được thực thi khi i bằng 3, bỏ qua lần lặp hiện tại và tiếp tục với lần lặp tiếp theo. Kết quả là \"1 2 4 5\".",
+            "A": "Sai. Số 3 bị bỏ qua do câu lệnh 'continue'.",
+            "B": "Chính xác. Vòng lặp in ra 1, 2, 4 và 5.",
+            "C": "Sai. Số 3 bị bỏ qua và vòng lặp tiếp tục đến 5.",
+            "D": "Sai. Vòng lặp tiếp tục đến 5."
+        },
+        "question_type": "Correct Output",
+        "bloom_level": "Analyze"
+    },
+    {
+        "number": 65,
+        "question": "Đoạn mã sau sẽ in ra gì?\n```c\n#include <stdio.h>\nint main() {\n    int x = 5;\n    while (x > 0) {\n        x--;\n        if (x == 2) continue;\n        printf(\"%d \", x);\n    }\n    return 0;\n}\n```",
+        "options": {
+            "A": "4 3 1 0",
+            "B": "5 4 3 2 1 0",
+            "C": "4 3 2 1 0",
+            "D": "5 4 3 1 0"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp while giảm x đi 1 trong mỗi lần lặp. Khi x bằng 2, câu lệnh 'continue' bỏ qua phần còn lại của vòng lặp và bắt đầu lần lặp tiếp theo. Kết quả là \"4 3 1 0\".",
+            "A": "Chính xác. 2 bị bỏ qua do câu lệnh 'continue'.",
+            "B": "Sai. x giảm trước khi kiểm tra điều kiện.",
+            "C": "Sai. 2 bị bỏ qua do câu lệnh 'continue'.",
+            "D": "Sai. x giảm trước khi kiểm tra điều kiện và 2 bị bỏ qua."
+        },
+        "question_type": "Correct Output",
+        "bloom_level": "Analyze"
+    },
+    {
+        "number": 66,
+        "question": "Kết quả của đoạn mã sau là gì?\n```c\n#include <stdio.h>\nint main() {\n    int i = 0, j = 0;\n    for (i = 0; i < 3; i++) {\n        for (j = 0; j < 2; j++) {\n            printf(\"%d%d \", i, j);\n        }\n    }\n    return 0;\n}\n```",
+        "options": {
+            "A": "00 01 10 11 20 21",
+            "B": "00 10 20 01 11 21",
+            "C": "00 01 11 10 20 21",
+            "D": "01 10 20 01 11 21"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp for lồng nhau in ra các cặp i và j. Vòng lặp bên trong chạy hết trước khi vòng lặp bên ngoài tiếp tục với lần lặp tiếp theo. Kết quả là \"00 01 10 11 20 21\".",
+            "A": "Chính xác. Vòng lặp lồng nhau in ra từng cặp i và j.",
+            "B": "Sai. Vòng lặp bên trong chạy hết cho mỗi lần lặp của vòng lặp bên ngoài.",
+            "C": "Sai. Thứ tự của các cặp bị đảo lộn.",
+            "D": "Sai. Cặp đầu tiên bị thiếu và thứ tự bị đảo lộn."
+        },
+        "question_type": "Correct Output",
+        "bloom_level": "Analyze"
+    },
+    {
+        "number": 67,
+        "question": "Đoạn mã sau in ra gì?\n```c\n#include <stdio.h>\nint main() {\n    int i = 0;\n    for (i = 0; i < 5; i++) {\n        if (i == 2) break;\n        printf(\"%d \", i);\n    }\n    printf(\"%d\", i);\n    return 0;\n}\n```",
+        "options": {
+            "A": "0 1 2",
+            "B": "0 1 2 2",
+            "C": "0 1 2 3 4 5",
+            "D": "0 1 2"
+        },
+        "correct_answer": "B",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp for in ra các số từ 0 đến 4. Tuy nhiên, câu lệnh 'break' được thực thi khi i bằng 2, kết thúc vòng lặp. Sau đó, giá trị hiện tại của i (là 2) được in ra. Kết quả là \"0 1 2\".",
+            "A": "Sai. Giá trị của i sau khi 'break' cũng được in ra.",
+            "B": "Chính xác. Vòng lặp in ra 0 và 1, sau đó 'break' và in ra giá trị hiện tại của i là 2.",
+            "C": "Sai. Vòng lặp bị 'break' khi i bằng 2.",
+            "D": "Sai. Thiếu giá trị cuối cùng của i sau khi 'break'."
+        },
+        "question_type": "Correct Output",
+        "bloom_level": "Analyze"
+    },
+    {
+        "number": 68,
+        "question": "Đầu ra của đoạn mã C sau là gì?\n```c\n#include <stdio.h>\nint main() {\n  int n = 10;\n  do {\n    printf(\"%d \", n);\n    n--;\n  } while (n > 5);\n  return 0;\n}\n```",
+        "options": {
+            "A": "10 9 8 7 6 5",
+            "B": "9 8 7 6 5",
+            "C": "10 9 8 7 6",
+            "D": "10 9 8 7 6 5 4 3 2 1"
+        },
+        "correct_answer": "C",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp do-while in ra n và sau đó giảm n đi 1. Vòng lặp tiếp tục miễn là n lớn hơn 5. Kết quả là \"10 9 8 7 6\".",
+            "A": "Sai. Vòng lặp dừng khi n bằng 5.",
+            "B": "Sai. Giá trị ban đầu của n (10) cũng được in ra.",
+            "C": "Chính xác. Vòng lặp in ra từ 10 đến 6.",
+            "D": "Sai. Vòng lặp dừng khi n bằng 5."
+        },
+        "question_type": "Correct Output",
+        "bloom_level": "Analyze"
+    },
+    {
+        "number": 69,
+        "question": "Đoạn mã sau sẽ in ra gì?\n```c\n#include <stdio.h>\nint main() {\n    int x = 5;\n    while (x > 0) {\n        if (x % 2 == 0) {\n            printf(\"%d \", x);\n        }\n        x--;\n    }\n    return 0;\n}\n```",
+        "options": {
+            "A": "4 2",
+            "B": "5 3 1",
+            "C": "4 2 0",
+            "D": "5 4 3 2 1"
+        },
+        "correct_answer": "A",
+        "code_in_stem": true,
+        "explanation": {
+            "correct": "Vòng lặp while in ra các số chẵn từ 5 về 0. Kết quả là \"4 2\".",
+            "A": "Chính xác. Chỉ các số chẵn được in ra.",
+            "B": "Sai. Chỉ các số chẵn được in ra.",
+            "C": "Sai. Vòng lặp dừng khi x bằng 0.",
+            "D": "Sai. Chỉ các số chẵn được in ra."
+        },
+        "question_type": "Correct Output",
+        "bloom_level": "Analyze"
+    }
+]

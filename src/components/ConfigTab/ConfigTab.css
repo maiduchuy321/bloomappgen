@@ -1,0 +1,53 @@
+/* === Layout cho tab Cấu hình === */
+.tab-content#config-tab {
+    padding: var(--space-xl);
+  }
+  
+  /* === Card cấu hình === */
+  .config-card {
+    padding: var(--space-xl);
+  }
+  
+  .config-card h2 {
+    margin-bottom: var(--space-xl);
+  }
+  
+  /* === Từng mục cấu hình === */
+  .config-item {
+    margin-bottom: var(--space-lg);
+  }
+  
+  .config-item:last-of-type {
+    margin-bottom: 0;
+  }
+  
+  /* === Nhóm nút ở cuối tab cấu hình === */
+  .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--neutral-200);
+  }
+  .dark-theme .button-group {
+    border-top-color: var(--neutral-700);
+  }
+  
+  /* === File Upload Container === */
+  .file-upload-container {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+  
+  #file-name-display {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+    font-style: italic;
+  }
+  
+  .dark-theme #file-name-display {
+    color: var(--neutral-400);
+  }
+  

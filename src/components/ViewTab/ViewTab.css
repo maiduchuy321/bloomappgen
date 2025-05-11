@@ -1,0 +1,79 @@
+/* src/components/ViewTab/ViewTab.css */
+@import '../../styles/variables.css'; /* Import variables */
+
+/* Style layout tổng thể cho tab "Xem câu hỏi" */
+#view-tab.tab-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg); /* Khoảng cách giữa các phần */
+    padding: var(--space-xl) var(--space-xxl); /* Tăng padding */
+    background-color: var(--neutral-50); /* Nền hơi nhạt */
+    border-radius: var(--border-radius-lg);
+    min-height: 80vh; /* Đảm bảo chiều cao tối thiểu */
+}
+.dark-theme #view-tab.tab-content {
+    background-color: var(--neutral-900); /* Nền tối */
+}
+
+/* Thông báo trạng thái (Loading, Error, Empty) */
+.card-like { /* Shared style for status messages */
+    background-color: var(--neutral-0);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-xl);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px; /* Đảm bảo đủ không gian cho icon/text */
+}
+.dark-theme .card-like {
+    background-color: var(--dark-card);
+}
+
+.status-icon {
+    font-size: var(--font-size-xxl); /* Large icon */
+    margin-bottom: var(--space-md);
+    opacity: 0.8;
+}
+
+.loading-message.card-like {
+    color: var(--primary-dark);
+    /* Use icon color from JSX */
+}
+
+.error-message.card-like {
+    color: var(--danger-dark);
+    /* Use icon color from JSX */
+    background-color: var(--danger-lightest);
+    border: 1px solid var(--danger-light);
+}
+.dark-theme .error-message.card-like {
+    background-color: rgba(var(--danger-rgb), 0.1);
+    border-color: rgba(var(--danger-rgb), 0.3);
+    color: var(--danger-light);
+}
+
+.empty-state.card-like {
+    color: var(--neutral-500);
+    border: 2px dashed var(--neutral-200); /* Border dashed */
+    background-color: var(--neutral-100); /* Nền khác */
+}
+.dark-theme .empty-state.card-like {
+    color: var(--neutral-400);
+    border-color: var(--neutral-700);
+    background-color: var(--neutral-800);
+}
+
+.empty-state.card-like p,
+.loading-message.card-like p,
+.error-message.card-like p {
+  margin-top: 0; /* Reset default p margin */
+  font-size: var(--font-size-md);
+  line-height: 1.5;
+}
+
+
+/* Adjust spacing if QuestionCard has padding */
+/* .question-card { ... } */

@@ -1,0 +1,38 @@
+/* css/layout/footer.css */
+/* Định nghĩa style cho phần Footer của ứng dụng */
+
+.app-footer {
+    background-color: var(--neutral-200); /* Nền sáng nhẹ */
+    color: var(--neutral-600); /* Chữ màu xám đậm */
+    padding: var(--space-lg) 0; /* Padding trên dưới */
+    margin-top: var(--space-2xl); /* Khoảng cách với nội dung chính */
+    text-align: center;
+    font-size: var(--font-size-sm);
+    border-top: 1px solid var(--neutral-300); /* Đường kẻ phân cách nhẹ */
+    transition: background-color var(--transition-normal), color var(--transition-normal), border-color var(--transition-normal);
+  }
+  
+  .dark-theme .app-footer {
+    background-color: var(--neutral-800); /* Nền tối */
+    color: var(--neutral-400); /* Chữ xám nhạt */
+    border-top-color: var(--neutral-700);
+  }
+  
+  .app-footer p {
+    margin: 0; /* Reset margin */
+  }
+  
+  /* Style cho link trong footer (nếu có) */
+  .app-footer a {
+    color: var(--primary-color);
+    text-decoration: underline;
+  }
+  .app-footer a:hover {
+    color: var(--primary-dark);
+  }
+  .dark-theme .app-footer a {
+    color: var(--primary-light);
+  }
+  .dark-theme .app-footer a:hover {
+    color: var(--primary-color);
+  }

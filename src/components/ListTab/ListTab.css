@@ -1,0 +1,147 @@
+/* src/components/ListTab/ListTab.css */
+
+/* === Card chứa danh sách (List Card) === */
+.list-card {
+    padding: 0; /* Bỏ padding mặc định của card */
+    /* Các style khác kế thừa từ cards.css nếu cần */
+  }
+  
+  /* === Header của tab danh sách === */
+  .list-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-lg) var(--space-lg) var(--space-md);
+    border-bottom: 1px solid var(--neutral-200);
+  }
+  .dark-theme .list-header {
+    border-bottom-color: var(--neutral-700);
+  }
+  
+  .list-header h2 {
+    margin: 0; /* Reset margin cho tiêu đề */
+  }
+  
+  /* === Ô tìm kiếm === */
+  .search-box {
+    width: 100%; /* Chiếm toàn bộ chiều rộng trên mobile */
+    max-width: 350px; /* Giới hạn chiều rộng trên desktop */
+  }
+  /* Các style cho input và icon (đã có trong form.css) */
+  
+  /* === Khu vực chứa bảng (Question List) === */
+  .question-list {
+    padding: 0;
+    overflow-x: auto; /* Cho phép cuộn ngang khi cần */
+  }
+  
+  /* === Bảng danh sách câu hỏi === */
+  #questions-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-sm);
+  }
+  
+  /* Header của bảng (thead) */
+  #questions-table thead {
+    background-color: var(--neutral-100);
+    border-bottom: 2px solid var(--neutral-300);
+  }
+  .dark-theme #questions-table thead {
+    background-color: var(--neutral-800);
+    border-bottom-color: var(--neutral-600);
+  }
+  
+  #questions-table th {
+    padding: var(--space-sm) var(--space-md);
+    text-align: left;
+    font-weight: 600;
+    color: var(--neutral-700);
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.5px;
+  }
+  .dark-theme #questions-table th {
+    color: var(--neutral-300);
+  }
+  
+  /* Body của bảng (tbody, td) */
+  #questions-table tbody tr {
+    border-bottom: 1px solid var(--neutral-200);
+    transition: background-color var(--transition-fast);
+  }
+  .dark-theme #questions-table tbody tr {
+    border-bottom-color: var(--neutral-700);
+  }
+  
+  #questions-table tbody tr:hover {
+    background-color: var(--neutral-50);
+  }
+  .dark-theme #questions-table tbody tr:hover {
+    background-color: var(--neutral-800);
+  }
+  
+  #questions-table td {
+    padding: var(--space-md);
+    vertical-align: middle;
+    color: var(--neutral-600);
+  }
+  .dark-theme #questions-table td {
+    color: var(--neutral-300);
+  }
+  
+  /* Căn lề và style đặc biệt cho một số cột */
+  #questions-table th.text-center,
+  #questions-table td.text-center {
+    text-align: center;
+  }
+  #questions-table td.actions {
+    text-align: right; /* Căn phải cho các nút hành động */
+    white-space: nowrap;
+  }
+  #questions-table td.actions .btn {
+    margin-left: var(--space-xs);
+  }
+  
+  /* Hàng thông báo khi bảng rỗng */
+  .empty-table td {
+    text-align: center !important;
+    padding: var(--space-xl) var(--space-md) !important;
+    color: var(--neutral-500);
+    font-style: italic;
+  }
+  .dark-theme .empty-table td {
+    color: var(--neutral-400);
+  }
+  
+  /* === Phân trang của bảng === */
+  .table-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
+    border-top: 1px solid var(--neutral-200);
+    background-color: var(--neutral-50);
+  }
+  .dark-theme .table-pagination {
+    border-top-color: var(--neutral-700);
+    background-color: var(--neutral-800);
+  }
+  
+  /* Thông tin trang */
+  .page-info {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--neutral-600);
+    margin: 0 var(--space-sm);
+  }
+  .dark-theme .page-info {
+    color: var(--neutral-400);
+  }
+  
+  /* Các style nút phân trang đã có trong buttons.css */
+  
