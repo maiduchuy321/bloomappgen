@@ -1,6 +1,6 @@
 // src/components/question/QuestionMetadataComponent.tsx
 import React, { useState } from 'react';
-import { Question, getRatingLabel } from '../../models/Question';
+import { type Question, getRatingLabel } from '../../models/Question';
 import { Button } from '../shared/Button';
 import { Heart } from 'lucide-react';
 import './QuestionMetadataComponent.css';

@@ -1,5 +1,5 @@
 // src/models/QuestionType.ts
-import { BloomLevel } from '../models/BloomLevel';
+import type { BloomLevel } from '../models/BloomLevel';
 
 export interface QuestionType {
   id: string;

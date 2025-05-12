@@ -3,8 +3,8 @@ import React, { useMemo } from 'react';
 import { useQuestions } from '../../contexts/QuestionContext';
 import { Select } from '../shared/Select';
 import { Button } from '../shared/Button';
-import { BloomLevel, bloomLevelLabels } from '../../models/BloomLevel';
-import { questionTypesByBloom, QuestionType as AppQuestionType } from '../../models/QuestionType'; // Model QuestionType
+import { type BloomLevel, bloomLevelLabels } from '../../models/BloomLevel';
+import { questionTypesByBloom, type QuestionType as AppQuestionType } from '../../models/QuestionType'; // Model QuestionType
 import './QuestionControls.css'; // CSS riêng
 
 export const QuestionControls: React.FC = () => {

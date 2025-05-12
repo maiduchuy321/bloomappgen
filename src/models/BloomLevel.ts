@@ -1,12 +1,11 @@
 // src/models/BloomLevel.ts
-export enum BloomLevel {
-    Remember = "Remember",
-    Understand = "Understand",
-    Apply = "Apply",
-    Analyze = "Analyze",
-    Evaluate = "Evaluate",
-    Create = "Create"
-  }
+export type BloomLevel = 
+  | "Remember"
+  | "Understand"
+  | "Apply"
+  | "Analyze"
+  | "Evaluate"
+  | "Create";
   
   export const bloomLevelLabels: Record<BloomLevel, string> = {
     [BloomLevel.Remember]: "Remember (Nhớ)",
