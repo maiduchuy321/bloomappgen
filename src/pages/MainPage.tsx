@@ -1,9 +1,8 @@
 // src/pages/MainPage.tsx
-import React, { useState, lazy, Suspense, useEffect } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { Header } from '../components/Header/Header';
 import { Footer } from '../components/Footer/Footer';
 import { TabNavigation } from '../components/Tabs/TabNavigation';
-import { useQuestions } from '../contexts/QuestionContext'; // Để load ví dụ nếu cần
 
 // Lazy load tab components
 const ViewTab = lazy(() => import('../components/ViewTab/ViewTab'));

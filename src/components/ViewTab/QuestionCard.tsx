@@ -1,10 +1,7 @@
 // src/components/question/QuestionCard.tsx
 import React, { useState } from 'react';
-import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { materialDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import type { Question, QuestionOption } from '../../models/Question';
 import { useQuestions } from '../../contexts/QuestionContext';
-import { Button } from '../shared/Button';
 import { ExplanationSection } from './ExplanationSection';
 import { EditQuestionModal } from './EditQuestionModal';
 import { ContentRenderer } from '../shared/ContentRenderer';

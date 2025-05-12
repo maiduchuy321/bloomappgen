@@ -1,5 +1,5 @@
 // src/components/shared/ContentRenderer.tsx
-import React from 'react';
+import React, { type JSX } from 'react';
 import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { escapeHtml } from '../../utils/formatters'; // Assuming escapeHtml is here
@@ -9,16 +9,31 @@ interface ContentRendererProps {
   keyPrefix: string; // Dùng làm prefix cho key để tránh trùng lặp khi render list
 }
 
+// Định nghĩa interface cho các phần tử trong mảng parts
+interface TextPart {
+  type: 'text';
+  content: string;
+}
+
+interface CodePart {
+  type: 'code';
+  language: string;
+  content: string;
+}
+
+type ContentPart = TextPart | CodePart;
+
 // Helper function để render văn bản với inline code và code blocks
 export const ContentRenderer: React.FC<ContentRendererProps> = ({ text, keyPrefix }) => {
   if (!text) return null;
 
-  const parts: (JSX.Element | string)[] = [];
+  const parts: ContentPart[] = [];
   const codeBlockRegex = /```(\w*)\n([\s\S]*?)\n```/g; // Regex cho code blocks
 
   let lastIndex = 0;
   let match;
-  let partIndex = 0;
+  // Biến không sử dụng - đã comment
+  // let partIndex = 0;
 
   // Tách text thành các phần: text thường và code blocks
   while ((match = codeBlockRegex.exec(text)) !== null) {
@@ -100,19 +115,18 @@ export const ContentRenderer: React.FC<ContentRendererProps> = ({ text, keyPrefi
           // Using a div might add extra spacing; returning array is often fine for inline/block flow
           return <React.Fragment key={`${keyPrefix}-text-segment-${index}`}>{textParts}</React.Fragment>;
 
-
         } else { // part.type === 'code'
           return (
             <SyntaxHighlighter
               key={`${keyPrefix}-code-segment-${index}`}
-              language={part.language.toLowerCase()}
+              language={(part as CodePart).language.toLowerCase()}
               style={materialDark}
               showLineNumbers
               wrapLines
               PreTag="div" // Sử dụng div thay cho pre để tránh lỗi hydration nếu cần và dễ style
               className="code-block-highlighter" // Thêm class để style container
             >
-              {part.content}
+              {(part as CodePart).content}
             </SyntaxHighlighter>
           );
         }

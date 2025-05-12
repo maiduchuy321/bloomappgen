@@ -70,14 +70,16 @@ export interface UserConfig {
 }
 
 // Enum cho các nhãn đánh giá
-export enum RatingLabel {
-  NotRated = "Chưa đánh giá",
-  CompletelyWrong = "Hoàn toàn sai",
-  MostlyWrong = "Có nhiều sai sót",
-  Acceptable = "Chấp nhận được",
-  MostlyCorrect = "Khá chính xác",
-  CompletelyCorrect = "Hoàn toàn đúng"
-}
+export const RatingLabel = {
+  NotRated: "Chưa đánh giá",
+  CompletelyWrong: "Hoàn toàn sai",
+  MostlyWrong: "Có nhiều sai sót",
+  Acceptable: "Chấp nhận được",
+  MostlyCorrect: "Khá chính xác",
+  CompletelyCorrect: "Hoàn toàn đúng"
+} as const;
+
+export type RatingLabel = typeof RatingLabel[keyof typeof RatingLabel];
 
 // Map các giá trị rating với nhãn tương ứng
 export const getRatingLabel = (rating: number | undefined): string => {

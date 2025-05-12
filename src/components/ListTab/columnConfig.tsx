@@ -15,7 +15,7 @@ export const tableColumnsConfig: ColumnConfig<Question>[] = [
   {
     header: '#',
     accessorKey: 'index',
-    cell: (row, indexInPage, pageStartIndex) => pageStartIndex + indexInPage + 1,
+    cell: (_row, indexInPage, pageStartIndex) => pageStartIndex + indexInPage + 1,
     textAlign: 'text-center',
     width: '50px'
   },

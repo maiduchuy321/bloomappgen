@@ -1,8 +1,7 @@
 import React from 'react';
 import type { Question } from '../../models/Question';
 import { Button } from '../shared/Button';
-import { useQuestions } from '../../contexts/QuestionContext';
-import { tableColumnsConfig,type ColumnConfig } from './columnConfig';
+import { tableColumnsConfig} from './columnConfig';
 // import './QuestionTable.css'; // CSS riêng
 
 interface QuestionTableProps {

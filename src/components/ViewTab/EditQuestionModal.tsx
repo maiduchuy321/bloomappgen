@@ -171,8 +171,8 @@ export const EditQuestionModal: React.FC<EditQuestionModalProps> = ({
     if (typeof normalizedQuestion.context.moduleNumber === 'string') {
       const moduleNumberString = normalizedQuestion.context.moduleNumber.trim();
         normalizedQuestion.context.moduleNumber = moduleNumberString 
-        ? parseInt(moduleNumberString, 10) || 0 
-        : 0;  
+        ? String(parseInt(moduleNumberString, 10) || 0) 
+        : '0';  
     }
     
     // Ensure explanation object exists
@@ -187,17 +187,6 @@ export const EditQuestionModal: React.FC<EditQuestionModalProps> = ({
     if (!Array.isArray(normalizedQuestion.options)) {
       normalizedQuestion.options = [];
     }
-    
-    // Process tags - convert from string if needed
-    if (typeof normalizedQuestion.tags === 'string') {
-      normalizedQuestion.tags = (normalizedQuestion.tags as string)
-        .split(',')
-        .map(tag => tag.trim())
-        .filter(tag => tag);
-    }
-    
-    // Set last updated info
-    normalizedQuestion.lastUpdated = new Date().toISOString();
     
     return normalizedQuestion;
   };

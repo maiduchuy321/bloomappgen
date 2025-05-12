@@ -1,8 +1,10 @@
 // src/models/BloomLevel.ts
+
+// Định nghĩa BloomLevel như một enum thay vì type
 export enum BloomLevel {
   Remember = "Remember",
   Understand = "Understand",
-  Apply = "Apply",
+  Apply = "Apply", 
   Analyze = "Analyze",
   Evaluate = "Evaluate",
   Create = "Create"
