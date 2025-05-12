@@ -22,16 +22,7 @@ const TABS_CONFIG: { id: TabId; label: string; icon: string; component: React.FC
 ];
 
 export const MainPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<TabId>('view'); // Tab mặc định
-  const { loadExampleQuestions } = useQuestions(); // Lấy hàm tải ví dụ
-
-  // // Ví dụ: Tải dữ liệu mẫu khi component mount lần đầu (nếu muốn)
-  // // Tuy nhiên, trong JS gốc, việc này được xử lý bởi người dùng
-  // useEffect(() => {
-  //   // loadExampleQuestions().catch(err => console.error("Failed to load example questions on mount", err));
-  // }, [loadExampleQuestions]);
-
-
+  const [activeTab, setActiveTab] = useState<TabId>('config'); // Tab mặc định
   const ActiveTabComponent = TABS_CONFIG.find(tab => tab.id === activeTab)?.component;
 
   return (
@@ -46,6 +37,7 @@ export const MainPage: React.FC = () => {
         <div className="main-layout">
           <Suspense fallback={<div className="tab-content active"><p>Đang tải tab...</p></div>}>
             {ActiveTabComponent && <ActiveTabComponent setActiveTab={setActiveTab} />} {/* Truyền setActiveTab nếu ListTab cần chuyển tab */}
+            
           </Suspense>
         </div>
       </div>

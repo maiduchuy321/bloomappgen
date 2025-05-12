@@ -1,8 +1,8 @@
 import React from 'react';
-import { Question } from '../../models/Question';
+import type { Question } from '../../models/Question';
 import { Button } from '../shared/Button';
 import { useQuestions } from '../../contexts/QuestionContext';
-import { tableColumnsConfig, ColumnConfig } from './columnConfig';
+import { tableColumnsConfig,type ColumnConfig } from './columnConfig';
 // import './QuestionTable.css'; // CSS riêng
 
 interface QuestionTableProps {
@@ -69,7 +69,7 @@ export const QuestionTable: React.FC<QuestionTableProps> = ({
                 <Button size="sm" variant="secondary" onClick={() => alert(`Chỉnh sửa ${q.id} (chưa làm)`)} title="Chỉnh sửa">
                   <i className="fas fa-edit"></i>
                 </Button>
-                <Button size="sm" variant="danger" onClick={() => onDeleteQuestion(q.id, q.text.substring(0,30) + "...")} title="Xóa">
+                <Button size="sm" variant="primary" onClick={() => onDeleteQuestion(q.id, q.text.substring(0,30) + "...")} title="Xóa">
                   <i className="fas fa-trash-alt"></i>
                 </Button>
               </td>
@@ -80,3 +80,4 @@ export const QuestionTable: React.FC<QuestionTableProps> = ({
     </div>
   );
 };
+

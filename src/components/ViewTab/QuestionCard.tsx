@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import { Question, QuestionOption } from '../../models/Question';
+import type { Question, QuestionOption } from '../../models/Question';
 import { useQuestions } from '../../contexts/QuestionContext';
 import { Button } from '../shared/Button';
 import { ExplanationSection } from './ExplanationSection';
@@ -44,7 +44,9 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
   // Hàm xử lý đánh giá câu hỏi
   const handleRatingChange = (questionId: string, rating: number) => {
     if (rateQuestion) {
+      // Gọi hàm rateQuestion từ context
       rateQuestion(questionId, rating);
+      console.log(`[QuestionCard] Đã đánh giá câu hỏi ID ${questionId} với rating ${rating}`);
     } else {
       console.warn("rateQuestion function is not available in QuestionContext");
     }

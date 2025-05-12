@@ -1,15 +1,17 @@
 // src/components/ConfigTab/ConfigForm.tsx
-import React, { useState, ChangeEvent, useEffect, FormEvent } from 'react';
+import React, { useState, type ChangeEvent, useEffect,type FormEvent } from 'react';
 import { useQuestions } from '../../contexts/QuestionContext'; // Sử dụng hook mới
 import { Select } from '../shared/Select';
 import { Button } from '../shared/Button';
 import { BloomLevel, bloomLevelLabels } from '../../models/BloomLevel';
-import { questionTypesByBloom, QuestionType as AppQuestionType } from '../../models/QuestionType';
-import { UserConfig } from '../../models/Question';
+import { questionTypesByBloom, type QuestionType as AppQuestionType } from '../../models/QuestionType';
+import { type UserConfig } from '../../models/Question';
 
-// ConfigTab.css đã được import trong ConfigTab.tsx hoặc App.tsx
+interface ConfigFormProps {
+  setActiveTab?: (tabId: 'view' | 'config' | 'list') => void;
+}
 
-const ConfigForm: React.FC = () => {
+const ConfigForm: React.FC<ConfigFormProps> = ({setActiveTab}) => {
   const {
     userConfig: globalConfig,
     setUserConfig: setGlobalUserConfig,
@@ -111,6 +113,10 @@ const ConfigForm: React.FC = () => {
       setFileNameDisplay("Đã tải dữ liệu ví dụ");
       // Config inputs có thể được reset hoặc cập nhật dựa trên dữ liệu ví dụ
       setLocalConfig(prev => ({ ...prev, bloomLevel: '', questionType: ''})); // Reset filter
+
+      if(setActiveTab) {
+        setActiveTab('view'); // Chuyển sang tab xem câu hỏi
+      }
     } catch (err) {
       const loadError = err instanceof Error ? err.message : "Lỗi không xác định khi tải ví dụ.";
       setFormError(`Lỗi tải ví dụ: ${loadError}`);
@@ -139,7 +145,7 @@ const ConfigForm: React.FC = () => {
       <h2><i className="fas fa-sliders-h"></i> Thông tin cấu hình</h2>
       {(formError || contextError) && <p className="error-message">{formError || contextError}</p>}
       {isLoading && <p className="loading-message">Đang xử lý...</p>}
-
+      {/* Chọn file */}
       <div className="config-item">
         <label htmlFor="file-upload-input"><i className="fas fa-file-upload"></i> Upload File (JSON):</label>
         <div className="file-upload-container">
@@ -150,21 +156,24 @@ const ConfigForm: React.FC = () => {
           <span id="file-name-display">{fileNameDisplay}</span>
         </div>
       </div>
-
+      {/* Chọn Bloom Level  */}
       <div className="config-item">
         <Select
           id="config-bloomLevel" // Thay đổi id để khớp key trong localConfig
-          label={<><i className="fas fa-layer-group"></i> Chọn thang Bloom:</>}
+          label="Chọn thang Bloom:"
+          icon={<i className="fas fa-layer-group"></i>}
           options={bloomOptions}
           value={localConfig.bloomLevel || ""}
           onChange={(val) => handleInputChange({ target: { id: 'config-bloomLevel', value: val, type: 'select-one' } } as any)}
         />
       </div>
-
+      {/* Chọn Q-Type */}
+      {/* Chỉ hiển thị nếu đã chọn Bloom Level */}
       <div className="config-item">
         <Select
           id="config-questionType" // Thay đổi id
-          label={<><i className="fas fa-tag"></i> Loại câu hỏi (Q-type):</>}
+          label="Loại câu hỏi (Q-type):"
+          icon={<i className="fas fa-tag"></i>}
           options={qTypeOptionsForSelect}
           value={localConfig.questionType || ""}
           onChange={(val) => handleInputChange({ target: { id: 'config-questionType', value: val, type: 'select-one' } } as any)}
@@ -172,7 +181,7 @@ const ConfigForm: React.FC = () => {
         />
         {qTypeHint && <small className="hint" style={{whiteSpace: 'pre-line'}}>{qTypeHint}</small>}
       </div>
-
+      {/* Chọn số lượng câu hỏi */}
       <div className="config-item">
         <label htmlFor="config-numQuestions"><i className="fas fa-sort-numeric-up"></i> Số lượng câu hỏi (tham khảo):</label>
         <input
@@ -185,9 +194,11 @@ const ConfigForm: React.FC = () => {
       </div>
 
       <div className="button-group">
+        {/* Chỉ hiển thị nút tải ví dụ nếu không có file được chọn */}
         <Button type="submit" variant="primary" disabled={isLoading}>
           <i className="fas fa-check"></i> Xác nhận cấu hình
         </Button>
+        {/* Load ví dụ */}
         <Button type="button" variant="secondary" onClick={handleLoadExample} disabled={isLoading}>
           <i className="fas fa-vial"></i> Tải Ví Dụ
         </Button>

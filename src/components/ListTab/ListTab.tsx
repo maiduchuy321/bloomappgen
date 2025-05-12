@@ -101,7 +101,7 @@ const ListTab: React.FC<ListTabProps> = ({ setActiveTab }) => {
                                                // Hoặc không làm gì nếu ViewTab không thể hiển thị trực tiếp từ allQuestions
             setActiveTab('view');
         } else {
-             alert("Lỗi: Không tìm thấy câu hỏi.");
+            alert("Lỗi: Không tìm thấy câu hỏi.");
         }
     }
   }, [contextFilteredQuestions, allQuestions, goToQuestionInViewTab, setActiveTab]);
@@ -159,7 +159,7 @@ const ListTab: React.FC<ListTabProps> = ({ setActiveTab }) => {
             {locallyFilteredQuestions.length === 0 && debouncedSearchTerm && (
                 <p className="empty-table" style={{textAlign: 'center', padding: '20px'}}>Không tìm thấy câu hỏi nào với từ khóa "{debouncedSearchTerm}".</p>
             )}
-             {locallyFilteredQuestions.length === 0 && !debouncedSearchTerm && (
+            {locallyFilteredQuestions.length === 0 && !debouncedSearchTerm && (
                 <p className="empty-table" style={{textAlign: 'center', padding: '20px'}}>Không có câu hỏi nào. Hãy thử tải dữ liệu ở tab "Cấu Hình".</p>
             )}
           </>

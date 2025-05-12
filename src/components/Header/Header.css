@@ -32,18 +32,20 @@
     align-items: center;
     gap: var(--space-sm); /* Khoảng cách giữa icon và text */
     margin: 0; /* Reset margin */
-    color: white; /* Đảm bảo chữ trắng */
+    color: var(--text-primary); /* Màu chữ chính */
   }
   
   .app-header h1 i {
     color: var(--primary-color); /* Màu icon */
     font-size: 1.2em; /* Icon lớn hơn một chút */
   }
-  .dark-theme .app-header h1 i {
+  /* .dark-theme .app-header h1 i {
      color: var(--primary-light);
+  } */
+  
+  .dark-theme .app-header h1 {
+     color: var(--text-primary); /* Màu chữ chính trong dark mode */
   }
-  
-  
   /* Khu vực chứa nút gạt Theme */
   .theme-toggle {
     display: flex;

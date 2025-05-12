@@ -1,6 +1,6 @@
 // src/components/question/EditQuestionModal.tsx
 import React, { useState, useEffect } from 'react';
-import { Question, QuestionOption } from '../../models/Question';
+import type { Question, QuestionOption } from '../../models/Question';
 import { Button } from '../shared/Button';
 import { v4 as uuidv4 } from 'uuid';
 import { ContentRenderer } from '../shared/ContentRenderer';
@@ -19,14 +19,47 @@ export const EditQuestionModal: React.FC<EditQuestionModalProps> = ({
   question,
   onSave
 }) => {
-  const [editedQuestion, setEditedQuestion] = useState<Question>({ ...question });
+  // Create a deep clone of the question to avoid reference issues
+  const [editedQuestion, setEditedQuestion] = useState<Question>(() => JSON.parse(JSON.stringify(question)));
   const [newOptionText, setNewOptionText] = useState('');
   const [activeTab, setActiveTab] = useState('basic');
   const [previewMode, setPreviewMode] = useState(false);
 
+  // Make sure context and explanation objects are initialized
   useEffect(() => {
-    // Reset form when modal opens with fresh data
-    setEditedQuestion({ ...question });
+    if (isOpen) {
+      // Deep clone to avoid reference issues
+      const questionCopy = JSON.parse(JSON.stringify(question));
+      
+      // Ensure all required objects exist
+      if (!questionCopy.context) {
+        questionCopy.context = {
+          courseTitle: '',
+          courseDescription: '',
+          moduleNumber: '',
+          topic: ''
+        };
+      }
+      
+      if (!questionCopy.explanation) {
+        questionCopy.explanation = {
+          correct: '',
+          wrong: ''
+        };
+      }
+      
+      if (!questionCopy.options) {
+        questionCopy.options = [];
+      }
+      
+      if (!questionCopy.tags && questionCopy.tags !== '') {
+        questionCopy.tags = [];
+      }
+      
+      setEditedQuestion(questionCopy);
+      setActiveTab('basic');
+      setPreviewMode(false);
+    }
   }, [question, isOpen]);
 
   if (!isOpen) return null;
@@ -37,31 +70,31 @@ export const EditQuestionModal: React.FC<EditQuestionModalProps> = ({
     // Handle nested properties
     if (name.includes('.')) {
       const [parent, child] = name.split('.');
-      setEditedQuestion({
-        ...editedQuestion,
+      setEditedQuestion(prev => ({
+        ...prev,
         [parent]: {
-          ...(editedQuestion[parent as keyof Question] as any),
+          ...(prev[parent as keyof Question] as any),
           [child]: value
         }
-      });
+      }));
     } else {
-      setEditedQuestion({
-        ...editedQuestion,
+      setEditedQuestion(prev => ({
+        ...prev,
         [name]: value
-      });
+      }));
     }
   };
 
   const handleExplanationChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     
-    setEditedQuestion({
-      ...editedQuestion,
+    setEditedQuestion(prev => ({
+      ...prev,
       explanation: {
-        ...editedQuestion.explanation,
+        ...prev.explanation,
         [name]: value
       }
-    });
+    }));
   };
 
   const handleAddOption = () => {
@@ -72,41 +105,99 @@ export const EditQuestionModal: React.FC<EditQuestionModalProps> = ({
       text: newOptionText,
     };
 
-    setEditedQuestion({
-      ...editedQuestion,
-      options: [...(editedQuestion.options || []), newOption]
-    });
+    setEditedQuestion(prev => ({
+      ...prev,
+      options: [...(prev.options || []), newOption]
+    }));
     
     setNewOptionText('');
   };
 
   const handleUpdateOption = (id: string, text: string) => {
-    setEditedQuestion({
-      ...editedQuestion,
-      options: (editedQuestion.options || []).map(option => 
+    setEditedQuestion(prev => ({
+      ...prev,
+      options: (prev.options || []).map(option => 
         option.id === id ? { ...option, text } : option
       )
-    });
+    }));
   };
 
   const handleRemoveOption = (id: string) => {
-    setEditedQuestion({
-      ...editedQuestion,
-      options: (editedQuestion.options || []).filter(option => option.id !== id),
-      correctAnswerId: editedQuestion.correctAnswerId === id ? '' : editedQuestion.correctAnswerId
-    });
+    setEditedQuestion(prev => ({
+      ...prev,
+      options: (prev.options || []).filter(option => option.id !== id),
+      correctAnswerId: prev.correctAnswerId === id ? '' : prev.correctAnswerId
+    }));
   };
 
   const handleSetCorrectAnswer = (id: string) => {
-    setEditedQuestion({
-      ...editedQuestion,
+    setEditedQuestion(prev => ({
+      ...prev,
       correctAnswerId: id
-    });
+    }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSave(editedQuestion);
+    
+    // Normalize data before saving
+    const normalizedQuestion = normalizeQuestionBeforeSave(editedQuestion);
+    
+    // Call the onSave callback with the normalized question
+    onSave(normalizedQuestion);
+  };
+
+  // Normalize question data before saving
+  const normalizeQuestionBeforeSave = (question: Question): Question => {
+    // Convert empty strings to proper values
+    const normalizedQuestion = { ...question };
+    
+    // Convert number string to actual number
+    if (typeof normalizedQuestion.number === 'string') {
+      normalizedQuestion.number = parseInt(normalizedQuestion.number, 10) || 0;
+    }
+    
+    // Make sure context object is complete
+    if (!normalizedQuestion.context) {
+      normalizedQuestion.context = {
+        courseTitle: '',
+        courseDescription: '',
+        moduleNumber: '',
+        topic: ''
+      };
+    }
+    
+    // Parse module number to integer if it's a string
+    if (typeof normalizedQuestion.context.moduleNumber === 'string') {
+      normalizedQuestion.context.moduleNumber = normalizedQuestion.context.moduleNumber.trim() ? 
+        parseInt(normalizedQuestion.context.moduleNumber, 10) || 0 : 0;
+    }
+    
+    // Ensure explanation object exists
+    if (!normalizedQuestion.explanation) {
+      normalizedQuestion.explanation = {
+        correct: '',
+        wrong: ''
+      };
+    }
+    
+    // Make sure options is an array
+    if (!Array.isArray(normalizedQuestion.options)) {
+      normalizedQuestion.options = [];
+    }
+    
+    // Process tags - convert from string if needed
+    if (typeof normalizedQuestion.tags === 'string') {
+      normalizedQuestion.tags = (normalizedQuestion.tags as string)
+        .split(',')
+        .map(tag => tag.trim())
+        .filter(tag => tag);
+    }
+    
+    // Set last updated info
+    normalizedQuestion.lastUpdated = new Date().toISOString();
+    
+    return normalizedQuestion;
   };
 
   const togglePreviewMode = () => {
@@ -159,7 +250,7 @@ export const EditQuestionModal: React.FC<EditQuestionModalProps> = ({
                   {editedQuestion.context.moduleNumber && (
                     <p className="context-module-info">
                       <i className="fas fa-puzzle-piece"></i> Module:{' '}
-                      <strong>{editedQuestion.context.moduleNumber.toString()}</strong>
+                      <strong>{String(editedQuestion.context.moduleNumber)}</strong>
                     </p>
                   )}
                   {editedQuestion.context.topic && (
@@ -207,6 +298,14 @@ export const EditQuestionModal: React.FC<EditQuestionModalProps> = ({
                       <ContentRenderer text={editedQuestion.explanation?.correct || ''} keyPrefix="preview-explanation" />
                     </div>
                   </div>
+                  {editedQuestion.explanation?.wrong && (
+                    <div className="wrong-explanation">
+                      <h4>Lý do những đáp án khác không đúng:</h4>
+                      <div className="explanation-content">
+                        <ContentRenderer text={editedQuestion.explanation.wrong} keyPrefix="preview-wrong-explanation" />
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -530,10 +629,10 @@ export const EditQuestionModal: React.FC<EditQuestionModalProps> = ({
                     value={Array.isArray(editedQuestion.tags) ? editedQuestion.tags.join(', ') : (editedQuestion.tags || '')}
                     onChange={(e) => {
                       const tagsArray = e.target.value.split(',').map(tag => tag.trim()).filter(tag => tag);
-                      setEditedQuestion({
-                        ...editedQuestion,
+                      setEditedQuestion(prev => ({
+                        ...prev,
                         tags: tagsArray
-                      });
+                      }));
                     }}
                     placeholder="Nhập tags, cách nhau bởi dấu phẩy"
                   />

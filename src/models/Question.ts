@@ -59,6 +59,7 @@ export interface Question {
   tokensOutput?: number;
   // isBookmarked?: boolean; // Đã bỏ
   rating?: number; // Thêm trường đánh giá từ 1-5
+  genbyLLM?: boolean; // Thêm trường genbyLLM
 }
 
 // Cấu hình người dùng

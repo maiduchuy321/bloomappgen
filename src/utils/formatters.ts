@@ -5,19 +5,23 @@
  * @param text Text to escape
  * @returns Escaped HTML string
  */
-export function escapeHtml(text: string): string {
-    if (!text) return '';
-    
-    const map: Record<string, string> = {
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      '"': '&quot;',
-      "'": '&#039;'
-    };
-    
-    return text.replace(/[&<>"']/g, (m) => map[m]);
-  }
+export function escapeHtml(text: any): string {
+  // Kiểm tra nếu text là null hoặc undefined
+  if (text === null || text === undefined) return '';
+  
+  // Chuyển đổi thành chuỗi nếu text không phải là chuỗi
+  const stringText = typeof text === 'string' ? text : String(text);
+  
+  const map: Record<string, string> = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  
+  return stringText.replace(/[&<>"']/g, (m) => map[m]);
+}
   
   /**
    * Formats code blocks in text, converting markdown ```code``` blocks

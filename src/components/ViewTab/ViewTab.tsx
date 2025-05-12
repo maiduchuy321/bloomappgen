@@ -4,10 +4,6 @@ import { useQuestions } from '../../contexts/QuestionContext';
 import { QuestionControls } from './QuestionControls';
 import { QuestionCard } from './QuestionCard';
 import './ViewTab.css'; // CSS riêng
-// Import icons or illustrations if you have them
-// import { ReactComponent as NoQuestionsIcon } from '../../assets/no-questions.svg';
-// import { ReactComponent as LoadingIcon } from '../../assets/loading.svg';
-// import { ReactComponent as ErrorIcon } from '../../assets/error.svg';
 
 
 const ViewTab: React.FC = () => {
@@ -16,6 +12,7 @@ const ViewTab: React.FC = () => {
   return (
     <div className="tab-content active" id="view-tab">
       <QuestionControls />
+      {/* Loading dữ liệu */}
       {isLoading && (
          <div className="loading-message card-like"> {/* Use card-like for consistent visual */ }
             {/* <LoadingIcon className="status-icon" /> Add an icon/illustration */}
@@ -23,6 +20,7 @@ const ViewTab: React.FC = () => {
             <p>Đang tải câu hỏi...</p>
          </div>
       )}
+      {/* Lỗi khi tải dữ liệu */}
       {error && (
         <div className="error-message card-like"> {/* Use card-like */}
            {/* <ErrorIcon className="status-icon" /> Add an icon/illustration */}
@@ -30,6 +28,7 @@ const ViewTab: React.FC = () => {
            <p>Lỗi: {error}</p>
         </div>
       )}
+      {/* Không có câu hỏi nào khớp với bộ lọc hiện tại */}
       {!isLoading && !error && filteredQuestions.length === 0 && (
         <div className="empty-state card-like"> {/* Use card-like */}
             {/* <NoQuestionsIcon className="status-icon" /> Add an icon/illustration */}
@@ -38,6 +37,7 @@ const ViewTab: React.FC = () => {
             {/* <p className="mt-sm">Vui lòng kiểm tra tab "Cấu Hình" để tải dữ liệu.</p> Add hint */}
         </div>
       )}
+      {/* Nếu có câu hỏi đã được chọn, hiển thị nó */}
        {/* This state is less likely if filterQuestions works correctly, but keep for robustness */}
       {!isLoading && !error && filteredQuestions.length > 0 && !currentQuestion && (
          <div className="empty-state card-like"> {/* Use card-like */}
@@ -46,6 +46,7 @@ const ViewTab: React.FC = () => {
             <p>Đã tải dữ liệu, nhưng không có câu hỏi nào khớp với bộ lọc hiện tại.</p>
         </div>
       )}
+      {/* Nếu có câu hỏi đã được chọn, hiển thị nó */}
       {!isLoading && !error && currentQuestion && (
         <QuestionCard question={currentQuestion} />
       )}

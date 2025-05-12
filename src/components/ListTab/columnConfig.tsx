@@ -1,6 +1,6 @@
 // src/components/ListTab/columnConfig.ts
 import React from 'react'; 
-import { Question } from '../../models/Question';
+import type { Question } from '../../models/Question';
 import { escapeHtml } from '../../utils/formatters';
 
 export interface ColumnConfig<T> {
@@ -64,16 +64,30 @@ export const tableColumnsConfig: ColumnConfig<Question>[] = [
   {
     header: 'Bloom',
     accessorKey: 'bloomLevel',
-    cell: (row) => <span className="tag bloom-tag">{row.bloomLevel || 'N/A'}</span>,
+    cell: (row) => row.bloomLevel || 'N/A',
     textAlign: 'text-center',
     width: '120px'
   },
   {
     header: 'Q-Type',
     accessorKey: 'questionType', // Sẽ hiển thị ID, cần map sang name nếu muốn
-    cell: (row) => <span className="tag qtype-tag">{row.questionType || 'N/A'}</span>,
+    cell: (row) => row.questionType || 'N/A',
     textAlign: 'text-center',
     width: '120px'
+  },
+  {
+    header: 'Genby',
+    accessorKey: 'genbyLLM',
+    cell: (row) => row.genbyLLM === true ? 'LLM' : 'Human',
+    textAlign: 'text-center',
+    width: '100px'
+  },
+  {
+    header: 'Rating',
+    accessorKey: 'rating',
+    cell: (row) => row.rating !== undefined ? row.rating : 'N/A',
+    textAlign: 'text-center',
+    width: '80px'
   },
   // 'Hành động' sẽ được xử lý riêng trong QuestionTable component
 ];
