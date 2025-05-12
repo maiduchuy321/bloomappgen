@@ -10,7 +10,6 @@ import type {
   Question, // Kiểu dữ liệu cho một câu hỏi
   QuestionOption, // Kiểu dữ liệu cho một tùy chọn của câu hỏi
   UserConfig, // Kiểu dữ liệu cho cấu hình lọc/hiển thị của người dùng
-  CourseContext // Kiểu dữ liệu cho ngữ cảnh (thông tin khóa học/module) của câu hỏi
 } from '../models/Question';
 
 // Nhập định nghĩa về các loại câu hỏi theo cấp độ Bloom và kiểu QuestionType
@@ -20,7 +19,7 @@ import { BloomLevel } from '../models/BloomLevel';
 
 // --- HẰNG SỐ (CONSTANTS) ---
 // Định nghĩa đường dẫn đến file JSON chứa dữ liệu câu hỏi mẫu.
-const EXAMPLE_QUESTIONS_PATH = '../data_example/questions_Exemple_Bloom_Level.json';
+const EXAMPLE_QUESTIONS_PATH = '../public/data_example/questions_Exemple_Bloom_Level.json';
 
 // --- GIAO DIỆN (INTERFACES) CHO CONTEXT ---
 // Định nghĩa kiểu dữ liệu cho giá trị mà QuestionContext sẽ cung cấp.
@@ -69,27 +68,32 @@ export const QuestionContext = createContext<QuestionContextType | undefined>(un
 // Hàm này chuẩn hóa dữ liệu tùy chọn câu hỏi từ các định dạng khác nhau sang định dạng mảng QuestionOption[] chuẩn.
 // Dữ liệu đầu vào có thể là object { A: "text", B: "text" } hoặc array of strings ["text A", "text B"].
 function normalizeOptionsArray(optionsData: any, correctAnswerKey?: string): QuestionOption[] {
-  const options: QuestionOption[] = []; // Mảng lưu các tùy chọn đã được chuẩn hóa
-  // Kiểm tra nếu dữ liệu tùy chọn là object và không phải null, không phải mảng
+  const options: QuestionOption[] = [];
+
   if (typeof optionsData === 'object' && optionsData !== null && !Array.isArray(optionsData)) {
-    // Chuyển đổi từ object { A: "text", B: "text" } sang mảng QuestionOption[]
     Object.entries(optionsData).forEach(([key, value]) => {
-      // Chỉ xử lý nếu giá trị là string
       if (typeof value === 'string') {
-        options.push({ id: key, text: value }); // Thêm tùy chọn vào mảng kết quả
+        options.push({
+          id: key,
+          text: value,
+          isCorrect: correctAnswerKey ? key === correctAnswerKey : undefined
+        });
       }
     });
   } else if (Array.isArray(optionsData)) {
-    // Nếu dữ liệu là mảng các chuỗi ["text A", "text B"]
     optionsData.forEach((optText, i) => {
-      // Chỉ xử lý nếu giá trị là string
       if (typeof optText === 'string') {
-        const letter = String.fromCharCode(65 + i); // Tạo ID tự động (A, B, C...)
-        options.push({ id: letter, text: optText }); // Thêm tùy chọn vào mảng kết quả
+        const letter = String.fromCharCode(65 + i); // A, B, C, D...
+        options.push({
+          id: letter,
+          text: optText,
+          isCorrect: correctAnswerKey ? letter === correctAnswerKey : undefined
+        });
       }
     });
   }
-  return options; // Trả về mảng tùy chọn đã chuẩn hóa
+
+  return options;
 }
 
 // Hàm này chuẩn hóa một đối tượng câu hỏi thô (từ JSON) sang định dạng Question chuẩn.
@@ -450,6 +454,7 @@ export const QuestionProvider: React.FC<QuestionProviderProps> = ({
     });
   };
 
+  
 
   // Hàm tải các câu hỏi mẫu từ đường dẫn cố định (EXAMPLE_QUESTIONS_PATH).
   // Đây là một hàm bất đồng bộ (async) trả về Promise.

@@ -1,14 +1,15 @@
 // src/models/BloomLevel.ts
 
-// Định nghĩa BloomLevel như một enum thay vì type
-export enum BloomLevel {
-  Remember = "Remember",
-  Understand = "Understand",
-  Apply = "Apply", 
-  Analyze = "Analyze",
-  Evaluate = "Evaluate",
-  Create = "Create"
-}
+export const BloomLevel = {
+  Remember: "Remember",
+  Understand: "Understand",
+  Apply: "Apply",
+  Analyze: "Analyze",
+  Evaluate: "Evaluate",
+  Create: "Create",
+} as const;
+
+export type BloomLevel = typeof BloomLevel[keyof typeof BloomLevel];
 
 export const bloomLevelLabels: Record<BloomLevel, string> = {
   [BloomLevel.Remember]: "Remember (Nhớ)",

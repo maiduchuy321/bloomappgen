@@ -340,13 +340,13 @@ export const EditQuestionModal: React.FC<EditQuestionModalProps> = ({
               >
                 <i className="fas fa-lightbulb"></i> Giải thích
               </button>
-              <button 
+              {/* <button 
                 type="button"
                 className={`tab-button ${activeTab === 'metadata' ? 'active' : ''}`}
                 onClick={() => setActiveTab('metadata')}
               >
                 <i className="fas fa-tags"></i> Metadata
-              </button>
+              </button> */}
             </div>
 
             {activeTab === 'basic' && (

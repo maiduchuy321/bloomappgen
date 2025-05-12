@@ -13,10 +13,10 @@ export const QuestionControls: React.FC = () => {
     currentQuestionIndex,
     userConfig,
     setUserConfig, // Dùng setUserConfig để cập nhật config global
-    filterQuestions, // Dùng filterQuestions từ context
+    // filterQuestions, // Dùng filterQuestions từ context
     prevQuestion,
     nextQuestion,
-    getUniqueBloomLevels, // Lấy bloom levels từ context (dựa trên dữ liệu)
+    // getUniqueBloomLevels, // Lấy bloom levels từ context (dựa trên dữ liệu)
     // getUniqueQTypes,    // Lấy qtypes từ context
   } = useQuestions();
 

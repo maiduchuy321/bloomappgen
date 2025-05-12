@@ -4,6 +4,7 @@ import type { BloomLevel } from './BloomLevel';
 export interface QuestionOption {
   id: string;
   text: string;
+  isCorrect?: boolean;
 }
 
 // Mô hình giải thích câu hỏi

@@ -16,32 +16,12 @@
     "jsx": "react-jsx",
 
     /* Linting */
-    // "strict": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "erasableSyntaxOnly": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
-
-
-      // Bỏ qua lỗi biến không sử dụng
-  "noUnusedLocals": false,
-  "noUnusedParameters": false,
-  "erasableSyntaxOnly": false,
-  // Tắt kiểm tra strict cho undefined
-  "strictNullChecks": false,
-  
-  // Nếu bạn đang gặp vấn đề với erasableSyntaxOnly
-  "isolatedModules": false,
-  
-  // Tắt kiểm tra strict cho các lỗi về kiểu dữ liệu
-  "strict": false,
-  
-  // Cho phép biểu thức JSX không cần kiểm tra
-  "jsx": "react-jsx",
-  
-  // Bỏ qua lỗi implicit any
-  "noImplicitAny": false
+    "noUncheckedSideEffectImports": true
   },
   "include": ["src"]
 }

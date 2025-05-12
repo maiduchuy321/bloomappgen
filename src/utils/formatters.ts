@@ -33,7 +33,7 @@ export function escapeHtml(text: any): string {
     if (!text) return '';
     
     // Tách và xử lý các code block
-    return text.replace(/```(\w*)\n([\s\S]*?)```/g, (match, language, code) => {
+    return text.replace(/```(\w*)\n([\s\S]*?)```/g, ( language, code) => {
       return `<pre class="code-block ${language ? `language-${language}` : ''}"><code>${escapeHtml(code)}</code></pre>`;
     });
   }
