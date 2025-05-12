@@ -169,8 +169,10 @@ export const EditQuestionModal: React.FC<EditQuestionModalProps> = ({
     
     // Parse module number to integer if it's a string
     if (typeof normalizedQuestion.context.moduleNumber === 'string') {
-      normalizedQuestion.context.moduleNumber = normalizedQuestion.context.moduleNumber.trim() ? 
-        parseInt(normalizedQuestion.context.moduleNumber, 10) || 0 : 0;
+      const moduleNumberString = normalizedQuestion.context.moduleNumber.trim();
+        normalizedQuestion.context.moduleNumber = moduleNumberString 
+        ? parseInt(moduleNumberString, 10) || 0 
+        : 0;  
     }
     
     // Ensure explanation object exists
@@ -577,7 +579,7 @@ export const EditQuestionModal: React.FC<EditQuestionModalProps> = ({
               </div>
             )}
 
-            {activeTab === 'metadata' && (
+            {/* {activeTab === 'metadata' && (
               <div className="form-section">
                 <h3>Metadata và thông tin phân loại</h3>
                 
@@ -660,13 +662,13 @@ export const EditQuestionModal: React.FC<EditQuestionModalProps> = ({
                   />
                 </div>
               </div>
-            )}
+            )} */}
 
             <div className="modal-footer">
               <Button type="button" variant="secondary" onClick={onClose}>
                 Hủy
               </Button>
-              <Button type="button" variant="info" onClick={togglePreviewMode}>
+              <Button type="button" variant="secondary" onClick={togglePreviewMode}>
                 <i className="fas fa-eye"></i> Xem trước
               </Button>
               <Button type="submit" variant="primary">

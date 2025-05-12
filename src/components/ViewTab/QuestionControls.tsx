@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import { useQuestions } from '../../contexts/QuestionContext';
 import { Select } from '../shared/Select';
 import { Button } from '../shared/Button';
-import { type BloomLevel, bloomLevelLabels } from '../../models/BloomLevel';
+import {  BloomLevel, bloomLevelLabels } from '../../models/BloomLevel';
 import { questionTypesByBloom, type QuestionType as AppQuestionType } from '../../models/QuestionType'; // Model QuestionType
 import './QuestionControls.css'; // CSS riêng
 
@@ -23,15 +23,13 @@ export const QuestionControls: React.FC = () => {
   const currentBloomFilter = userConfig.bloomLevel || "";
   const currentQTypeFilter = userConfig.questionType || "";
 
-  // Options cho Bloom Select - có thể lấy từ enum hoặc từ dữ liệu thực tế
+  // Options cho Bloom Select - lấy từ enum
   const bloomOptions = useMemo(() => [
     { value: "", label: "Tất cả Bloom" },
     ...(Object.values(BloomLevel) as BloomLevel[]).map(level => ({
       value: level,
       label: bloomLevelLabels[level]
     }))
-    // Hoặc nếu muốn lấy từ dữ liệu:
-    // ...getUniqueBloomLevels().map(level => ({ value: level, label: bloomLevelLabels[level] || level }))
   ], []);
 
   // Options cho Q-Type Select, dựa vào Bloom đã chọn

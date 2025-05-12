@@ -1,5 +1,5 @@
 // src/models/QuestionType.ts
-import type { BloomLevel } from '../models/BloomLevel';
+import { BloomLevel } from './BloomLevel';
 
 export interface QuestionType {
   id: string;
@@ -14,7 +14,7 @@ export const questionTypesByBloom: Record<BloomLevel, QuestionType[]> = {
     { id: "recall", name: "Recall", bloomLevel: BloomLevel.Remember, description: "Ghi nhớ và tái hiện thông tin" },
   ],
   [BloomLevel.Understand]: [
-    { id: "Fill in the Blank", name: "Fill in the Blank", bloomLevel: BloomLevel.Understand, description: "Điền vào chỗ trống" },
+    { id: "fill_in_the_blank", name: "Fill in the Blank", bloomLevel: BloomLevel.Understand, description: "Điền vào chỗ trống" },
   ],
   [BloomLevel.Apply]: [
     { id: "fill_in_the_blank", name: "Fill in the Blank", bloomLevel: BloomLevel.Apply, description: "Điền vào chỗ trống" },

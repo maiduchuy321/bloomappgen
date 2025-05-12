@@ -1,5 +1,4 @@
 // src/App.tsx
-import React from 'react';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { QuestionProvider } from './contexts/QuestionContext';
 import { MainPage } from './pages/MainPage';

@@ -16,7 +16,7 @@ import type {
 // Nhập định nghĩa về các loại câu hỏi theo cấp độ Bloom và kiểu QuestionType
 import { questionTypesByBloom, type QuestionType } from '../models/QuestionType';
 // Nhập định nghĩa về các cấp độ Bloom
-import { BloomLevel } from '../models/BloomLevel';
+import type { BloomLevel } from '../models/BloomLevel';
 
 // --- HẰNG SỐ (CONSTANTS) ---
 // Định nghĩa đường dẫn đến file JSON chứa dữ liệu câu hỏi mẫu.
