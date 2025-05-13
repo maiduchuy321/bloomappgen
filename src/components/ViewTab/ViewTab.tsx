@@ -1,6 +1,6 @@
 // src/components/ViewTab/ViewTab.tsx
 import React from 'react';
-import { useQuestions } from '../../contexts/QuestionContext';
+import { useQuestions } from '../../contexts/question/QuestionContext';
 import { QuestionControls } from './QuestionControls';
 import { QuestionCard } from './QuestionCard';
 import './ViewTab.css'; // CSS riêng

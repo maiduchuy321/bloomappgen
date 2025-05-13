@@ -1,6 +1,6 @@
 // src/hooks/useQuestions.ts
 import { useContext } from 'react';
-import { QuestionContext } from '../contexts/QuestionContext';
+import { QuestionContext } from '../contexts/question/QuestionContext';
 
 export const useQuestions = () => {
   const context = useContext(QuestionContext);

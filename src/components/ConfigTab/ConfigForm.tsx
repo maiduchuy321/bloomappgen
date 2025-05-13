@@ -1,6 +1,6 @@
 // src/components/ConfigTab/ConfigForm.tsx
 import React, { useState, type ChangeEvent, useEffect,type FormEvent } from 'react';
-import { useQuestions } from '../../contexts/QuestionContext'; // Sử dụng hook mới
+import { useQuestions } from '../../contexts/question/QuestionContext'; // Sử dụng hook mới
 import { Select } from '../shared/Select';
 import { Button } from '../shared/Button';
 import { BloomLevel, bloomLevelLabels } from '../../models/BloomLevel';
@@ -17,7 +17,7 @@ const ConfigForm: React.FC<ConfigFormProps> = ({setActiveTab}) => {
     setUserConfig: setGlobalUserConfig,
     loadQuestionsFromFile,
     loadExampleQuestions,
-    filterQuestions: applyGlobalFilter, // từ QuestionContext
+    // filterQuestions: applyGlobalFilter, // từ QuestionContext
     isLoading, // Lấy isLoading từ context
     error: contextError, // Lấy error từ context
   } = useQuestions();
@@ -99,7 +99,7 @@ const ConfigForm: React.FC<ConfigFormProps> = ({setActiveTab}) => {
       }
     } else {
       alert(`Đã ghi nhận cấu hình (không có file mới được tải).\nBloom: ${localConfig.bloomLevel || 'Tất cả'}\nQ-Type: ${localConfig.questionType || 'Tất cả'}`);
-      applyGlobalFilter(localConfig.bloomLevel, localConfig.questionType);
+      // applyGlobalFilter(localConfig.bloomLevel, localConfig.questionType);
     }
   };
 

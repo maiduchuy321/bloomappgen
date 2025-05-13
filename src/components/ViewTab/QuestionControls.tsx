@@ -1,6 +1,6 @@
 // src/components/ViewTab/QuestionControls.tsx
 import React, { useMemo } from 'react';
-import { useQuestions } from '../../contexts/QuestionContext';
+import { useQuestions } from '../../contexts/question/QuestionContext';
 import { Select } from '../shared/Select';
 import { Button } from '../shared/Button';
 import {  BloomLevel, bloomLevelLabels } from '../../models/BloomLevel';
@@ -13,7 +13,6 @@ export const QuestionControls: React.FC = () => {
     currentQuestionIndex,
     userConfig,
     setUserConfig, // Dùng setUserConfig để cập nhật config global
-    // filterQuestions, // Dùng filterQuestions từ context
     prevQuestion,
     nextQuestion,
     // getUniqueBloomLevels, // Lấy bloom levels từ context (dựa trên dữ liệu)

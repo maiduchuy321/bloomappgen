@@ -1,6 +1,6 @@
 // src/components/ListTab/ListTab.tsx
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
-import { useQuestions } from '../../contexts/QuestionContext';
+import { useQuestions } from '../../contexts/question/QuestionContext';
 import { usePagination } from '../../hooks/usePagination'; // Hook bạn đã tạo
 import { QuestionTable } from './QuestionTable';
 import { TablePagination } from './TablePagination';
@@ -18,7 +18,7 @@ const ListTab: React.FC<ListTabProps> = ({ setActiveTab }) => {
     isLoading,
     error,
     goToQuestion: goToQuestionInViewTab, // Đổi tên để rõ ràng
-    deleteQuestionById,
+    // deleteQuestionById,
     filteredQuestions: contextFilteredQuestions // Dùng để tìm index khi xem chi tiết
   } = useQuestions();
 
@@ -107,17 +107,17 @@ const ListTab: React.FC<ListTabProps> = ({ setActiveTab }) => {
   }, [contextFilteredQuestions, allQuestions, goToQuestionInViewTab, setActiveTab]);
 
 
-  const handleDeleteQuestion = useCallback((questionId: string, questionTextSnippet: string) => {
-    if (window.confirm(`Bạn có chắc chắn muốn xóa câu hỏi "${questionTextSnippet}" (ID: ${questionId}) không?`)) {
-      const success = deleteQuestionById(questionId);
-      if (success) {
-        alert(`Đã xóa câu hỏi ID ${questionId}.`);
-        // Pagination sẽ tự cập nhật do locallyFilteredQuestions thay đổi
-      } else {
-        alert(`Lỗi: Không thể xóa câu hỏi ID ${questionId}.`);
-      }
-    }
-  }, [deleteQuestionById]);
+  // const handleDeleteQuestion = useCallback((questionId: string, questionTextSnippet: string) => {
+  //   if (window.confirm(`Bạn có chắc chắn muốn xóa câu hỏi "${questionTextSnippet}" (ID: ${questionId}) không?`)) {
+  //     const success = deleteQuestionById(questionId);
+  //     if (success) {
+  //       alert(`Đã xóa câu hỏi ID ${questionId}.`);
+  //       // Pagination sẽ tự cập nhật do locallyFilteredQuestions thay đổi
+  //     } else {
+  //       alert(`Lỗi: Không thể xóa câu hỏi ID ${questionId}.`);
+  //     }
+  //   }
+  // }, [deleteQuestionById]);
 
   return (
     <div className="tab-content active" id="list-tab">

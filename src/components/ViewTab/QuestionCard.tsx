@@ -1,7 +1,7 @@
 // src/components/question/QuestionCard.tsx
 import React, { useState } from 'react';
 import type { Question, QuestionOption } from '../../models/Question';
-import { useQuestions } from '../../contexts/QuestionContext';
+import { useQuestions } from '../../contexts/question/QuestionContext';
 import { ExplanationSection } from './ExplanationSection';
 import { EditQuestionModal } from './EditQuestionModal';
 import { ContentRenderer } from '../shared/ContentRenderer';

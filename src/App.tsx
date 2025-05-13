@@ -1,6 +1,6 @@
 // src/App.tsx
 import { ThemeProvider } from './contexts/ThemeContext';
-import { QuestionProvider } from './contexts/QuestionContext';
+import { QuestionProvider } from './contexts/question/QuestionProvider';
 import { MainPage } from './pages/MainPage';
 
 // Global styles & external libraries CSS
