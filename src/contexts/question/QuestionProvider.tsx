@@ -38,8 +38,8 @@ export const QuestionProvider: React.FC<QuestionProviderProps> = ({
     dispatch({ type: 'UPDATE_QUESTION', payload: { id, updatedQuestion } });
   }, []);
 
-  const deleteQuestion = useCallback((id: string) => {
-    dispatch({ type: 'DELETE_QUESTION', payload: id });
+  const deleteQuestionById = useCallback((id: string) => {
+    dispatch({ type: 'DELETE_QUESTION_BY_ID', payload: id });
   }, []);
 
   const rateQuestion = useCallback((id: string, rating: number) => {
@@ -144,7 +144,7 @@ export const QuestionProvider: React.FC<QuestionProviderProps> = ({
     error: state.error,
     addQuestion,
     updateQuestion,
-    deleteQuestion,
+    deleteQuestionById,
     rateQuestion,
     loadQuestionsFromFile,
     loadExampleQuestions,

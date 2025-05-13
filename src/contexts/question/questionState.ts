@@ -24,7 +24,7 @@ export type QuestionAction =
   | { type: 'LOAD_QUESTIONS_ERROR'; payload: { error: string; source: string } }
   | { type: 'ADD_QUESTION'; payload: Question }
   | { type: 'UPDATE_QUESTION'; payload: { id: string; updatedQuestion: Question } }
-  | { type: 'DELETE_QUESTION'; payload: string }
+  | { type: 'DELETE_QUESTION_BY_ID'; payload: string }
   | { type: 'RATE_QUESTION'; payload: { id: string; rating: number } }
   | { type: 'SET_USER_CONFIG'; payload: Partial<UserConfig> }
   | { type: 'GO_TO_QUESTION'; payload: number }
@@ -146,7 +146,7 @@ export const questionReducer = (state: QuestionState, action: QuestionAction): Q
         currentQuestionIndex: newIndex,
       };
     }
-    case 'DELETE_QUESTION': {
+    case 'DELETE_QUESTION_BY_ID': {
       const idToDelete = action.payload;
       const originalCurrentIndex = state.currentQuestionIndex;
       const originalFilteredQuestions = [...state.filteredQuestions];

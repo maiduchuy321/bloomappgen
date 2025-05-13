@@ -18,7 +18,8 @@ const ListTab: React.FC<ListTabProps> = ({ setActiveTab }) => {
     isLoading,
     error,
     goToQuestion: goToQuestionInViewTab, // Đổi tên để rõ ràng
-    // deleteQuestionById,
+    setUserConfig,
+    deleteQuestionById,
     filteredQuestions: contextFilteredQuestions // Dùng để tìm index khi xem chi tiết
   } = useQuestions();
 
@@ -82,42 +83,101 @@ const ListTab: React.FC<ListTabProps> = ({ setActiveTab }) => {
   }, [locallyFilteredQuestions, paginatedItems]);
 
 
+  // const handleViewQuestion = useCallback((questionId: string) => {
+  //   // Tìm index trong danh sách đã được filter bởi context (là nguồn chính cho ViewTab)
+    
+  //   const indexInContext = contextFilteredQuestions.findIndex(q => q.id === questionId);
+  //   if (indexInContext !== -1) {
+  //       goToQuestionInViewTab(indexInContext);
+  //       setActiveTab('view'); // Chuyển sang tab Xem
+  //   } else {
+  //       // Nếu không tìm thấy trong contextFilteredQuestions (ví dụ filter ở ViewTab khác),
+  //       // thử tìm trong allQuestions và áp dụng filter mới cho ViewTab
+  //       const indexInAll = allQuestions.findIndex(q => q.id === questionId);
+  //       if (indexInAll !== -1) {
+  //           // Bạn có thể muốn reset filter của ViewTab ở đây hoặc thông báo người dùng
+  //           // Hiện tại, chỉ chuyển đến câu hỏi đó trong `allQuestions` nếu ViewTab đang hiển thị `allQuestions` (ít filter)
+  //           // Hoặc, logic tốt hơn là cập nhật `userConfig` để ViewTab filter đúng câu hỏi đó
+  //           console.warn(`Câu hỏi ${questionId} không nằm trong bộ lọc hiện tại của ViewTab. Chuyển đến câu hỏi trong danh sách đầy đủ (nếu có).`);
+  //           goToQuestionInViewTab(indexInAll); // Chuyển đến index trong allQuestions (cần ViewTab hỗ trợ)
+  //                                              // Hoặc không làm gì nếu ViewTab không thể hiển thị trực tiếp từ allQuestions
+  //           setActiveTab('view');
+  //       } else {
+  //           alert("Lỗi: Không tìm thấy câu hỏi.");
+  //       }
+  //   }
+  // }, [contextFilteredQuestions, allQuestions, goToQuestionInViewTab, setActiveTab]);
   const handleViewQuestion = useCallback((questionId: string) => {
     // Tìm index trong danh sách đã được filter bởi context (là nguồn chính cho ViewTab)
-    const indexInContext = contextFilteredQuestions.findIndex(q => q.id === questionId);
-    if (indexInContext !== -1) {
-        goToQuestionInViewTab(indexInContext);
-        setActiveTab('view'); // Chuyển sang tab Xem
+    console.log('[ListTab handleViewQuestion] View question ID:', questionId);
+    const questionToView = allQuestions?.find(q => q.id === questionId);
+    // const indexInContext = contextFilteredQuestions.findIndex(q => q.id === questionId);
+    if (questionToView) {
+      // 1. Reset bộ lọc của ViewTab (userConfig trong context)
+      // Điều này sẽ đảm bảo câu hỏi có thể được hiển thị.
+      // Bạn có thể reset hoàn toàn hoặc chỉ reset các phần cần thiết.
+      // Reset hoàn toàn:
+      console.log('[ListTab handleViewQuestion] Resetting userConfig for ViewTab');
+      setUserConfig({
+        bloomLevel: '', // Reset Bloom
+        questionType: '', // Reset Q-Type
+        // Giữ lại numQuestions nếu bạn muốn: numQuestions: userConfig.numQuestions (cần lấy userConfig từ context)
+      });// 2. Tìm index của câu hỏi trong danh sách allQuestions (vì filter đã được reset)
+      // Sau khi setUserConfig, context sẽ re-render, allQuestions sẽ được lọc lại
+      // Tuy nhiên, để đảm bảo goToQuestionInViewTab nhận đúng index *sau khi* state context cập nhật,
+      // có thể cần một chút khéo léo hoặc chấp nhận rằng ViewTab sẽ tự tìm câu hỏi đầu tiên.
+      // Cách đơn giản hơn: dựa vào việc ViewTab sẽ tự động hiển thị câu hỏi đầu tiên
+      // sau khi filter được reset và danh sách filteredQuestions của context thay đổi.
+      // Hoặc, chúng ta có thể dựa vào cơ chế của ViewTab để tìm đúng câu hỏi sau khi filter reset.
+
+      // Để đảm bảo câu hỏi ĐÚNG được chọn sau khi reset filter:
+      // Ta cần đợi state context cập nhật sau setUserConfig.
+      // Một cách là sử dụng setTimeout 0 để đẩy việc tìm index và goToQuestion vào chu kỳ render tiếp theo.
+      // Hoặc, cách tốt hơn là truyền ID câu hỏi và để ViewTab tự xử lý việc chọn nó sau khi filter.
+      // Hiện tại, goToQuestionInViewTab nhận index.
+
+      // CÁCH TIẾP CẬN 1: Đơn giản là reset filter và để ViewTab tự hiển thị.
+      // ViewTab sẽ hiển thị currentQuestion, và currentQuestionIndex sẽ là 0 sau khi reset.
+      // Nếu muốn nó trỏ đúng đến câu hỏi vừa click, cần phức tạp hơn.
+
+      // CÁCH TIẾP CẬN 2: Reset filter và cố gắng điều hướng đến đúng câu hỏi.
+      // Điều này có thể không hoạt động ngay lập tức vì setUserConfig là bất đồng bộ
+      // và `allQuestions` hoặc `contextFilteredQuestions` chưa cập nhật ngay.
+
+      // Giải pháp thực tế hơn:
+      // Trong QuestionProvider, khi SET_USER_CONFIG, nếu có một "targetQuestionIdToSelectAfterFilter",
+      // thì sau khi tính newFiltered, tìm index của targetId và set currentQuestionIndex.
+      // Hoặc, ViewTab có thể nhận một prop `targetQuestionId` và tự xử lý trong useEffect.
+
+      // TẠM THỜI, GIẢI PHÁP ĐƠN GIẢN HÓA:
+      // Reset filter, sau đó tìm index trong allQuestions (vì lúc này filteredQuestions của context sẽ gần như là allQuestions)
+      // và chuyển đến đó. ViewTab sẽ cập nhật khi context thay đổi.
+      const indexInAll = allQuestions.findIndex(q => q.id === questionId);
+      if (indexInAll !== -1) {
+        console.log(`[ListTab handleViewQuestion] Found question in allQuestions at index: ${indexInAll}. Navigating.`);
+        goToQuestionInViewTab(indexInAll);
+        setActiveTab('view');
+      } else {
+        // Trường hợp này không nên xảy ra nếu questionToView được tìm thấy
+        alert("Lỗi: Không tìm thấy câu hỏi trong danh sách đầy đủ sau khi reset filter.");
+      }
+
     } else {
-        // Nếu không tìm thấy trong contextFilteredQuestions (ví dụ filter ở ViewTab khác),
-        // thử tìm trong allQuestions và áp dụng filter mới cho ViewTab
-        const indexInAll = allQuestions.findIndex(q => q.id === questionId);
-        if (indexInAll !== -1) {
-            // Bạn có thể muốn reset filter của ViewTab ở đây hoặc thông báo người dùng
-            // Hiện tại, chỉ chuyển đến câu hỏi đó trong `allQuestions` nếu ViewTab đang hiển thị `allQuestions` (ít filter)
-            // Hoặc, logic tốt hơn là cập nhật `userConfig` để ViewTab filter đúng câu hỏi đó
-            console.warn(`Câu hỏi ${questionId} không nằm trong bộ lọc hiện tại của ViewTab. Chuyển đến câu hỏi trong danh sách đầy đủ (nếu có).`);
-            goToQuestionInViewTab(indexInAll); // Chuyển đến index trong allQuestions (cần ViewTab hỗ trợ)
-                                               // Hoặc không làm gì nếu ViewTab không thể hiển thị trực tiếp từ allQuestions
-            setActiveTab('view');
-        } else {
-            alert("Lỗi: Không tìm thấy câu hỏi.");
-        }
+      alert("Lỗi: Không tìm thấy câu hỏi để xem.");
     }
-  }, [contextFilteredQuestions, allQuestions, goToQuestionInViewTab, setActiveTab]);
+  }, [allQuestions, goToQuestionInViewTab, setActiveTab, setUserConfig]);
 
-
-  // const handleDeleteQuestion = useCallback((questionId: string, questionTextSnippet: string) => {
-  //   if (window.confirm(`Bạn có chắc chắn muốn xóa câu hỏi "${questionTextSnippet}" (ID: ${questionId}) không?`)) {
-  //     const success = deleteQuestionById(questionId);
-  //     if (success) {
-  //       alert(`Đã xóa câu hỏi ID ${questionId}.`);
-  //       // Pagination sẽ tự cập nhật do locallyFilteredQuestions thay đổi
-  //     } else {
-  //       alert(`Lỗi: Không thể xóa câu hỏi ID ${questionId}.`);
-  //     }
-  //   }
-  // }, [deleteQuestionById]);
+  const handleDeleteQuestion = useCallback((questionId: string, questionTextSnippet: string) => {
+    if (window.confirm(`Bạn có chắc chắn muốn xóa câu hỏi "${questionTextSnippet}" (ID: ${questionId}) không?`)) {
+      try {
+        deleteQuestionById(questionId);
+        alert(`Đã xóa câu hỏi ID ${questionId}.`);
+        // Pagination sẽ tự cập nhật do locallyFilteredQuestions thay đổi
+      } catch (error) {
+        alert(`Lỗi: Không thể xóa câu hỏi ID ${questionId}.`);
+      }
+    }
+  }, [deleteQuestionById]);
 
   return (
     <div className="tab-content active" id="list-tab">

@@ -18,7 +18,7 @@ export interface QuestionContextType {
 
   addQuestion: (question: Question) => void;
   updateQuestion: (id: string, updatedQuestion: Question) => void;
-  deleteQuestion: (id: string) => void;
+  deleteQuestionById: (id: string) => void;
   rateQuestion: (id: string, rating: number) => void;
   loadQuestionsFromFile: (file: File) => Promise<number>;
   loadExampleQuestions: () => Promise<number>;

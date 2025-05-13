@@ -1,6 +1,6 @@
 [
     {
-        "number": 1,
+        "number": 101,
         "question": "Cú pháp nào sau đây là đúng cho vòng lặp for trong C?",
         "options": {
           "A": "for (int i = 0; i < n; i++)",
@@ -21,7 +21,7 @@
         "bloom_level": "Remember"
       },
       {
-        "number": 2,
+        "number": 102,
         "question": "Cú pháp nào sau đây là đúng cho vòng lặp while trong C?",
         "options": {
           "A": "while i < n { ... }",
@@ -42,7 +42,7 @@
         "bloom_level": "Remember"
       },
       {
-        "number": 3,
+        "number": 103,
         "question": "Cú pháp nào sau đây là đúng cho vòng lặp do-while trong C?",
         "options": {
           "A": "do { ... } while i < n;",
@@ -63,7 +63,7 @@
         "bloom_level": "Remember"
       },
       {
-        "number": 4,
+        "number": 104,
         "question": "Trong vòng lặp for, biểu thức nào được thực hiện đầu tiên?",
         "options": {
           "A": "Biểu thức khởi tạo",
@@ -84,7 +84,7 @@
         "bloom_level": "Remember"
       },
       {
-        "number": 5,
+        "number": 105,
         "question": "Câu lệnh nào sau đây dùng để thoát khỏi vòng lặp ngay lập tức?",
         "options": {
           "A": "break",
@@ -105,7 +105,7 @@
         "bloom_level": "Remember"
       },
       {
-        "number": 6,
+        "number": 106,
         "question": "Câu lệnh nào sau đây dùng để bỏ qua các câu lệnh còn lại trong vòng lặp hiện tại và bắt đầu vòng lặp tiếp theo?",
         "options": {
           "A": "break",
@@ -126,7 +126,7 @@
         "bloom_level": "Remember"
       },
       {
-        "number": 7,
+        "number": 107,
         "question": "Trong vòng lặp while, điều kiện được kiểm tra khi nào?",
         "options": {
           "A": "Trước mỗi vòng lặp",
@@ -147,7 +147,7 @@
         "bloom_level": "Remember"
       },
       {
-        "number": 8,
+        "number": 108,
         "question": "Trong vòng lặp do-while, điều kiện được kiểm tra khi nào?",
         "options": {
           "A": "Trước mỗi vòng lặp",
@@ -168,7 +168,7 @@
         "bloom_level": "Remember"
       },
       {
-        "number": 9,
+        "number": 109,
         "question": "Từ khóa nào được sử dụng để khai báo vòng lặp for?",
         "options": {
           "A": "for",
@@ -189,7 +189,7 @@
         "bloom_level": "Remember"
       },
       {
-        "number": 10,
+        "number": 110,
         "question": "Từ khóa nào được sử dụng để khai báo vòng lặp do-while?",
         "options": {
           "A": "for",

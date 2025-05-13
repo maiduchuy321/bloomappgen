@@ -124,7 +124,7 @@
     padding: 0.4rem 2.25rem 0.4rem 0.75rem;
   }
   
-  .select-container:after {
+  /* .select-container:after {
     content: '▼';
     font-size: 0.7rem;
     color: #64748b;
@@ -134,7 +134,7 @@
     transform: translateY(-50%);
     pointer-events: none;
     transition: transform 0.2s ease;
-  }
+  } */
   
   .select-container:hover:after {
     transform: translateY(-50%) translateY(1px);
