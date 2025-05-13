@@ -20,7 +20,7 @@ const ListTab: React.FC<ListTabProps> = ({ setActiveTab }) => {
     goToQuestion: goToQuestionInViewTab, // Đổi tên để rõ ràng
     setUserConfig,
     deleteQuestionById,
-    filteredQuestions: contextFilteredQuestions // Dùng để tìm index khi xem chi tiết
+    // filteredQuestions: contextFilteredQuestions // Dùng để tìm index khi xem chi tiết
   } = useQuestions();
 
   const [searchTerm, setSearchTerm] = useState('');
