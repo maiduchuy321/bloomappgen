@@ -2,11 +2,13 @@ import React from 'react';
 import type { Question } from '../../models/Question';
 import { Button } from '../shared/Button';
 import { tableColumnsConfig} from './columnConfig';
+
 // import './QuestionTable.css'; // CSS riêng
 
 interface QuestionTableProps {
   questions: Question[];
   onViewQuestion: (questionId: string) => void;
+  onEditQuestion: (questionId: string) => void;
   onDeleteQuestion: (questionId: string, questionText: string) => void;
   pageStartIndex: number; // Index bắt đầu của trang hiện tại (0-based)
 }
@@ -14,10 +16,10 @@ interface QuestionTableProps {
 export const QuestionTable: React.FC<QuestionTableProps> = ({
   questions,
   onViewQuestion,
+  onEditQuestion,
   onDeleteQuestion,
   pageStartIndex
 }) => {
-
   if (!questions || questions.length === 0) {
     return (
       <div className="question-list">
@@ -65,7 +67,7 @@ export const QuestionTable: React.FC<QuestionTableProps> = ({
                 <Button size="sm" onClick={() => onViewQuestion(q.id)} title="Xem chi tiết">
                   <i className="fas fa-eye"></i>
                 </Button>
-                <Button size="sm" variant="secondary" onClick={() => alert(`Chỉnh sửa ${q.id} (chưa làm)`)} title="Chỉnh sửa">
+                <Button size="sm" variant="secondary" onClick={() => onEditQuestion(q.id)} title="Chỉnh sửa">
                   <i className="fas fa-edit"></i>
                 </Button>
                 <Button size="sm" variant="primary" onClick={() => onDeleteQuestion(q.id, q.text.substring(0,30) + "...")} title="Xóa">

@@ -1,9 +1,12 @@
 // src/components/ListTab/ListTab.tsx
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import { useQuestions } from '../../contexts/question/QuestionContext';
+import type { Question } from '../../models/Question';
 import { usePagination } from '../../hooks/usePagination'; // Hook bạn đã tạo
 import { QuestionTable } from './QuestionTable';
 import { TablePagination } from './TablePagination';
+import { EditQuestionModal } from '../shared/editQuestion/EditQuestionModal';
+
 import './ListTab.css'; // CSS riêng
 
 const ITEMS_PER_PAGE = 10;
@@ -20,6 +23,7 @@ const ListTab: React.FC<ListTabProps> = ({ setActiveTab }) => {
     goToQuestion: goToQuestionInViewTab, // Đổi tên để rõ ràng
     setUserConfig,
     deleteQuestionById,
+    updateQuestion
     // filteredQuestions: contextFilteredQuestions // Dùng để tìm index khi xem chi tiết
   } = useQuestions();
 
@@ -82,31 +86,6 @@ const ListTab: React.FC<ListTabProps> = ({ setActiveTab }) => {
     return locallyFilteredQuestions.slice(paginatedItems.startIndex, paginatedItems.endIndex);
   }, [locallyFilteredQuestions, paginatedItems]);
 
-
-  // const handleViewQuestion = useCallback((questionId: string) => {
-  //   // Tìm index trong danh sách đã được filter bởi context (là nguồn chính cho ViewTab)
-    
-  //   const indexInContext = contextFilteredQuestions.findIndex(q => q.id === questionId);
-  //   if (indexInContext !== -1) {
-  //       goToQuestionInViewTab(indexInContext);
-  //       setActiveTab('view'); // Chuyển sang tab Xem
-  //   } else {
-  //       // Nếu không tìm thấy trong contextFilteredQuestions (ví dụ filter ở ViewTab khác),
-  //       // thử tìm trong allQuestions và áp dụng filter mới cho ViewTab
-  //       const indexInAll = allQuestions.findIndex(q => q.id === questionId);
-  //       if (indexInAll !== -1) {
-  //           // Bạn có thể muốn reset filter của ViewTab ở đây hoặc thông báo người dùng
-  //           // Hiện tại, chỉ chuyển đến câu hỏi đó trong `allQuestions` nếu ViewTab đang hiển thị `allQuestions` (ít filter)
-  //           // Hoặc, logic tốt hơn là cập nhật `userConfig` để ViewTab filter đúng câu hỏi đó
-  //           console.warn(`Câu hỏi ${questionId} không nằm trong bộ lọc hiện tại của ViewTab. Chuyển đến câu hỏi trong danh sách đầy đủ (nếu có).`);
-  //           goToQuestionInViewTab(indexInAll); // Chuyển đến index trong allQuestions (cần ViewTab hỗ trợ)
-  //                                              // Hoặc không làm gì nếu ViewTab không thể hiển thị trực tiếp từ allQuestions
-  //           setActiveTab('view');
-  //       } else {
-  //           alert("Lỗi: Không tìm thấy câu hỏi.");
-  //       }
-  //   }
-  // }, [contextFilteredQuestions, allQuestions, goToQuestionInViewTab, setActiveTab]);
   const handleViewQuestion = useCallback((questionId: string) => {
     // Tìm index trong danh sách đã được filter bởi context (là nguồn chính cho ViewTab)
     console.log('[ListTab handleViewQuestion] View question ID:', questionId);
@@ -166,7 +145,43 @@ const ListTab: React.FC<ListTabProps> = ({ setActiveTab }) => {
       alert("Lỗi: Không tìm thấy câu hỏi để xem.");
     }
   }, [allQuestions, goToQuestionInViewTab, setActiveTab, setUserConfig]);
+  
+  const [selectedQuestion, setSelectedQuestion] = useState<Question | null>(null);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
+  const handleOpenEditModal = useCallback((questionId: string) => {
+    console.log('[ListTab handleOpenEditModal] Edit callback question ID:', questionId);
+    const questionToEdit = allQuestions?.find(q => q.id === questionId);
+
+    // Sử dụng ?? để chuyển undefined thành null
+    const questionForState = questionToEdit ?? null;
+    setSelectedQuestion(questionForState);
+
+    if (questionToEdit) { // Vẫn cần kiểm tra để quyết định có mở modal không
+      console.log('[ListTab handleOpenEditModal] Found question to edit:', JSON.parse(JSON.stringify(questionToEdit)));
+      setIsEditModalOpen(true);
+    } else {
+      console.warn(`[ListTab handleOpenEditModal] Question with ID "${questionId}" not found. Modal will not open (or will open with no data).`);
+      // Nếu questionForState là null, EditQuestionModal của bạn nên xử lý trường hợp này
+      // bằng cách không render form hoặc hiển thị thông báo.
+      // setIsEditModalOpen(false); // Tùy chọn: không mở modal nếu không có question
+    }
+  }, [allQuestions]);
+
+  const handleCloseEditModal = () => {
+    setIsEditModalOpen(false);
+  };
+
+  const handleSaveChanges = (updatedQuestion: Question) => {
+    console.log('Saving changes:', updatedQuestion);
+    if (updateQuestion) {
+        updateQuestion(updatedQuestion.id, updatedQuestion);
+    } else {
+        console.warn("updateQuestion function is not available in QuestionContext");
+    }
+    setIsEditModalOpen(false);
+  };
+  
   const handleDeleteQuestion = useCallback((questionId: string, questionTextSnippet: string) => {
     if (window.confirm(`Bạn có chắc chắn muốn xóa câu hỏi "${questionTextSnippet}" (ID: ${questionId}) không?`)) {
       try {
@@ -203,6 +218,7 @@ const ListTab: React.FC<ListTabProps> = ({ setActiveTab }) => {
             <QuestionTable
               questions={currentTableItems}
               onViewQuestion={handleViewQuestion}
+              onEditQuestion={handleOpenEditModal}
               onDeleteQuestion={handleDeleteQuestion}
               pageStartIndex={paginatedItems.startIndex}
             />
@@ -221,6 +237,15 @@ const ListTab: React.FC<ListTabProps> = ({ setActiveTab }) => {
             )}
             {locallyFilteredQuestions.length === 0 && !debouncedSearchTerm && (
                 <p className="empty-table" style={{textAlign: 'center', padding: '20px'}}>Không có câu hỏi nào. Hãy thử tải dữ liệu ở tab "Cấu Hình".</p>
+            )}
+            {/* Render Modal */}
+            {isEditModalOpen && (
+              <EditQuestionModal
+              isOpen={isEditModalOpen}
+              onClose={handleCloseEditModal}
+              question={selectedQuestion}
+              onSave={handleSaveChanges}
+                    />
             )}
           </>
         )}

@@ -48,7 +48,10 @@ const ViewTab: React.FC = () => {
       )}
       {/* Nếu có câu hỏi đã được chọn, hiển thị nó */}
       {!isLoading && !error && currentQuestion && (
-        <QuestionCard question={currentQuestion} />
+        <>
+          {console.log('[ViewTab] current question:', JSON.parse(JSON.stringify(currentQuestion)))}
+          <QuestionCard question={currentQuestion} />
+        </>
       )}
     </div>
   );

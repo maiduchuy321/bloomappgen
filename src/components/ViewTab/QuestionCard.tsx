@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import type { Question, QuestionOption } from '../../models/Question';
 import { useQuestions } from '../../contexts/question/QuestionContext';
 import { ExplanationSection } from './ExplanationSection';
-import { EditQuestionModal } from './EditQuestionModal';
+import { EditQuestionModal } from '../shared/editQuestion/EditQuestionModal';
 import { ContentRenderer } from '../shared/ContentRenderer';
 import { QuestionMetadataComponent } from './QuestionMetadataComponent';
 import { escapeHtml } from '../../utils/formatters';
@@ -21,6 +21,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const handleOpenEditModal = () => {
+    
     setIsEditModalOpen(true);
   };
 
@@ -126,15 +127,17 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
         onRatingChange={handleRatingChange}
       />
 
-      {/* Render Modal */}
       {isEditModalOpen && (
+      <>
+        {console.log('[ListTab handleOpenEditModal] Edit question ID:', question)}
         <EditQuestionModal
           isOpen={isEditModalOpen}
           onClose={handleCloseEditModal}
           question={question}
           onSave={handleSaveChanges}
         />
-      )}
+      </>
+    )}
     </div>
   );
 };

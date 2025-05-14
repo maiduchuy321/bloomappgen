@@ -76,9 +76,9 @@ export const tableColumnsConfig: ColumnConfig<Question>[] = [
     width: '120px'
   },
   {
-    header: 'Genby',
+    header: 'Created By',
     accessorKey: 'genbyLLM',
-    cell: (row) => row.genbyLLM === true ? 'LLM' : 'Human',
+    cell: (row) => row.genbyLLM === true ? 'AI' : 'Human',
     textAlign: 'text-center',
     width: '100px'
   },
