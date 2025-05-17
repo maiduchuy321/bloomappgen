@@ -2,155 +2,259 @@
 @import "tailwindcss";
 
 :root {
-    /* Light Theme (Mặc định) */
-    --bg-primary: #f4f7f6;
-    --bg-secondary: #ffffff;
-    --bg-header: #ffffff;
-    --bg-tab-active: #007bff;
-    --bg-tab-inactive: #f0f0f0;
-    --bg-button-primary: #007bff;
-    --bg-button-secondary: #6c757d;
-    --bg-input: #ffffff;
-    --bg-code-block: #f8f9fa; /* Màu nền cho code block ở light theme */
-  
-  
-    --text-primary: #212529;
-    --text-secondary: #495057;
-    --text-header: #333;
-    --text-tab-active: #ffffff;
-    --text-tab-inactive: #555;
-    --text-button-primary: #ffffff;
-    --text-button-secondary: #ffffff;
-    --text-link: #007bff;
-    --text-success: #28a745;
-    --text-danger: #dc3545;
-    --text-code-block: #212529; /* Màu chữ cho code block ở light theme */
-  
-  
-    --border-primary: #dee2e6;
-    --border-card: #e0e0e0;
-    --border-input: #ced4da;
-  
-    --shadow-card: 0 2px 4px rgba(0,0,0,0.1);
-  
-    /* Các biến khác từ variables.css có thể được map vào đây */
-    --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --font-size-base: 1rem;
-    --line-height-base: 1.5;
-  
-    /* Transition cho theme switch */
-    --theme-transition-duration: 0.3s;
-  }
-  
-  [data-theme="dark"] {
-    --bg-primary: #1a1d24; /* Darker background */
-    --bg-secondary: #252a33; /* Slightly lighter for cards, etc. */
-    --bg-header: #252a33;
-    --bg-tab-active: #0056b3; /* Darker blue */
-    --bg-tab-inactive: #343a40;
-    --bg-button-primary: #0069d9;
-    --bg-button-secondary: #5a6268;
-    --bg-input: #2c323b;
-    --bg-code-block: #282c34; /* Màu nền cho code block ở dark theme (như atom-one-dark) */
-  
-  
-    --text-primary: #f8f9fa;
-    --text-secondary: #adb5bd;
-    --text-header: #f0f0f0;
-    --text-tab-active: #ffffff;
-    --text-tab-inactive: #ced4da;
-    --text-button-primary: #ffffff;
-    --text-button-secondary: #ffffff;
-    --text-link: #0d6efd;
-    --text-success: #198754;
-    --text-danger: #dc3545;
-    --text-code-block: #abb2bf; /* Màu chữ cho code block ở dark theme (như atom-one-dark) */
-  
-  
-    --border-primary: #495057;
-    --border-card: #343a40;
-    --border-input: #495057;
-  
-    --shadow-card: 0 2px 4px rgba(0,0,0,0.3);
-  }
-  
-  body {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    font-family: var(--font-family-base);
-    font-size: var(--font-size-base);
-    line-height: var(--line-height-base);
-    transition: background-color var(--theme-transition-duration) ease, color var(--theme-transition-duration) ease;
-  }
-  
-  /* Các elements khác cần style theo theme */
-  .app-header {
-    background-color: var(--bg-header);
-    color: var(--text-header);
-    box-shadow: var(--shadow-card);
-    /* ... other header styles from header.css that need theming ... */
-  }
-  
-  .question-card, .config-card, .list-card {
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-card);
-    box-shadow: var(--shadow-card);
-    color: var(--text-primary); /* Text color inside cards */
-  }
-  .question-card h3, .config-card h2, .list-card h2 {
-      color: var(--text-primary);
-  }
-  .question-card p, .config-card p, .list-card p, .options-list li {
-      color: var(--text-secondary);
-  }
-  .options-list li.correct-option-highlight {
-      color: var(--text-success);
-      font-weight: bold;
-  }
-  
-  .tab-btn {
-    background-color: var(--bg-tab-inactive);
-    color: var(--text-tab-inactive);
-    border: 1px solid var(--border-primary);
-  }
-  .tab-btn.active {
-    background-color: var(--bg-tab-active);
-    color: var(--text-tab-active);
-    border-color: var(--bg-tab-active);
-  }
-  
-  .btn-primary { /* Sử dụng class từ shared/Button.tsx nếu có */
-    background-color: var(--bg-button-primary);
-    color: var(--text-button-primary);
-    border-color: var(--bg-button-primary);
-  }
-  .btn-secondary {
-    background-color: var(--bg-button-secondary);
-    color: var(--text-button-secondary);
-    border-color: var(--bg-button-secondary);
-  }
-  
-  input[type="text"],
-  input[type="number"],
-  input[type="file"],
-  select {
-    background-color: var(--bg-input);
-    color: var(--text-primary);
-    border: 1px solid var(--border-input);
-  }
-  .file-upload-label {
-      background-color: var(--bg-button-secondary);
-      color: var(--text-button-secondary);
-  }
-  .file-upload-label:hover {
-      background-color: var(--bg-button-primary);
-  }
-  
-  
-  /* Highlight.js specific theming if needed, though atom-one-dark is already a dark theme */
-  .code-block-container pre, .display-area pre {
-    background-color: var(--bg-code-block);
-    color: var(--text-code-block);
-  }
-  /* If using atom-one-dark, it will mostly handle its own colors.
-     You might only need to ensure the container background matches your theme. */
+  /* Light Theme (Default) - Material Design Inspired */
+  /* Background Colors */
+  --bg-primary: #FAFAFA;       /* Gray 50 - Background */
+  --bg-secondary: #FFFFFF;     /* White - Card/Surface */
+  --bg-header: #FFFFFF;        /* White with elevation */
+  --bg-tab-active: #2196F3;    /* Blue 500 */
+  --bg-tab-inactive: #F5F5F5;  /* Gray 100 */
+  --bg-button-primary: #2196F3; /* Blue 500 */
+  --bg-button-secondary: #9E9E9E; /* Gray 500 */
+  --bg-input: #FFFFFF;          /* White */
+  --bg-code-block: #FAFAFA;     /* Gray 50 for code blocks */
+
+  /* Text Colors */
+  --text-primary: #212121;      /* Gray 900 */
+  --text-secondary: #757575;    /* Gray 600 */
+  --text-header: #212121;       /* Gray 900 */
+  --text-tab-active: #FFFFFF;   /* White */
+  --text-tab-inactive: #616161; /* Gray 700 */
+  --text-button-primary: #FFFFFF; /* White */
+  --text-button-secondary: #FFFFFF; /* White */
+  --text-link: #2196F3;          /* Blue 500 */
+  --text-success: #4CAF50;       /* Green 500 */
+  --text-danger: #F44336;        /* Red 500 */
+  --text-code-block: #212121;    /* Gray 900 */
+
+  /* Border Colors */
+  --border-primary: #E0E0E0;     /* Gray 300 */
+  --border-card: #E0E0E0;        /* Gray 300 */
+  --border-input: #BDBDBD;       /* Gray 400 */
+
+  /* Shadows - Material Elevation */
+  --shadow-card: 0 2px 4px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+
+  /* Font Family */
+  --font-family-base: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-base: 1rem;
+  --line-height-base: 1.5;
+
+  /* Transition for theme switching */
+  --theme-transition-duration: 250ms;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme - Material Dark Theme */
+  /* Background Colors */
+  --bg-primary: #121212;        /* Material Dark Background */
+  --bg-secondary: #1E1E1E;      /* Material Dark Surface (elevation +1) */
+  --bg-header: #1E1E1E;         /* Material Dark Surface (elevation +1) */
+  --bg-tab-active: #64B5F6;     /* Blue 300 */
+  --bg-tab-inactive: #333333;   /* Dark Surface (elevation +2) */
+  --bg-button-primary: #2196F3; /* Blue 500 - keep it vibrant */
+  --bg-button-secondary: #757575; /* Gray 600 */
+  --bg-input: #333333;          /* Dark Surface (elevation +2) */
+  --bg-code-block: #1E1E1E;     /* Material Dark Surface */
+
+  /* Text Colors */
+  --text-primary: rgba(255, 255, 255, 0.87); /* White 87% opacity */
+  --text-secondary: rgba(255, 255, 255, 0.6); /* White 60% opacity */
+  --text-header: rgba(255, 255, 255, 0.87);  /* White 87% opacity */
+  --text-tab-active: #FFFFFF;                /* White */
+  --text-tab-inactive: rgba(255, 255, 255, 0.6); /* White 60% opacity */
+  --text-button-primary: #FFFFFF;            /* White */
+  --text-button-secondary: #FFFFFF;          /* White */
+  --text-link: #90CAF9;                      /* Blue 200 */
+  --text-success: #81C784;                   /* Green 300 */
+  --text-danger: #E57373;                    /* Red 300 */
+  --text-code-block: rgba(255, 255, 255, 0.87); /* White 87% opacity */
+
+  /* Border Colors */
+  --border-primary: #424242;    /* Gray 800 */
+  --border-card: #424242;       /* Gray 800 */
+  --border-input: #616161;      /* Gray 700 */
+
+  /* Shadows - More subtle in dark mode */
+  --shadow-card: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
+}
+
+/* Base body styles with transitions */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  transition: background-color var(--theme-transition-duration) var(--easing-standard), 
+              color var(--theme-transition-duration) var(--easing-standard);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* App Header */
+.app-header {
+  background-color: var(--bg-header);
+  color: var(--text-header);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  z-index: 10;
+  transition: background-color var(--theme-transition-duration) var(--easing-standard),
+              color var(--theme-transition-duration) var(--easing-standard),
+              box-shadow var(--theme-transition-duration) var(--easing-standard);
+}
+
+/* Cards */
+.question-card, .config-card, .list-card {
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius-md);
+  border: none; /* Flat design - remove borders */
+  box-shadow: var(--shadow-card);
+  color: var(--text-primary);
+  overflow: hidden;
+  transition: background-color var(--theme-transition-duration) var(--easing-standard),
+              box-shadow var(--theme-transition-duration) var(--easing-standard),
+              transform 0.2s var(--easing-standard);
+}
+
+/* Card hover effect - subtle elevation increase */
+.question-card:hover, .config-card:hover, .list-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Card headings and text */
+.question-card h3, .config-card h2, .list-card h2 {
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: var(--space-sm);
+}
+
+.question-card p, .config-card p, .list-card p, .options-list li {
+  color: var(--text-secondary);
+}
+
+/* Correct option highlighting */
+.options-list li.correct-option-highlight {
+  color: var(--text-success);
+  font-weight: 500;
+}
+
+/* Tab buttons */
+.tab-btn {
+  background-color: var(--bg-tab-inactive);
+  color: var(--text-tab-inactive);
+  border: none; /* Flat design - no borders */
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+  transition: background-color var(--theme-transition-duration) var(--easing-standard),
+              color var(--theme-transition-duration) var(--easing-standard);
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.tab-btn.active {
+  background-color: var(--bg-tab-active);
+  color: var(--text-tab-active);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Buttons - Material Design inspired */
+.btn-primary {
+  background-color: var(--bg-button-primary);
+  color: var(--text-button-primary);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background-color 0.2s var(--easing-standard), 
+              box-shadow 0.2s var(--easing-standard),
+              transform 0.1s var(--easing-standard);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary {
+  background-color: var(--bg-button-secondary);
+  color: var(--text-button-secondary);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background-color 0.2s var(--easing-standard), 
+              box-shadow 0.2s var(--easing-standard),
+              transform 0.1s var(--easing-standard);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  background-color: var(--neutral-600);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary:active {
+  transform: translateY(1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Form controls */
+input[type="text"],
+input[type="number"],
+input[type="file"],
+select {
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  border: none;
+  border-bottom: 2px solid var(--border-input); /* Material underline */
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-sm);
+  transition: border-color 0.2s var(--easing-standard),
+              box-shadow 0.2s var(--easing-standard);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="file"]:focus,
+select:focus {
+  outline: none;
+  border-bottom-color: var(--primary-color);
+  box-shadow: 0 1px 0 0 var(--primary-color);
+}
+
+/* File upload button */
+.file-upload-label {
+  background-color: var(--bg-button-secondary);
+  color: var(--text-button-secondary);
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+  transition: background-color 0.2s var(--easing-standard);
+}
+
+.file-upload-label:hover {
+  background-color: var(--bg-button-primary);
+}
+
+/* Code blocks */
+.code-block-container pre, .display-area pre {
+  background-color: var(--bg-code-block);
+  color: var(--text-code-block);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: background-color var(--theme-transition-duration) var(--easing-standard);
+}

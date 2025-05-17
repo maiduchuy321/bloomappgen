@@ -1,129 +1,116 @@
 /* css/layout/responsive.css */
 /* Chứa các Media Queries để điều chỉnh layout trên các kích thước màn hình khác nhau */
+/* src/styles/layout/responsive.css */
+/* Contains Media Queries for responsive layout adjustments */
+@import "tailwindcss";
 
-/* === Màn hình trung bình (Tablets) - Ví dụ: <= 992px === */
+/* === Medium screens (Tablets) - Example: <= 992px === */
 @media (max-width: 992px) {
-    .container {
-      max-width: 960px;
-      padding-left: var(--space-md);
-      padding-right: var(--space-md);
-    }
-  
-    .app-header h1 {
-      font-size: var(--font-size-lg); /* Giảm cỡ chữ tiêu đề */
-    }
-  
-    /* Có thể điều chỉnh layout bảng trong tab Danh sách */
-    #questions-table {
-        /* font-size: var(--font-size-sm); */
-    }
+  .container {
+    max-width: 960px;
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
   }
   
-  /* === Màn hình nhỏ (Điện thoại lớn) - Ví dụ: <= 768px === */
-  @media (max-width: 768px) {
-    .container {
-      max-width: 720px;
-    }
-  
-    /* Cho phép header stack nếu cần */
-    /* .app-header .container { flex-direction: column; gap: var(--space-md); } */
-  
-    /* Stack các control trong tab Xem */
-    .question-controls {
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-md);
-    }
-    .question-controls .pagination {
-        justify-content: center;
-    }
-    .question-filters {
-        justify-content: space-between; /* Hoặc column */
-    }
-  
-    /* Stack header của tab Danh sách */
-    .list-header {
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-md);
-    }
-    .search-box {
-        max-width: none; /* Full width */
-    }
-  
-    /* Ẩn bớt cột trong bảng Danh sách nếu cần */
-     #questions-table th:nth-child(3), /* Ví dụ: Ẩn cột Course Title */
-     #questions-table td:nth-child(3),
-     #questions-table th:nth-child(4), /* Ví dụ: Ẩn cột Course Desc */
-     #questions-table td:nth-child(4) {
-         /* display: none; */ /* Bỏ comment để ẩn */
-     }
-  
-    /* Giảm padding trong card */
-     .card-section {
-         padding: var(--space-md);
-     }
+  .app-header h1 {
+    font-size: var(--font-size-lg);
   }
   
-  /* === Màn hình rất nhỏ (Điện thoại nhỏ) - Ví dụ: <= 576px === */
-  @media (max-width: 576px) {
-     .container {
-         padding-left: var(--space-sm);
-         padding-right: var(--space-sm);
-     }
-  
-     /* Header stack lại */
-     .app-header .container {
-         flex-direction: column;
-         gap: var(--space-sm);
-         padding-bottom: var(--space-sm);
-     }
-     .theme-toggle {
-         margin-top: var(--space-sm);
-     }
-  
-      /* Chỉ hiển thị icon trên nút tab */
-     .app-tabs .tab-btn span { /* Giả sử text nằm trong span */
-         /* display: none; */
-     }
-      .app-tabs .tab-btn i {
-          margin-right: 0;
-      }
-       .app-tabs .tab-btn {
-           padding: var(--space-sm) var(--space-md);
-       }
-  
-     /* Giảm padding hơn nữa */
-     .card-section { padding: var(--space-sm); }
-     .display-area { padding: var(--space-sm); }
-     .options-list li { padding: var(--space-sm); }
-  
-     /* Bảng danh sách có thể cần cuộn ngang */
-     .question-list {
-         /* overflow-x: auto; */ /* Đã có sẵn? */
-     }
-      #questions-table {
-          font-size: var(--font-size-xs); /* Font nhỏ hơn nữa */
-      }
-       #questions-table th, #questions-table td {
-           padding: var(--space-sm) var(--space-xs); /* Padding nhỏ hơn */
-       }
-        #questions-table .btn-sm {
-            padding: var(--space-xs);
-        }
-         #questions-table .btn-sm i {
-             font-size: 0.9em;
-         }
-  
-  
-     /* Stack các nút trong metadata */
-      .metadata-display {
-         flex-direction: column;
-         align-items: flex-start;
-         gap: var(--space-sm);
-     }
-      .action-buttons {
-         width: 100%;
-         justify-content: flex-start; /* Hoặc space-between */
-     }
+  /* Table layout adjustments are placed here if needed */
+}
+
+/* === Small screens (Large phones) - Example: <= 768px === */
+@media (max-width: 768px) {
+  .container {
+    max-width: 720px;
   }
+  
+  /* Stack controls in View tab */
+  .question-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-md);
+  }
+  
+  .question-controls .pagination {
+    justify-content: center;
+  }
+  
+  .question-filters {
+    justify-content: space-between;
+  }
+  
+  /* Stack List tab header */
+  .list-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-md);
+  }
+  
+  .search-box {
+    max-width: none; /* Full width */
+  }
+  
+  /* Reduce padding in cards */
+  .card-section {
+    padding: var(--space-md);
+  }
+}
+
+/* === Very small screens (Small phones) - Example: <= 576px === */
+@media (max-width: 576px) {
+  .container {
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
+  }
+  
+  /* Stack header components */
+  .app-header .container {
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding-bottom: var(--space-sm);
+  }
+  
+  .theme-toggle {
+    margin-top: var(--space-sm);
+  }
+  
+  /* Adjust tab buttons */
+  .app-tabs .tab-btn {
+    padding: var(--space-sm) var(--space-md);
+  }
+  
+  /* Further reduce padding */
+  .card-section { padding: var(--space-sm); }
+  .display-area { padding: var(--space-sm); }
+  .options-list li { padding: var(--space-sm); }
+  
+  /* Table adjustments */
+  #questions-table {
+    font-size: var(--font-size-xs);
+  }
+  
+  #questions-table th, #questions-table td {
+    padding: var(--space-sm) var(--space-xs);
+  }
+  
+  #questions-table .btn-sm {
+    padding: var(--space-xs);
+  }
+  
+  #questions-table .btn-sm i {
+    font-size: 0.9em;
+  }
+  
+  /* Stack buttons in metadata */
+  .metadata-display {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+  
+  .action-buttons {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

@@ -1,220 +1,157 @@
-/* css/components/form.css */
-/* Định nghĩa style cho các thành phần trong biểu mẫu (form) */
+/* src/styles/components/form.css */
+/* Defines styles for form elements and controls */
+@import "tailwindcss";
 
-/* === Nhãn (Label) === */
-label {
-    display: block; /* Nhãn nằm trên một dòng riêng */
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    color: var(--neutral-700);
-    margin-bottom: var(--space-sm); /* Khoảng cách dưới nhãn */
-    transition: color var(--transition-normal);
-  }
-  .dark-theme label {
-    color: var(--neutral-300);
-  }
-  label i { /* Style cho icon trong label (nếu có) */
-    margin-right: var(--space-xs);
-    color: var(--primary-color);
-    width: 1.1em; /* Đảm bảo icon thẳng hàng */
-    text-align: center;
-    opacity: 0.8;
-  }
-  .dark-theme label i {
-      color: var(--primary-light);
-  }
-  
-  
-  /* === Input, Select, Textarea Cơ bản === */
-  input[type="text"],
-  input[type="number"],
-  input[type="search"],
-  input[type="email"],
-  input[type="password"],
-  select,
-  textarea {
-    display: block; /* Chiếm toàn bộ chiều rộng */
-    width: 100%;
-    padding: var(--space-sm) var(--space-md);
-    font-size: var(--font-size-sm);
-    line-height: 1.5;
-    color: var(--neutral-800);
-    background-color: white;
-    background-clip: padding-box; /* Đảm bảo background không tràn ra border */
-    border: 1px solid var(--neutral-300);
-    border-radius: var(--border-radius-md);
-    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-    appearance: none; /* Xóa style mặc định của HĐH */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-  }
-  
-  /* Trạng thái focus */
-  input[type="text"]:focus,
-  input[type="number"]:focus,
-  input[type="search"]:focus,
-  input[type="email"]:focus,
-  input[type="password"]:focus,
-  select:focus,
-  textarea:focus {
-    border-color: var(--primary-color);
-    outline: 0; /* Bỏ outline mặc định */
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2); /* Thêm hiệu ứng bóng mờ */
-  }
-  
-  /* Trạng thái disabled */
-  input:disabled,
-  select:disabled,
-  textarea:disabled {
-    background-color: var(--neutral-100);
-    opacity: 0.7;
-    cursor: not-allowed;
-  }
-  
-  /* Dark Mode */
-  .dark-theme input[type="text"],
-  .dark-theme input[type="number"],
-  .dark-theme input[type="search"],
-  .dark-theme input[type="email"],
-  .dark-theme input[type="password"],
-  .dark-theme select,
-  .dark-theme textarea {
-    color: var(--dark-text);
-    background-color: var(--neutral-800); /* Nền tối hơn */
-    border-color: var(--neutral-600);
-  }
-  .dark-theme input:disabled,
-  .dark-theme select:disabled,
-  .dark-theme textarea:disabled {
-    background-color: var(--neutral-700);
-    opacity: 0.6;
-  }
-  .dark-theme input[type="text"]:focus,
-  .dark-theme input[type="number"]:focus,
-  .dark-theme input[type="search"]:focus,
-  .dark-theme input[type="email"]:focus,
-  .dark-theme input[type="password"]:focus,
-  .dark-theme select:focus,
-  .dark-theme textarea:focus {
-    border-color: var(--primary-light);
-    box-shadow: 0 0 0 3px rgba(77, 171, 247, 0.25);
-  }
-  
-  
-  /* === Select Dropdown Arrow === */
-  select {
-    padding-right: var(--space-2xl); /* Chừa chỗ cho mũi tên */
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right var(--space-md) center;
-    background-size: 1em 1em;
-  }
-  .dark-theme select {
-     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23d1d5db' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e"); /* Mũi tên màu sáng hơn */
-  }
-  
-  /* === Textarea === */
-  textarea {
-    min-height: 80px; /* Chiều cao tối thiểu */
-    resize: vertical; /* Chỉ cho phép thay đổi chiều cao */
-  }
-  
-  /* === File Upload === */
-  /* Ẩn input gốc */
-  input[type="file"] {
-    width: 0.1px;
-      height: 0.1px;
-      opacity: 0;
-      overflow: hidden;
-      position: absolute;
-      z-index: -1;
-  }
-  /* Style cho label giả làm nút upload */
-  .file-upload-label {
-     /* Kế thừa style từ .btn hoặc tự định nghĩa */
-     display: inline-flex;
-     align-items: center;
-     justify-content: center;
-     gap: var(--space-sm);
-     padding: var(--space-sm) var(--space-md);
-     border: 1px solid var(--primary-color);
-     border-radius: var(--border-radius-md);
-     background-color: var(--primary-color);
-     color: white;
-     font-size: var(--font-size-sm);
-     font-weight: 500;
-     cursor: pointer;
-     transition: background-color var(--transition-fast);
-  }
-  .file-upload-label:hover {
-     background-color: var(--primary-dark);
-     border-color: var(--primary-dark);
-  }
-  .file-upload-label i {
-     /* Margin đã được xử lý bằng gap */
-  }
-  
-  /* Hiển thị tên file */
-  .file-upload-container {
-    display: flex;
-    align-items: center;
-    gap: var(--space-md); /* Khoảng cách giữa nút và tên file */
-  }
-  #file-name-display {
-    font-size: var(--font-size-sm);
-    color: var(--neutral-600);
-    font-style: italic;
-  }
-  .dark-theme #file-name-display {
-    color: var(--neutral-400);
-  }
-  
-  
-  /* === Hint Text (Chữ gợi ý nhỏ) === */
-  .hint {
-    display: block;
-    font-size: var(--font-size-xs);
-    color: var(--neutral-500);
-    margin-top: var(--space-xs);
-  }
-  .dark-theme .hint {
-    color: var(--neutral-400);
-  }
-  
-  /* === Compact Select (Dropdown nhỏ gọn) === */
-  .compact-select {
-    /* Kế thừa style từ select nhưng nhỏ hơn */
-    padding: var(--space-xs) var(--space-sm);
-    padding-right: calc(var(--space-sm) + 1.5em); /* Chừa chỗ mũi tên */
-    font-size: var(--font-size-xs);
-    border-radius: var(--border-radius-sm);
-    background-size: 0.8em 0.8em;
-    background-position: right var(--space-sm) center;
-  }
-  .compact-select:focus {
-     box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2); /* Bóng focus nhỏ hơn */
-  }
-  .dark-theme .compact-select:focus {
-     box-shadow: 0 0 0 2px rgba(77, 171, 247, 0.25);
-  }
-  
-  /* === Search Box (Ô tìm kiếm hình viên thuốc) === */
-  .search-box {
-    position: relative;
-  }
-  .search-box input {
-    border-radius: var(--border-radius-full); /* Bo tròn */
-    padding-left: calc(var(--space-md) + var(--space-lg)); /* Chừa chỗ cho icon search */
-  }
-  .search-box i {
-    position: absolute;
-    left: var(--space-md);
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--neutral-400);
-    pointer-events: none; /* Icon không bắt sự kiện click */
-    font-size: var(--font-size-sm);
-  }
-  .dark-theme .search-box i {
-     color: var(--neutral-500);
-  }
+/* === Base Form Controls === */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+select,
+textarea {
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  border: none;
+  border-bottom: 2px solid var(--border-input);
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-sm);
+  width: 100%;
+  transition: border-color 0.2s var(--easing-standard),
+              box-shadow 0.2s var(--easing-standard);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-bottom-color: var(--bg-button-primary);
+  box-shadow: 0 1px 0 0 var(--bg-button-primary);
+}
+
+/* === Form Layout === */
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+}
+
+/* Optional helper text */
+.form-help-text {
+  display: block;
+  margin-top: var(--space-xs);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+/* === File Upload === */
+input[type="file"] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.file-upload-label {
+  background-color: var(--bg-button-secondary);
+  color: var(--text-button-secondary);
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+  transition: background-color 0.2s var(--easing-standard);
+}
+
+.file-upload-label:hover {
+  background-color: var(--bg-button-primary);
+}
+
+.file-upload-label i {
+  margin-right: var(--space-xs);
+}
+
+/* === Checkbox and Radio === */
+.checkbox-group,
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.checkbox-input,
+.radio-input {
+  /* Custom styling if needed */
+}
+
+.checkbox-label,
+.radio-label {
+  cursor: pointer;
+}
+
+/* === Search Box === */
+.search-box {
+  position: relative;
+  max-width: 300px;
+}
+
+.search-box input {
+  padding-left: 2.5rem;
+}
+
+.search-box i {
+  position: absolute;
+  left: var(--space-sm);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+}
+
+/* === Form Validation === */
+.form-error {
+  color: var(--text-danger);
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-xs);
+}
+
+input.invalid,
+select.invalid,
+textarea.invalid {
+  border-bottom-color: var(--text-danger);
+}
+
+/* === Dark Theme Adjustments === */
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="number"],
+[data-theme="dark"] input[type="email"],
+[data-theme="dark"] input[type="password"],
+[data-theme="dark"] input[type="search"],
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background-color: var(--bg-input);
+  border-bottom-color: var(--border-input);
+}
+
+[data-theme="dark"] input[type="text"]:focus,
+[data-theme="dark"] input[type="number"]:focus,
+[data-theme="dark"] input[type="email"]:focus,
+[data-theme="dark"] input[type="password"]:focus,
+[data-theme="dark"] input[type="search"]:focus,
+[data-theme="dark"] select:focus,
+[data-theme="dark"] textarea:focus {
+  border-bottom-color: var(--text-link);
+  box-shadow: 0 1px 0 0 var(--text-link);
+}

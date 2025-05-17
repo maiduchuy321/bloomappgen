@@ -1,108 +1,118 @@
-/* css/components/toggle.css */
-/* Định nghĩa style cho các component dạng bật/tắt (switch, details/summary) */
+/* src/styles/components/toggle.css */
+/* Defines styles for toggle components (switches, details/summary) */
+@import "tailwindcss";
 
-/* === Theme Toggle Switch (Nút gạt Sáng/Tối) === */
+/* === Theme Toggle Switch === */
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 44px;  /* Chiều rộng nút gạt */
-    height: 24px; /* Chiều cao nút gạt */
-  }
-  
-  /* Ẩn checkbox gốc */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  /* Thanh trượt (Slider) */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--neutral-300); /* Màu nền khi tắt */
-    border-radius: var(--border-radius-full); /* Bo tròn hoàn toàn */
-    transition: background-color var(--transition-fast);
-  }
-  
-  /* Nút tròn bên trong (Thumb) */
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 18px; /* Kích thước nút tròn */
-    width: 18px;
-    left: 3px;   /* Vị trí ban đầu (bên trái) */
-    bottom: 3px;
-    background-color: white;
-    border-radius: 50%; /* Hình tròn */
-    transition: transform var(--transition-fast);
-  }
-  
-  /* Khi checkbox được chọn (checked) -> Đổi màu nền slider */
-  input:checked + .slider {
-    background-color: var(--primary-color);
-  }
-  
-  /* Khi checkbox được chọn -> Di chuyển nút tròn sang phải */
-  input:checked + .slider:before {
-    transform: translateX(20px); /* Khoảng cách di chuyển = width - 2*left - width_thumb */
-  }
-  
-  /* Hiệu ứng focus cho slider */
-  input:focus-visible + .slider {
-    box-shadow: 0 0 0 2px var(--primary-light); /* Hiệu ứng focus */
-  }
-  .dark-theme input:focus-visible + .slider {
-    box-shadow: 0 0 0 2px var(--primary-dark);
-  }
-  
-  /* === Details/Summary Toggle (Ví dụ: cho phần giải thích) === */
-  details {
-    /* Style cho thẻ details nếu cần */
-  }
-  
-  summary {
-    display: inline-flex; /* Hoặc list-item nếu muốn full width */
-    align-items: center;
-    gap: var(--space-sm);
-    padding: var(--space-sm) var(--space-md);
-    background-color: var(--neutral-100);
-    border: 1px solid var(--neutral-300);
-    border-radius: var(--border-radius-md);
-    color: var(--neutral-700);
-    font-weight: 500;
-    cursor: pointer;
-    list-style: none; /* Loại bỏ mũi tên mặc định của trình duyệt */
-    transition: background-color var(--transition-fast), border-color var(--transition-fast);
-  }
-  summary::-webkit-details-marker {
-    display: none; /* Ẩn mũi tên mặc định trên Webkit */
-  }
-  summary:hover {
-    background-color: var(--neutral-200);
-  }
-  summary i { /* Icon trong summary (ví dụ: mũi tên) */
-    transition: transform var(--transition-fast);
-    color: var(--primary-color);
-  }
-  /* Xoay icon khi details mở ra */
-  details[open] > summary i {
-    transform: rotate(90deg);
-  }
-  
-  /* Dark mode */
-  .dark-theme summary {
-    background-color: var(--neutral-700);
-    border-color: var(--neutral-600);
-    color: var(--neutral-200);
-  }
-  .dark-theme summary:hover {
-    background-color: var(--neutral-600);
-  }
-  .dark-theme summary i {
-      color: var(--primary-light);
-  }
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+/* Hide original checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider track */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--neutral-300);
+  border-radius: var(--border-radius-full);
+  transition: background-color var(--transition-fast) var(--easing-standard);
+}
+
+/* Slider thumb (circle inside) */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast) var(--easing-standard);
+}
+
+/* When checked -> Change slider background */
+input:checked + .slider {
+  background-color: var(--bg-button-primary);
+}
+
+/* When checked -> Move thumb to right */
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* Focus effect for slider */
+input:focus-visible + .slider {
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+[data-theme="dark"] input:focus-visible + .slider {
+  box-shadow: 0 0 0 2px var(--text-link);
+}
+
+/* === Details/Summary Toggle (for explanations, etc.) === */
+details {
+  margin-bottom: var(--space-md);
+}
+
+summary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--bg-tab-inactive);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-md);
+  color: var(--text-secondary);
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+  transition: background-color var(--transition-fast) var(--easing-standard), 
+              border-color var(--transition-fast) var(--easing-standard);
+}
+
+summary::-webkit-details-marker {
+  display: none; /* Hide default arrow in Webkit */
+}
+
+summary:hover {
+  background-color: var(--neutral-200);
+}
+
+summary i { /* Icon in summary (e.g. arrow) */
+  transition: transform var(--transition-fast) var(--easing-standard);
+  color: var(--bg-button-primary);
+}
+
+/* Rotate icon when details open */
+details[open] > summary i {
+  transform: rotate(90deg);
+}
+
+/* Dark mode */
+[data-theme="dark"] summary {
+  background-color: var(--neutral-700);
+  border-color: var(--border-primary);
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] summary:hover {
+  background-color: var(--neutral-600);
+}
+
+[data-theme="dark"] summary i {
+  color: var(--text-link);
+}

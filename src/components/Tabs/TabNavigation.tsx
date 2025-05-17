@@ -16,7 +16,7 @@ interface TabNavigationProps {
 
 export const TabNavigation: React.FC<TabNavigationProps> = ({ tabs, activeTab, onTabClick }) => {
   return (
-    <div className="app-tabs">
+    <div className="tab-nav">
       {tabs.map(tab => (
         <button
           key={tab.id}

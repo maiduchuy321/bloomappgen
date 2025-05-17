@@ -1,7 +1,9 @@
-/* css/base/reset.css */
+/* src/styles/global.css */
 /* Reset các style mặc định của trình duyệt và thiết lập các style cơ sở */
+/* Modern CSS Reset and Base Styles - Flat + Material Design */
 @import "tailwindcss";
-/* Box-sizing cho tất cả element */
+
+/* Box-sizing for all elements */
 *,
 *::before,
 *::after {
@@ -10,186 +12,128 @@
   box-sizing: border-box;
 }
 
-/* Thiết lập cơ sở cho body */
+/* Base body styles */
 body {
   font-family: var(--font-family-base);
   font-size: var(--font-size-md);
-  line-height: 1.6; /* Tăng line-height một chút */
-  color: var(--neutral-800); /* Màu chữ mặc định */
-  background-color: var(--neutral-100); /* Màu nền mặc định */
-  -webkit-font-smoothing: antialiased; /* Làm mượt font trên Webkit */
-  -moz-osx-font-smoothing: grayscale; /* Làm mượt font trên Firefox */
-  transition: background-color var(--transition-normal), color var(--transition-normal); /* Hiệu ứng chuyển theme */
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-normal) var(--easing-standard), 
+              color var(--transition-normal) var(--easing-standard);
 }
 
-/* Reset các style mặc định cho danh sách */
+/* Reset list styles */
 ul, ol {
   list-style: none;
 }
 
-/* Reset style mặc định cho link */
+/* Reset link styles */
 a {
-  color: inherit; /* Kế thừa màu từ parent */
-  text-decoration: none; /* Bỏ gạch chân */
+  color: var(--text-link);
+  text-decoration: none;
+  transition: color var(--transition-fast) var(--easing-standard);
 }
 
-/* Reset style mặc định cho button */
+a:hover {
+  color: var(--primary-dark);
+  text-decoration: none; /* Flat design typically avoids underlines */
+}
+
+/* Reset button styles */
 button {
-  font-family: inherit; /* Kế thừa font */
+  font-family: inherit;
   font-size: inherit;
   color: inherit;
   background: none;
   border: none;
   cursor: pointer;
-  -webkit-appearance: none; /* Xóa style mặc định của HĐH */
-     -moz-appearance: none;
-          appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
-/* Reset style mặc định cho input, select, textarea */
+/* Make all form elements inherit font */
 input,
 button,
 textarea,
 select {
-  font: inherit; /* Kế thừa font */
+  font: inherit;
 }
 
-/* Làm cho ảnh responsive */
+/* Focus styles - Material Design inspired */
+:focus {
+  outline: none;
+}
+
+input:focus, button:focus, a:focus, select:focus, textarea:focus {
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.4); /* Light blue focus ring */
+}
+
+/* Make images responsive */
 img, picture, video, canvas, svg {
-  display: block; /* Tránh khoảng trống dưới ảnh inline */
+  display: block;
   max-width: 100%;
   height: auto;
 }
 
-/* Reset font-style cho một số element */
+/* Reset font-style for certain elements */
 address, cite, dfn, em, var {
-    font-style: normal;
+  font-style: normal;
 }
 
-/* Reset cơ bản cho table */
+/* Reset table styles */
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
 }
 
-/* Dark mode overrides cho body (đã có trong variables.css) */
+/* Material Design Table */
+th, td {
+  text-align: left;
+  padding: var(--space-sm) var(--space-md);
+}
+
+th {
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.5px;
+}
+
+tr {
+  border-bottom: 1px solid var(--border-primary);
+  transition: background-color var(--transition-fast) var(--easing-standard);
+}
+
+tr:last-child {
+  border-bottom: none;
+}
+
+tr:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Dark mode theme overrides */
 .dark-theme {
   color: var(--dark-text);
   background-color: var(--dark-bg);
 }
 
-/* css/base/typography.css */
-/* Định nghĩa các style liên quan đến kiểu chữ */
+.dark-theme a:hover {
+  color: var(--primary-light);
+}
 
-/* === Headings (Tiêu đề) === */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 600; /* Độ đậm mặc định cho tiêu đề */
-    line-height: 1.3; /* Giảm line-height cho tiêu đề */
-    color: var(--neutral-900); /* Màu chữ tiêu đề mặc định */
-    margin-bottom: var(--space-sm); /* Khoảng cách dưới mặc định */
-    transition: color var(--transition-normal);
-  }
-  
-  h1 { font-size: var(--font-size-3xl); margin-bottom: var(--space-md); }
-  h2 { font-size: var(--font-size-2xl); margin-bottom: var(--space-md); }
-  h3 { font-size: var(--font-size-xl); }
-  h4 { font-size: var(--font-size-lg); }
-  h5 { font-size: var(--font-size-md); }
-  h6 { font-size: var(--font-size-sm); }
-  
-  /* Tiêu đề trong dark mode */
-  .dark-theme h1,
-  .dark-theme h2,
-  .dark-theme h3,
-  .dark-theme h4,
-  .dark-theme h5,
-  .dark-theme h6 {
-    color: var(--neutral-100);
-  }
-  
-  /* === Paragraph (Đoạn văn) === */
-  p {
-    margin-bottom: var(--space-md); /* Khoảng cách dưới mặc định cho đoạn văn */
-  }
-  p:last-child {
-    margin-bottom: 0; /* Đoạn văn cuối cùng không cần margin bottom */
-  }
-  
-  /* === Code (Mã nguồn) === */
-  /* Kiểu cho inline code (dùng thẻ `<code>` không nằm trong `<pre>`) */
-  code:not(pre code) {
-    font-family: var(--font-family-code);
-    font-size: 0.9em; /* Nhỏ hơn một chút so với text thường */
-    background-color: var(--neutral-200);
-    color: var(--neutral-700);
-    padding: 0.15em 0.4em; /* Padding nhỏ */
-    border-radius: var(--border-radius-sm);
-    margin: 0 0.1em; /* Khoảng cách nhỏ với text xung quanh */
-    word-break: break-word;
-  }
-  
-  /* Kiểu cho khối code (dùng thẻ `<pre><code>`) */
-  pre {
-    font-family: var(--font-family-code);
-    font-size: var(--font-size-sm);
-    line-height: 1.5;
-    background-color: var(--neutral-800); /* Nền tối cho code block */
-    color: var(--neutral-200);            /* Chữ sáng trên nền tối */
-    padding: var(--space-md);
-    border-radius: var(--border-radius-md);
-    overflow-x: auto; /* Cho phép cuộn ngang nếu code quá dài */
-    margin-bottom: var(--space-md);
-    /* Thêm border tinh tế */
-    border: 1px solid var(--neutral-700);
-  }
-  
-  pre code {
-    /* Reset lại các style của inline code nếu cần */
-    background-color: transparent;
-    color: inherit;
-    padding: 0;
-    margin: 0;
-    border-radius: 0;
-    font-size: inherit; /* Kế thừa từ <pre> */
-    /* Đảm bảo giữ khoảng trắng và xuống dòng từ HTML */
-    white-space: pre;
-  }
-  
-  /* Code trong dark mode */
-  .dark-theme code:not(pre code) {
-    background-color: var(--neutral-700);
-    color: var(--neutral-200);
-  }
-  
-  .dark-theme pre {
-    background-color: var(--neutral-900); /* Nền tối hơn nữa */
-    color: var(--neutral-300);
-    border-color: var(--neutral-700); /* Giữ nguyên hoặc đổi màu border */
-  }
-  
-  /* === Links (Liên kết) === */
-  a {
-    color: var(--primary-color);
-    transition: color var(--transition-fast);
-  }
-  a:hover {
-    color: var(--primary-dark);
-    text-decoration: underline; /* Thêm gạch chân khi hover */
-  }
-  .dark-theme a {
-      color: var(--primary-light); /* Màu link sáng hơn trong dark mode */
-  }
-  .dark-theme a:hover {
-      color: var(--primary-color); /* Có thể dùng màu primary gốc khi hover */
-  }
-  
-  /* === Icons trong tiêu đề (nếu có) === */
-  h1 i, h2 i, h3 i, h4 i {
-    font-size: 0.9em; /* Icon nhỏ hơn tiêu đề một chút */
-    margin-right: var(--space-sm);
-    color: var(--primary-color);
-    transition: color var(--transition-normal);
-  }
-  .dark-theme h1 i, .dark-theme h2 i, .dark-theme h3 i, .dark-theme h4 i {
-       color: var(--primary-light);
-  }
+.dark-theme tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme input:focus, .dark-theme button:focus, 
+.dark-theme a:focus, .dark-theme select:focus, 
+.dark-theme textarea:focus {
+  box-shadow: 0 0 0 2px rgba(144, 202, 249, 0.4); /* Blue 200 focus ring */
+}

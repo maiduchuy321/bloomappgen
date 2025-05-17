@@ -1,27 +1,23 @@
 // src/components/question/QuestionCard.tsx
-import React, { useState } from 'react';
-import type { Question, QuestionOption } from '../../models/Question';
-import { useQuestions } from '../../contexts/question/QuestionContext';
-import { ExplanationSection } from './ExplanationSection';
-import { EditQuestionModal } from '../shared/editQuestion/EditQuestionModal';
-import { ContentRenderer } from '../shared/ContentRenderer';
-import { QuestionMetadataComponent } from './QuestionMetadataComponent';
-import { escapeHtml } from '../../utils/formatters';
-import './QuestionCard.css';
+import React, { useState } from "react";
+import type { Question, QuestionOption } from "../../models/Question";
+import { useQuestions } from "../../contexts/question/QuestionContext";
+import { ExplanationSection } from "./ExplanationSection";
+import { EditQuestionModal } from "../shared/editQuestion/EditQuestionModal";
+import { ContentRenderer } from "../shared/ContentRenderer";
+import { escapeHtml } from "../../utils/formatters";
+import "./QuestionCard.css";
 
 interface QuestionCardProps {
   question: Question;
 }
 
 export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
-  console.log('[QuestionCard] Received question prop:', JSON.parse(JSON.stringify(question)));
-
-  const { updateQuestion, rateQuestion } = useQuestions(); // Sử dụng rateQuestion từ context
-
+  const { updateQuestion, rateQuestion } = useQuestions();
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [rating, setRating] = useState<number>(question.rating || 0);
 
   const handleOpenEditModal = () => {
-    
     setIsEditModalOpen(true);
   };
 
@@ -30,82 +26,142 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
   };
 
   const handleSaveChanges = (updatedQuestion: Question) => {
-    console.log('Saving changes:', updatedQuestion);
     if (updateQuestion) {
-        updateQuestion(updatedQuestion.id, updatedQuestion);
-    } else {
-        console.warn("updateQuestion function is not available in QuestionContext");
+      updateQuestion(updatedQuestion.id, updatedQuestion);
     }
     setIsEditModalOpen(false);
   };
 
-  // Hàm xử lý đánh giá câu hỏi
-  const handleRatingChange = (questionId: string, rating: number) => {
+  const handleRatingChange = (newRating: number) => {
     if (rateQuestion) {
-      // Gọi hàm rateQuestion từ context
-      rateQuestion(questionId, rating);
-      console.log(`[QuestionCard] Đã đánh giá câu hỏi ID ${questionId} với rating ${rating}`);
-    } else {
-      console.warn("rateQuestion function is not available in QuestionContext");
+      rateQuestion(question.id, newRating);
+      setRating(newRating);
     }
   };
 
+  // Hàm helper để xác định class CSS cho Bloom tag
+  const getBloomTagClass = (bloomLevel) => {
+    const level = bloomLevel.toLowerCase();
+    if (level.includes("remember")) return "bloom-tag-remember";
+    if (level.includes("understand")) return "bloom-tag-understand";
+    if (level.includes("apply")) return "bloom-tag-apply";
+    if (level.includes("analyze")) return "bloom-tag-analyze";
+    if (level.includes("evaluate")) return "bloom-tag-evaluate";
+    if (level.includes("create")) return "bloom-tag-create";
+    return "bloom-tag"; // Default class
+  };
+
+  // Hàm helper để xác định class CSS cho Question Type tag
+  const getQTypeTagClass = (qType) => {
+    const type = qType.toLowerCase();
+    if (type.includes("multiple choice")) return "qtype-tag-multiple-choice";
+    if (type.includes("true/false")) return "qtype-tag-true-false";
+    if (type.includes("short answer")) return "qtype-tag-short-answer";
+    if (type.includes("essay")) return "qtype-tag-essay";
+    if (type.includes("problem")) return "qtype-tag-problem";
+    return "qtype-tag"; // Default class
+  };
+
+  // Render star rating
+  const renderStarRating = () => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      stars.push(
+        <span
+          key={i}
+          className={`star ${i <= rating ? "active" : ""}`}
+          onClick={() => handleRatingChange(i)}
+        >
+          <i className="fas fa-star"></i>
+        </span>
+      );
+    }
+    return stars;
+  };
+
   return (
-    <div className={`question-card ${question.text.includes('```') ? 'has-code-block' : ''}`}>
-      {question.context && (
-        <div className="question-context-info card-section" id="q-context-info">
+    <div
+      className={`question-card ${
+        question.text.includes("```") ? "has-code-block" : ""
+      }`}
+    >
+      <div className="question-header">
+        <div className="card-infor">
+          <div className="question-number-display">
+            Câu hỏi
+          <div
+            className={`question-number-badge ${
+              question.number.toString().length > 2 ? "large-number" : ""
+            }`}
+          >
+            {question.number}
+          </div>
+        </div>
+        <div className="question-tags">
+          <span className={`tag ${getBloomTagClass(question.bloomLevel)}`}>
+            Bloom: {question.bloomLevel}
+          </span>
+          <span className={`tag ${getQTypeTagClass(question.questionType)}`}>
+            Loại: {question.questionType}
+          </span>
+        </div>
+        </div>
+        {question.context && (
+        <div className="card-meta">
           {question.context.courseTitle && (
-            <h4 className="context-course-title">
-              <i className="fas fa-book-open"></i> Khóa học:{' '}
-              <span>{escapeHtml(question.context.courseTitle)}</span>
-            </h4>
-          )}
-          {question.context.courseDescription && (
-            <p className="context-course-desc">{escapeHtml(question.context.courseDescription)}</p>
+            <div className="card-meta-item">
+              <i className="fas fa-book-open"></i>
+              <p>{escapeHtml(question.context.courseTitle)}</p>
+            </div>
           )}
           {question.context.moduleNumber && (
-            <p className="context-module-info">
-              <i className="fas fa-puzzle-piece"></i> Module:{' '}
-              <strong>{escapeHtml(question.context.moduleNumber.toString())}</strong>
-            </p>
+            <div className="card-meta-item">
+              <i className="fas fa-puzzle-piece"></i>
+              <p>
+                Module {escapeHtml(question.context.moduleNumber.toString())}
+              </p>
+            </div>
           )}
           {question.context.topic && (
-            <p className="context-topic-info">
-              <i className="fas fa-tags"></i> Chủ đề:{' '}
-              <strong>{escapeHtml(question.context.topic)}</strong>
-            </p>
+            <div className="card-meta-item">
+              <i className="fas fa-tags"></i>
+              <p>{escapeHtml(question.context.topic)}</p>
+            </div>
           )}
         </div>
       )}
-
-      <div className="question-header">
-        <div className="question-number-display">
-          Câu hỏi số: <span>{question.number}</span>
-        </div>
-        <div className="question-tags">
-          <span className="tag bloom-tag">Bloom: {question.bloomLevel}</span>
-          <span className="tag qtype-tag">Q-Type: {question.questionType}</span>
-        </div>
       </div>
 
       <div className="card-section">
-        <h3><i className="fas fa-question-circle"></i> Nội dung câu hỏi:</h3>
+        <h3>
+          <i className="fas fa-question-circle"></i> Nội dung câu hỏi
+        </h3>
         <div className="question-content">
-          <ContentRenderer text={question.text} keyPrefix={`question-${question.id}-content`} />
+          <ContentRenderer
+            text={question.text}
+            keyPrefix={`question-${question.id}-content`}
+          />
         </div>
       </div>
 
       <div className="card-section">
-        <h3><i className="fas fa-list-ul"></i> Các lựa chọn:</h3>
+        <h3>
+          <i className="fas fa-list-ul"></i> Các lựa chọn
+        </h3>
         <ul className="options-list">
           {question.options && question.options.length > 0 ? (
             question.options.map((option: QuestionOption) => (
               <li
                 key={option.id}
-                className={option.id === question.correctAnswerId ? 'correct-option' : ''}
+                className={
+                  option.id === question.correctAnswerId ? "correct-option" : ""
+                }
               >
                 <div className="option-text-content">
-                   <ContentRenderer text={option.text} keyPrefix={`option-${option.id}`} />
+                  <ContentRenderer
+                    text={option.text}
+                    keyPrefix={`option-${option.id}`}
+                  />
                 </div>
               </li>
             ))
@@ -116,28 +172,34 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
       </div>
 
       <ExplanationSection
-        explanation={question.explanation ? question.explanation : { correct: '' }}
+        explanation={
+          question.explanation ? question.explanation : { correct: "" }
+        }
         correctAnswerId={question.correctAnswerId}
       />
 
-      {/* Thay thế component metadata-display cũ bằng component mới */}
-      <QuestionMetadataComponent
-        question={question}
-        onEditClick={handleOpenEditModal}
-        onRatingChange={handleRatingChange}
-      />
+      <div className="question-metadata">
+        <div className="metadata-info">
+          <div className="star-rating"><span>Đánh giá câu hỏi:</span> {renderStarRating()}</div>
+        </div>
+        <div className="metadata-actions">
+          <button
+            className="action-button edit-button"
+            onClick={handleOpenEditModal}
+          >
+            <i className="fas fa-edit"></i> Chỉnh sửa
+          </button>
+        </div>
+      </div>
 
       {isEditModalOpen && (
-      <>
-        {console.log('[ListTab handleOpenEditModal] Edit question ID:', question)}
         <EditQuestionModal
           isOpen={isEditModalOpen}
           onClose={handleCloseEditModal}
           question={question}
           onSave={handleSaveChanges}
         />
-      </>
-    )}
+      )}
     </div>
   );
 };

@@ -1,180 +1,252 @@
 /* src/components/ViewTab/ExplanationSection.css */
-@import '../../styles/variables.css'; /* Import variables */
-/* @import '../../styles/typography.css'; /* Import base typography like .inline-code, pre */
+@import "../../styles/variables.css";
 
-/* === Phần Giải thích === */
-/* .card-section is from QuestionCard.css */
+/* Container chính */
+.explanation-container {
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
 
-.explanation-section {
-    /* Adjust padding/margin relative to other card sections if needed */
+.dark-theme .explanation-container {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Nút toggle */
+.explanation-toggle {
+  display: flex;
+  align-items: center;
+  padding: var(--space-md) var(--space-lg);
+  background: linear-gradient(to right, var(--primary-100), var(--primary-50));
+  border: 1px solid #0d4e96;
+  border-radius: var(--border-radius-xl);
+  color: var(--primary-800);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-md);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.dark-theme .explanation-toggle {
+  background: linear-gradient(to right, rgba(var(--primary-color-rgb), 0.2), rgba(var(--primary-color-rgb), 0.1));
+  color: var(--primary-200);
+  border-bottom: 1px solid rgba(var(--primary-color-rgb), 0.3);
+}
+
+.explanation-toggle:hover {
+  background: linear-gradient(to right, var(--primary-200), var(--primary-100));
+}
+
+.dark-theme .explanation-toggle:hover {
+  background: linear-gradient(to right, rgba(var(--primary-color-rgb), 0.3), rgba(var(--primary-color-rgb), 0.2));
 }
 
 
-.explanation-toggle-btn {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    padding: var(--space-sm) var(--space-md);
-    background-color: var(--primary-lightest); /* Nền màu chủ đạo rất nhạt */
-    border: 1px solid var(--primary-light); /* Border màu chủ đạo nhạt */
-    color: var(--primary-dark); /* Màu chữ */
-    font-weight: var(--font-weight-medium);
-    cursor: pointer;
-    border-radius: var(--border-radius-md);
-    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
-    margin-top: var(--space-md); /* Add margin top */
-    margin-bottom: var(--space-md); /* Add margin bottom */
-    width: fit-content; /* Fit content width */
-    list-style: none; /* Remove default list-style if used in summary */
-    outline: none; /* Remove default outline */
+.explanation-toggle.is-open {
+  background: linear-gradient(to right, var(--primary-200), var(--primary-100));
+  border-bottom-color: var(--primary-300);
 }
 
-.dark-theme .explanation-toggle-btn {
-  background-color: rgba(var(--primary-color-rgb), 0.1);
-  border-color: var(--primary-color);
-  color: var(--primary-light);
+.dark-theme .explanation-toggle.is-open {
+  background: linear-gradient(to right, rgba(var(--primary-color-rgb), 0.35), rgba(var(--primary-color-rgb), 0.25));
+  border-bottom-color: rgba(var(--primary-color-rgb), 0.4);
 }
 
-.explanation-toggle-btn:hover {
-  background-color: var(--primary-light);
+/* Các phần con của nút toggle */
+.explanation-toggle-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.explanation-toggle-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Icon bóng đèn */
+.explanation-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--primary-500);
   color: white;
-  border-color: var(--primary-light);
-}
-.dark-theme .explanation-toggle-btn:hover {
-  background-color: var(--primary-color);
-  color: white;
-  border-color: var(--primary-color);
+  transition: all 0.3s ease;
 }
 
-.explanation-toggle-btn:focus-visible { /* Accessibility focus indicator */
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
-}
-.dark-theme .explanation-toggle-btn:focus-visible {
-    outline-color: var(--primary-light);
+.explanation-toggle:hover .explanation-icon-wrapper {
+  transform: scale(1.05);
+  background-color: var(--primary-600);
 }
 
-
-.explanation-toggle-icon { /* Style cho icon bóng đèn */
-    color: var(--primary-color); /* Màu icon */
-    font-size: 1.2em;
-    transition: transform var(--transition-normal);
-}
-.dark-theme .explanation-toggle-icon {
-   color: var(--primary-light);
-}
-.explanation-toggle-btn:hover .explanation-toggle-icon {
-   color: white; /* Icon trắng khi hover */
+/* Icon mũi tên */
+.chevron-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
 }
 
-
-.explanation-chevron-icon { /* Style cho icon mũi tên */
-    margin-left: auto; /* Push chevron to the right */
-    transition: transform var(--transition-normal);
-    font-size: 0.9em;
-}
-.explanation-toggle-btn.is-open .explanation-chevron-icon {
-    transform: rotate(180deg); /* Rotate when open */
+.chevron-icon.rotated {
+  transform: rotate(180deg);
 }
 
-
+/* Vùng nội dung giải thích */
 .explanation-content {
-  /* Keep margin-top */
-  border: 1px solid var(--neutral-200); /* Border quanh nội dung giải thích */
-  border-radius: var(--border-radius-md);
-  padding: var(--space-md); /* Padding bên trong */
-  background-color: var(--neutral-50); /* Nền nhẹ */
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition: max-height 0.4s ease, visibility 0s 0.4s;
+  animation: slideDown 0.4s ease forwards;
+  padding: 0 var(--space-lg);
 }
+
 .dark-theme .explanation-content {
-    border-color: var(--neutral-700);
-    background-color: var(--neutral-800);
+  background-color: var(--dark-surface);
 }
 
-
-.explanation-subsection {
-    margin-bottom: var(--space-lg);
-  }
-  .explanation-subsection:last-child {
-    margin-bottom: 0;
-  }
-  .explanation-subsection h4 {
-    font-size: var(--font-size-md); /* Nhỏ hơn h3, lớn hơn text thường */
-    font-weight: var(--font-weight-semibold);
-    margin-bottom: var(--space-sm);
-    padding-bottom: var(--space-xs);
-    border-bottom: 1px dashed var(--neutral-300);
-    display: flex;
-    align-items: center;
-    color: var(--neutral-700);
-    gap: var(--space-sm);
-  }
-  .dark-theme .explanation-subsection h4 {
-     color: var(--neutral-300);
-     border-bottom-color: var(--neutral-600);
-  }
-  .explanation-subsection h4 i {
-    font-size: 1.2em;
-    width: 1.2em; /* Fixed width for alignment */
-    text-align: center;
-  }
-  /* Màu icon cho giải thích đúng/sai */
-  /* Use text-success and text-danger classes from global or variables */
-  /* Example: .text-success { color: var(--success); } */
-  /* Already defined in variables.css or assumed global */
-
-
-  .explanation-area.display-area { /* Khu vực chứa text giải thích */
-    /* Inherits most styles from .display-area */
-    background-color: var(--neutral-100); /* Nền nhạt hơn nữa */
-    border-color: var(--neutral-200);
-    padding: var(--space-sm) var(--space-md); /* Slightly less padding */
-    font-size: var(--font-size-sm); /* Smaller font */
-  }
-  .dark-theme .explanation-area.display-area {
-     background-color: var(--neutral-800); /* Can be same as parent content or slightly different */
-     border-color: var(--neutral-700);
-  }
-
-  /* Style for code blocks and inline code within explanation-area */
-  .explanation-area code.inline-code {
-     /* Inherits from global or QuestionCard.css */
-  }
-   .explanation-area .code-block-highlighter {
-     /* Inherits from global or QuestionCard.css */
-   }
-
-
-  /* Styles for Wrong Answer Items */
-  .wrong-answer-item {
-    margin-bottom: var(--space-md); /* Space between wrong answers */
-    padding-bottom: var(--space-md);
-    border-bottom: 1px dashed var(--neutral-200);
-  }
-  .dark-theme .wrong-answer-item {
-    border-bottom-color: var(--neutral-700);
-  }
-  .wrong-answer-item:last-child {
-    margin-bottom: 0;
+@keyframes slideDown {
+  from {
+    max-height: 0;
+    visibility: hidden;
+    opacity: 0;
+    padding-top: 0;
     padding-bottom: 0;
-    border-bottom: none;
   }
+  to {
+    max-height: 2000px;
+    visibility: visible;
+    opacity: 1;
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+}
 
-  .wrong-answer-label {
-    margin-bottom: var(--space-sm); /* Space between label and text */
-    display: flex; /* Use flex */
-    align-items: center;
-    gap: var(--space-sm); /* Gap between "Giải thích cho X:" and the text content */
-  }
-   .wrong-answer-label strong {
-      font-size: var(--font-size-sm);
-      color: var(--neutral-600);
-      font-weight: var(--font-weight-semibold);
-      white-space: nowrap; /* Prevent "Giải thích cho X:" from wrapping */
-   }
-   .dark-theme .wrong-answer-label strong {
-      color: var(--neutral-400);
-   }
+/* Khối giải thích */
+.explanation-block {
+  margin-bottom: var(--space-lg);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  background-color: var(--neutral-50);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
 
-  .wrong-answer-text { /* Container for the actual explanation text */
-      /* ContentRenderer is inside this */
-  }
+.dark-theme .explanation-block {
+  background-color: var(--dark-elevated);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.explanation-block:last-child {
+  margin-bottom: 0;
+}
+
+/* Tiêu đề khối giải thích */
+.explanation-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background-color: var(--neutral-100);
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.dark-theme .explanation-header {
+  background-color: var(--neutral-800);
+  border-bottom: 1px solid var(--neutral-700);
+}
+
+.explanation-header h4 {
+  margin: 0;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--neutral-700);
+}
+
+.dark-theme .explanation-header h4 {
+  color: var(--neutral-200);
+}
+
+/* Icon tròn */
+.icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: white;
+  flex-shrink: 0;
+}
+
+.icon-circle.correct {
+  background-color: var(--success);
+}
+
+.icon-circle.wrong {
+  background-color: var(--danger);
+}
+
+/* Phần nội dung giải thích */
+.explanation-body {
+  padding: var(--space-md);
+  line-height: 1.6;
+  color: var(--neutral-800);
+}
+
+.dark-theme .explanation-body {
+  color: var(--neutral-200);
+}
+
+/* Mục giải thích đáp án sai */
+.wrong-answer-item {
+  display: flex;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: 1px dashed var(--neutral-200);
+}
+
+.dark-theme .wrong-answer-item {
+  border-bottom-color: var(--neutral-700);
+}
+
+.wrong-answer-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.wrong-answer-item:first-child {
+  padding-top: 0;
+}
+
+.wrong-answer-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 2rem;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--danger-100);
+  color: var(--danger);
+  font-weight: var(--font-weight-bold);
+  flex-shrink: 0;
+}
+
+.dark-theme .wrong-answer-badge {
+  background-color: rgba(var(--danger-rgb), 0.2);
+  color: var(--danger-200);
+}
+
+.wrong-answer-content {
+  flex: 1;
+}

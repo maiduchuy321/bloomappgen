@@ -1,73 +1,36 @@
 /* css/components/tabs.css */
 /* Định nghĩa style cho thanh chuyển tab và nội dung tab */
-
+@import "../../styles/variables.css";
 /* === Thanh chứa các nút Tab === */
-.app-tabs {
-    display: flex;
-    border-bottom: 1px solid var(--neutral-300); /* Đường kẻ dưới thanh tab */
-    background-color: var(--neutral-50); /* Nền nhẹ cho thanh tab */
-    margin-bottom: var(--space-lg); /* Khoảng cách với nội dung bên dưới */
-  }
-  
-  .dark-theme .app-tabs {
-    border-bottom-color: var(--neutral-700);
-    background-color: var(--neutral-800); /* Nền tối hơn */
-  }
-  
-  /* === Nút Tab (.tab-btn) === */
-  .tab-btn {
-    /* Kế thừa từ .btn nhưng có style riêng */
-    padding: var(--space-sm) var(--space-lg); /* Padding lớn hơn */
-    border: none;
-    border-bottom: 3px solid transparent; /* Border dưới trong suốt ban đầu */
-    background: none;
-    color: var(--neutral-500); /* Màu chữ mặc định */
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    margin-bottom: -1px; /* Để border dưới đè lên border của .app-tabs */
-    cursor: pointer;
-    white-space: nowrap;
-    transition: color var(--transition-fast), border-color var(--transition-fast);
-  }
-  .tab-btn:hover {
-    color: var(--primary-color); /* Đổi màu chữ khi hover */
-  }
-  .tab-btn.active {
-    color: var(--primary-color); /* Màu chữ của tab đang active */
-    border-bottom-color: var(--primary-color); /* Hiện border dưới */
-    font-weight: 600; /* Chữ đậm hơn */
-  }
-  /* Icon trong nút tab */
-  .tab-btn i {
-    margin-right: var(--space-sm);
-    font-size: 0.9em; /* Icon nhỏ hơn text */
-  }
-  
-  /* Dark mode */
-  .dark-theme .tab-btn {
-    color: var(--neutral-400);
-  }
-  .dark-theme .tab-btn:hover {
-    color: var(--primary-light);
-  }
-  .dark-theme .tab-btn.active {
-    color: var(--primary-light);
-    border-bottom-color: var(--primary-light);
-  }
-  
-  /* === Nội dung Tab (.tab-content) === */
-  .tab-content {
-    display: none; /* Mặc định ẩn */
-    /* Không cần padding ở đây, padding sẽ nằm trong card hoặc layout bên trong */
-    /* animation: fadeIn 0.5s ease-in-out; */ /* Bỏ animation mặc định */
-  }
-  .tab-content.active {
-    display: block; /* Hiển thị tab đang active */
-    animation: fadeIn var(--transition-normal) var(--easing-standard); /* Thêm animation khi hiển thị */
-  }
-  
-  /* Keyframes cho hiệu ứng fadeIn */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+
+.tab-nav {
+  display: flex;
+  background: #0d4e96;
+  width: 100%;
+}
+
+.tab-nav button {
+  padding: var(--space-md) var(--space-lg);
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+
+.tab-nav button.active {
+  color: white;
+}
+
+.tab-nav button.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: white;
+}
